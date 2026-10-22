@@ -41,7 +41,6 @@ const themeDescriptions = [
 ];
 const projects = Array.from({ length: 11 }, (_, index) => ({
   id: index + 1,
-  pathway: index < 3 ? "Masters+" : "PhD scholarship",
   supervisor: "To be confirmed",
   theme: themes[index % 3],
   university: index % 2 ? "University of Glasgow" : "University of Strathclyde",
@@ -64,6 +63,19 @@ function Action({ to, children, light = false }) {
       {children}
       <ArrowUpRight size={19} aria-hidden="true" />
     </Link>
+  );
+}
+function StudyRoutesNotice() {
+  return (
+    <div className="notice">
+      <strong>Two routes to a PhD</strong>
+      <p>
+        Opportunities may be offered as a four-year PhD or as a one-year
+        Master's followed by a four-year PhD (Masters+). Which opportunities
+        will follow each route has not yet been confirmed.{" "}
+        <Link to="/masters">Learn about the two routes</Link>.
+      </p>
+    </div>
   );
 }
 function PageIntro({ eyebrow, title, children }) {
@@ -443,19 +455,27 @@ function Masters() {
       <section className="section container prose">
         <span className="eyebrow">MASTERS+ PATHWAY</span>
         <h2>Preparation for interdisciplinary research</h2>
-        <p className="lead">Three of the first cohort's 11 opportunities are Masters+ places. The remaining eight are PhD scholarships.</p>
+        <p className="lead">There are two routes to doctoral research with us.</p>
+        <h3>Four-year PhD</h3>
         <p>
-          Masters+ combines a Master's stage with a route towards doctoral
-          research. It offers a preparatory stage before a PhD in a programme
-          that spans human intelligence, intelligent systems, and responsible
-          innovation.
+          Start your doctoral research straight away with a four-year PhD
+          within the Responsible Hybrid Intelligence programme.
+        </p>
+        <h3>Masters+: one-year Master's + four-year PhD</h3>
+        <p>
+          Masters+ adds a one-year Master's before a four-year PhD. It offers a
+          preparatory stage before doctoral research in a programme that spans
+          human intelligence, intelligent systems, and responsible innovation.
+        </p>
+        <p>
+          Which first-cohort opportunities will be offered through each route
+          has not yet been confirmed.
         </p>
         <h3>The Master's stage</h3>
         <p>
           The Master's stage provides a foundation for the proposed doctoral
           research. The specific degree, taught modules, research component,
-          duration, and host university will be published with each approved
-          opportunity. These may differ between opportunities.
+          and host university will be confirmed in the application guidance.
         </p>
         <h3>Progression to a PhD</h3>
         <p>
@@ -475,7 +495,7 @@ function Masters() {
           <p>Opportunity titles, Master's courses, supervisors, deadlines, and official application links will be published once approved.</p>
         </div>
         <div className="hero-actions">
-          <Action to="/projects?pathway=masters">View Masters+ opportunities</Action>
+          <Action to="/projects">View all 11 opportunities</Action>
           <Link className="text-link" to="/programme">Explore the PhD pathway <ArrowRight size={18} /></Link>
         </div>
       </section>
@@ -514,7 +534,7 @@ function Programme() {
             complementary strengths of both institutions. Individual project
             allocations will be confirmed with the final project catalogue.
           </p>
-          <Action to="/projects?pathway=phd">Explore the eight PhD scholarships</Action>
+          <Action to="/projects">Explore the 11 opportunities</Action>
         </div>
       </section>
       <section className="section paths">
@@ -530,7 +550,8 @@ function Programme() {
               </p>
               <p>Investigate questions spanning co-adaptation, agency, and grounding, within a community connecting human intelligence, intelligent systems, and society.</p>
               <p className="muted">
-                Duration, training schedule, and funding terms to be confirmed.
+                Four-year PhD, or one-year Master's plus four-year PhD through
+                Masters+. Training schedule and funding terms to be confirmed.
               </p>
             </article>
           </div>
@@ -624,18 +645,14 @@ function Students() {
   );
 }
 function Projects() {
-  const location = useLocation();
-  const pathway = new URLSearchParams(location.search).get("pathway");
   const [query, setQuery] = useState("");
   const [theme, setTheme] = useState("");
   const [university, setUniversity] = useState("");
   const filtered = projects.filter(
     (project) =>
-      (pathway !== "masters" || project.pathway === "Masters+") &&
-      (pathway !== "phd" || project.pathway === "PhD scholarship") &&
       (!theme || theme === project.theme) &&
       (!university || university === project.university) &&
-      `${project.theme} ${project.university} ${project.supervisor} ${project.pathway} studentship ${project.id}`
+      `${project.theme} ${project.university} ${project.supervisor} studentship ${project.id}`
         .toLowerCase()
         .includes(query.toLowerCase()),
   );
@@ -645,26 +662,18 @@ function Projects() {
         eyebrow="PhD Proposals"
         title="11 opportunities. A world of possibility."
       >
-        Three Masters+ opportunities and eight PhD scholarships in Responsible
-        Hybrid Intelligence.
+        Doctoral opportunities in Responsible Hybrid Intelligence.
       </PageIntro>
       <section className="section container">
+        <StudyRoutesNotice />
         <div className="notice">
           <strong>First-cohort recruitment</strong>
           <p>
-            The first cohort comprises three Masters+ opportunities and eight PhD
-            scholarships. The entries below are placeholders, not
-            confirmed research projects. Titles, supervisors, host allocations,
-            funding terms, and application dates are awaiting approval. The first
-            three entries are provisionally marked Masters+; allocation to
-            individual projects is still to be confirmed.
+            The entries below are placeholders, not confirmed research
+            projects. Titles, supervisors, host allocations, funding terms, and
+            application dates are awaiting approval.
           </p>
         </div>
-        <nav className="pathway-tabs" aria-label="Opportunity pathways">
-          <Link to="/projects" aria-current={!['masters', 'phd'].includes(pathway) ? "page" : undefined}>All opportunities</Link>
-          <Link to="/projects?pathway=phd" aria-current={pathway === "phd" ? "page" : undefined}>PhD scholarships</Link>
-          <Link to="/projects?pathway=masters" aria-current={pathway === "masters" ? "page" : undefined}>Masters+</Link>
-        </nav>
         <div className="filters">
           <label className="search-field">
             <span>Search projects</span>
@@ -727,8 +736,8 @@ function Projects() {
               <div className="project-overview">
                 <span className="project-index">{String(project.id).padStart(2, "0")}</span>
                 <div>
-                  <span className="project-theme">{project.theme} · {project.pathway} (provisional)</span>
-                  <h2>RHI {project.pathway} opportunity {String(project.id).padStart(2, "0")}</h2>
+                  <span className="project-theme">{project.theme}</span>
+                  <h2>RHI opportunity {String(project.id).padStart(2, "0")}</h2>
                   <p><strong>Lead supervisor:</strong> {project.supervisor}</p>
                   <p><strong>Based at:</strong> {project.university} (placeholder; host to be confirmed)</p>
                 </div>
@@ -746,7 +755,7 @@ function Projects() {
                 <span className="eyebrow">
                   PROJECT DETAILS AWAITING CONFIRMATION
                 </span>
-                <p>The approved research brief for this {project.pathway} opportunity will appear here. Its current research grouping is {project.theme.toLowerCase()}.</p>
+                <p>The approved research brief for this opportunity will appear here. Its current research grouping is {project.theme.toLowerCase()}.</p>
                 <dl>
                   <div>
                     <dt>Primary supervisor</dt>
@@ -789,13 +798,14 @@ function Opportunity() {
   }
   return (
     <>
-      <PageIntro eyebrow={project.pathway} title={`RHI ${project.pathway} opportunity ${String(project.id).padStart(2, "0")}`}>
+      <PageIntro eyebrow="PhD Proposals" title={`RHI opportunity ${String(project.id).padStart(2, "0")}`}>
         {project.theme} · First-cohort opportunity
       </PageIntro>
       <section className="section container prose opportunity-page">
+        <StudyRoutesNotice />
         <h2>Opportunity details</h2>
         <dl>
-          <div><dt>Pathway</dt><dd>{project.pathway} (provisional allocation)</dd></div>
+          <div><dt>Route</dt><dd>Four-year PhD or Masters+ (to be confirmed)</dd></div>
           <div><dt>Lead supervisor</dt><dd>{project.supervisor}</dd></div>
           <div><dt>Based at</dt><dd>{project.university} (placeholder; host to be confirmed)</dd></div>
           <div><dt>Research theme</dt><dd>{project.theme} (indicative)</dd></div>
@@ -804,14 +814,13 @@ function Opportunity() {
         </dl>
         <h2>Research proposal</h2>
         <p>The full title, research questions, methods, and supervisory team will be published here when the project brief is approved.</p>
-        {project.pathway === "Masters+" && <p>This entry is provisionally assigned to the Masters+ pathway. The Master's course and PhD progression requirements remain to be confirmed.</p>}
         <h2>Apply for this opportunity</h2>
         <div className="notice">
           <strong>Applications are not yet open on this website.</strong>
           <p>The official university application link, required documents, selection criteria, and deadline for this specific opportunity will appear here once confirmed. No application is submitted by visiting this page.</p>
         </div>
         <div className="hero-actions">
-          <Action to={project.pathway === "Masters+" ? "/masters" : "/programme"}>Explore this pathway</Action>
+          <Action to="/masters">Explore the two routes</Action>
           <Link className="text-link" to="/apply">General application guidance <ArrowRight size={18} /></Link>
         </div>
       </section>
@@ -951,7 +960,7 @@ function Site() {
       "/contact": "Contact",
     };
     const opportunity = projects.find((project) => location.pathname === `/projects/${project.id}`);
-    const title = opportunity ? `RHI ${opportunity.pathway} opportunity ${String(opportunity.id).padStart(2, "0")}` : titles[location.pathname];
+    const title = opportunity ? `RHI opportunity ${String(opportunity.id).padStart(2, "0")}` : titles[location.pathname];
     document.title = `${title || "Page not found"} | Leverhulme Doctoral Programme`;
     if (location.hash)
       requestAnimationFrame(() =>

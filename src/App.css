@@ -830,22 +830,6 @@ footer {
   padding: 14px 10px;
   font-size: 14px;
 }
-.pathway-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px 24px;
-  border-bottom: 1px solid #ccd6dd;
-  margin-bottom: 28px;
-}
-.pathway-tabs a {
-  padding: 12px 0;
-  font-size: 14px;
-  border-bottom: 3px solid transparent;
-}
-.pathway-tabs a[aria-current="page"] {
-  border-color: var(--blue);
-  color: var(--blue);
-}
 .opportunity-page dl {
   display: grid;
   grid-template-columns: 1fr 1fr;
