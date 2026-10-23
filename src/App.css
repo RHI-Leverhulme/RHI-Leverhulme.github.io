@@ -173,10 +173,12 @@
   color: #e2e9ec;
   margin-bottom: 28px;
 }
-.hero-recruiting {
-  font-size: 25px;
+.hero-tagline {
+  font-family: Georgia, serif;
+  font-size: 29px;
+  font-weight: 400;
   color: #fff;
-  margin-bottom: 12px;
+  margin-bottom: 15px;
 }
 .hero-actions {
   display: flex;
@@ -347,6 +349,40 @@
   font-size: 14px;
   color: var(--muted);
   margin-bottom: 27px;
+}
+.theme-question-heading {
+  font-size: 15px;
+  margin: 4px 0 8px;
+}
+.theme-question-list {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.65;
+  padding-left: 18px;
+  margin: 0;
+}
+.theme-question-list li + li {
+  margin-top: 8px;
+}
+.programme-community-intro {
+  max-width: 760px;
+  color: var(--muted);
+  font-size: 16px;
+  margin: -10px 0 25px;
+}
+.programme-community-grid .path-item > svg {
+  margin-bottom: 18px;
+}
+.programme-community-grid .path-item h3 {
+  margin-bottom: 10px;
+}
+.programme-community-grid .path-item p {
+  margin-bottom: 0;
+}
+.programme-community-note {
+  color: var(--muted);
+  font-size: 13px;
+  margin: 24px 0 0;
 }
 .path-link {
   display: flex;
@@ -1223,8 +1259,8 @@ footer {
     padding-top: 32px;
     padding-bottom: 32px;
   }
-  .hero-recruiting {
-    font-size: 22px;
+  .hero-tagline {
+    font-size: 24px;
   }
   .hero-actions .action {
     padding: 15px 18px;

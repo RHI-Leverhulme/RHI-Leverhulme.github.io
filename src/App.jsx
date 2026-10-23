@@ -39,6 +39,23 @@ const themeDescriptions = [
   "How can people retain autonomy and meaningful control when working with intelligent systems? We examine intention, decision-making, responsibility, and accountability in human-AI collaboration.",
   "How can intelligent systems connect to human experience and the world? We bring together perspectives on perception, cognition, embodiment, and context to investigate shared understanding.",
 ];
+const themeQuestions = [
+  [
+    "What emerges when biological and artificial systems learn together?",
+    "What makes their interaction stable or unstable?",
+    "How can we recognise adaptation that becomes difficult to reverse?",
+  ],
+  [
+    "When does intelligent assistance strengthen or weaken a person's sense of control?",
+    "How does the relationship between intention and outcome change?",
+    "What does shared control mean for autonomy and responsibility?",
+  ],
+  [
+    "How should responsibility be understood when people and systems shape an outcome together?",
+    "What do consent and cognitive privacy require?",
+    "What limits should guide technologies that aim to enhance cognition?",
+  ],
+];
 const projects = Array.from({ length: 11 }, (_, index) => ({
   id: index + 1,
   supervisor: "To be confirmed",
@@ -94,6 +111,40 @@ function PageIntro({ eyebrow, title, children }) {
     </section>
   );
 }
+function PartnershipSection() {
+  return (
+    <section className="partners">
+      <div className="container partners-inner">
+        <span className="eyebrow">
+          A SHARED{" "}
+          <br />
+          COMMITMENT
+        </span>
+        <a
+          className="university-wordmark strath"
+          href="https://www.strath.ac.uk/"
+        >
+          <img src={imagePath("strathclyde-logo.png")} alt="University of Strathclyde Glasgow" width="205" height="75" loading="lazy" />
+        </a>
+        <a
+          className="university-wordmark glasgow"
+          href="https://www.gla.ac.uk/"
+        >
+          <img src={imagePath("glasgow-logo.svg")} alt="University of Glasgow" width="205" height="75" loading="lazy" />
+        </a>
+        <a href="https://www.leverhulme.ac.uk/">
+          <img
+            src={imagePath("leverhulme.png")}
+            alt="The Leverhulme Trust"
+            width="215"
+            height="76"
+            loading="lazy"
+          />
+        </a>
+      </div>
+    </section>
+  );
+}
 function Home() {
   return (
     <>
@@ -108,23 +159,27 @@ function Home() {
         <div className="container hero-content">
           <div className="hero-kicker">
             <span />
-            RESEARCH OPPORTUNITIES · COHORT 01
+            A FUNDED LEVERHULME DOCTORAL PROGRAMME
           </div>
           <h1>
             Responsible
             <br />
             Hybrid Intelligence<span className="title-dot">.</span>
           </h1>
-          <h2 className="hero-recruiting">11 opportunities. Two research pathways.</h2>
-          <p>Join our first cohort at Strathclyde and Glasgow.</p>
+          <h2 className="hero-tagline">Understanding intelligence. Together.</h2>
+          <p>
+            Exploring how people and intelligent systems learn and adapt
+            together, responsibly.
+          </p>
           <div className="hero-actions">
-            <Action to="/projects" light>View all 11 opportunities</Action>
-            <Link className="hero-programme-link" to="/themes">
-              Explore our themes <ArrowRight size={18} />
+            <Action to="/projects" light>Explore research opportunities</Action>
+            <Link className="hero-programme-link" to="/programme">
+              Discover the programme <ArrowRight size={18} />
             </Link>
           </div>
         </div>
       </section>
+      <PartnershipSection />
       <section className="recruitment">
         <div className="container recruitment-inner">
           <div className="recruitment-label">
@@ -431,6 +486,12 @@ function Themes() {
               {index === 0 ? <BrainCircuit /> : index === 1 ? <Scale /> : <Globe2 />}
               <h2>{theme}</h2>
               <p>{themeDescriptions[index]}</p>
+              <h3 className="theme-question-heading">Questions we ask</h3>
+              <ul className="theme-question-list">
+                {themeQuestions[index].map((question) => (
+                  <li key={question}>{question}</li>
+                ))}
+              </ul>
             </article>
           ))}
         </div>
@@ -535,6 +596,52 @@ function Programme() {
             allocations will be confirmed with the final project catalogue.
           </p>
           <Action to="/projects">Explore the 11 opportunities</Action>
+        </div>
+      </section>
+      <section className="section paths">
+        <div className="container">
+          <div className="section-heading">
+            <div>
+              <span className="eyebrow">A SHARED RESEARCH COMMUNITY</span>
+              <h2>Ideas grow in good company.</h2>
+            </div>
+          </div>
+          <p className="programme-community-intro">
+            Doctoral research connects with a wider community across disciplines
+            and both universities. Shared learning and opportunities to exchange
+            ideas can help researchers bring different perspectives to their work.
+          </p>
+          <div className="path-grid programme-community-grid">
+            <article className="path-item">
+              <BrainCircuit />
+              <h3>Connect perspectives</h3>
+              <p>
+                Bring expertise from fields such as AI, neuroscience,
+                neurotechnology, psychology, engineering, philosophy, and law
+                into conversation.
+              </p>
+            </article>
+            <article className="path-item">
+              <GraduationCap />
+              <h3>Develop your approach</h3>
+              <p>
+                Build knowledge and methods around the questions and needs of
+                your research.
+              </p>
+            </article>
+            <article className="path-item">
+              <Users />
+              <h3>Share ideas</h3>
+              <p>
+                Learn with a doctoral community and explore how research connects
+                to wider scientific and societal questions.
+              </p>
+            </article>
+          </div>
+          <p className="programme-community-note">
+            The format and schedule of cohort activities and training will be
+            confirmed in programme guidance.
+          </p>
         </div>
       </section>
       <section className="section paths">
@@ -741,7 +848,7 @@ function Projects() {
                   <p><strong>Lead supervisor:</strong> {project.supervisor}</p>
                   <p><strong>Based at:</strong> {project.university} (placeholder; host to be confirmed)</p>
                 </div>
-                <Action to={`/projects/${project.id}`}>Apply</Action>
+                <Action to={`/projects/${project.id}`}>View details</Action>
               </div>
               <details>
               <summary>
@@ -975,7 +1082,7 @@ function Site() {
     ["/students", "Students"],
     ["/programme", "PhD Programmes"],
     ["/masters", "Masters + Programmes"],
-    ["/projects", "Apply"],
+    ["/projects", "Opportunities"],
   ];
   return (
     <>
@@ -1060,36 +1167,7 @@ function Site() {
           />
         </Routes>
       </main>
-      <section className="partners">
-        <div className="container partners-inner">
-          <span className="eyebrow">
-            A SHARED{" "}
-            <br />
-            COMMITMENT
-          </span>
-          <a
-            className="university-wordmark strath"
-            href="https://www.strath.ac.uk/"
-          >
-            <img src={imagePath("strathclyde-logo.png")} alt="University of Strathclyde Glasgow" width="205" height="75" loading="lazy" />
-          </a>
-          <a
-            className="university-wordmark glasgow"
-            href="https://www.gla.ac.uk/"
-          >
-            <img src={imagePath("glasgow-logo.svg")} alt="University of Glasgow" width="205" height="75" loading="lazy" />
-          </a>
-          <a href="https://www.leverhulme.ac.uk/">
-            <img
-              src={imagePath("leverhulme.png")}
-              alt="The Leverhulme Trust"
-              width="215"
-              height="76"
-              loading="lazy"
-            />
-          </a>
-        </div>
-      </section>
+      {location.pathname !== "/" && <PartnershipSection />}
       <footer>
         <div className="container footer-main">
           <div>

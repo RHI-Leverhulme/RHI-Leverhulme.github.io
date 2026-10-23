@@ -21,9 +21,9 @@ npm run preview
 
 ## Editing
 
-Main navigation: Home, Themes, About, Students, PhD Programmes, Masters + Programmes, and a prominent blue Apply button leading to the opportunity catalogue. How to Apply and Contact remain available through the footer. Themes covers co-adaptation, agency, and grounding, separately from About. Masters+ has its own pathway page and is not mentioned in the PhD page content.
+Main navigation: Home, Themes, About, Students, PhD Programmes, Masters + Programmes, and a prominent blue Opportunities link leading to the opportunity catalogue. Applications are not yet open; How to Apply and Contact remain available through the footer. Themes covers co-adaptation, agency, and grounding, separately from About. Masters+ has its own pathway page and is not mentioned in the PhD page content.
 
-The proposal catalogue contains three Masters+ opportunities and eight PhD scholarships. The first three placeholder entries are provisionally assigned Masters+; replace these assignments when the approved catalogue arrives. Projects support keyword search, combined pathway/theme/university filters, expandable details, and empty results. Supervisor and host information and an Apply link are visible without expanding. Each Apply link leads to that opportunity's own page at `/projects/1` through `/projects/11`; individual opportunities are not linked from the main navigation. These are public pages, not access-controlled pages, and no submission form is live.
+The proposal catalogue contains three Masters+ opportunities and eight PhD scholarships. The first three placeholder entries are provisionally assigned Masters+; replace these assignments when the approved catalogue arrives. Projects support keyword search, combined pathway/theme/university filters, expandable details, and empty results. Supervisor and host information and a View details link are visible without expanding. Each link leads to that opportunity's own page at `/projects/1` through `/projects/11`; individual opportunities are not linked from the main navigation. These are public pages, not access-controlled pages, and no submission form is live.
 
 Only Cohort 1 is visible by default. To re-enable Cohorts 2 and 3, set `VITE_SHOW_FUTURE_COHORTS=true` in a local `.env` file or the build environment, then restart the dev server or rebuild. Cohort tabs support arrow keys, Home, and End for the visible cohorts.
 
@@ -31,7 +31,7 @@ Content and project data are in `src/App.jsx`. Global styles are in `src/index.c
 
 ## Before publication
 
-- Replace the 11 placeholder projects with approved briefs, supervisors, pathway assignments, themes, and university allocations. The draft's alternating 6/5 host allocations are placeholders, not a promised recruitment split. The supplied 50/50 figure describes the overall partnership. Theme descriptions are draft explanatory copy and need approval.
+- Replace the 11 placeholder projects with approved briefs, supervisors, pathway assignments, themes, and university allocations. The draft's alternating 6/5 host allocations are placeholders, not a promised recruitment split. The supplied 50/50 figure describes the overall partnership. Theme descriptions and guiding questions are draft explanatory copy and need approval. The Programme page gives a general overview of interdisciplinary exchange; confirm the activities, training offer, formats, and schedule before making more specific promises.
 - Confirm application dates, eligibility, duration, stipend, home/international fee coverage, visa/language requirements, and official application links.
 - Confirm Master's courses, modules, duration, funding, entry criteria, progression requirements, and cohort dates. The Masters+ page describes the pathway without promising unapproved terms. Student profiles have not been invented.
 - Add the approved programme email, accessibility/privacy statements, and institutional branding approvals. The privacy link currently points to Strathclyde's notice, not a bespoke website policy.
