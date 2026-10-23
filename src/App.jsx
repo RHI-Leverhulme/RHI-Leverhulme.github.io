@@ -12,6 +12,7 @@ import {
 import {
   ArrowUpRight,
   ArrowRight,
+  ChevronDown,
   Menu,
   X,
   Search,
@@ -41,20 +42,53 @@ const themeDescriptions = [
 ];
 const themeQuestions = [
   [
-    "What emerges when biological and artificial systems learn together?",
-    "What makes their interaction stable or unstable?",
-    "How can we recognise adaptation that becomes difficult to reverse?",
+    "What emerges when biological and artificial systems train together?",
+    "What makes their interaction stable—or unstable?",
+    "How can hybrid systems avoid suboptimal or irreversible adaptation?",
   ],
   [
-    "When does intelligent assistance strengthen or weaken a person's sense of control?",
+    "When does adaptive assistance strengthen or weaken our sense of control?",
     "How does the relationship between intention and outcome change?",
-    "What does shared control mean for autonomy and responsibility?",
+    "What does shared control mean for autonomy and identity?",
   ],
   [
-    "How should responsibility be understood when people and systems shape an outcome together?",
+    "How should accountability work when control is distributed?",
     "What do consent and cognitive privacy require?",
-    "What limits should guide technologies that aim to enhance cognition?",
+    "What limits should guide technologies that enhance cognition?",
   ],
+];
+const themeConnections = [
+  "The way a system learns can change how much control a person experiences. That connects co-adaptation to both agency and responsibility.",
+  "Agency develops within a changing human–technology relationship. Evidence about that relationship helps clarify consent and accountability.",
+  "Grounding draws on the science of learning and control, while helping shape how the research is designed and interpreted.",
+];
+const disciplines = [
+  "Artificial intelligence",
+  "Computing science",
+  "Neuroscience",
+  "Neurotechnology",
+  "Psychology",
+  "Cognitive science",
+  "Engineering",
+  "Physics",
+  "Philosophy",
+  "Law",
+];
+const cohortActivities = [
+  { kind: "Seminars", rhythm: "Monthly", title: "Rotating research seminars", description: "A cross-university series for sharing work in progress, discussing methods, and connecting ideas across disciplines." },
+  { kind: "Workshops", rhythm: "Annual", title: "Research workshops", description: "Cohort research exchange with external partners, creating space for feedback, collaboration, and new questions." },
+  { kind: "Conferences", rhythm: "Two during the programme", title: "International research conferences", description: "Opportunities to showcase RHI research, connect with international researchers, and develop wider scholarly networks." },
+  { kind: "Training", rhythm: "At entry", title: "Cross-institutional induction", description: "An introduction to the programme's themes and methods, including conceptual mapping and anticipatory governance." },
+  { kind: "Training", rhythm: "Specialist development", title: "Workshops and summer schools", description: "Advanced training shaped around research needs across scientific, computational, and conceptual approaches." },
+  { kind: "Outreach", rhythm: "Public engagement", title: "Research beyond the university", description: "Share ideas with wider audiences through outreach opportunities, including activities such as Explorathon." },
+];
+const activityKinds = ["Seminars", "Workshops", "Conferences", "Training", "Outreach"];
+const programmeLinks = [
+  ["/programme", "PhD Programme"],
+  ["/masters", "Masters+"],
+  ["/pdra", "Postdoctoral & PDRA support"],
+  ["/activities", "Conferences & cohort activities"],
+  ["/apply", "How to Apply"],
 ];
 const projects = Array.from({ length: 11 }, (_, index) => ({
   id: index + 1,
@@ -88,8 +122,9 @@ function StudyRoutesNotice() {
       <strong>Two routes to a PhD</strong>
       <p>
         Opportunities may be offered as a four-year PhD or as a one-year
-        Master's followed by a four-year PhD (Masters+). Which opportunities
-        will follow each route has not yet been confirmed.{" "}
+        Master's followed by a four-year PhD (Masters+). Masters+ is offered
+        at the University of Glasgow only. Which opportunities will follow
+        each route has not yet been confirmed.{" "}
         <Link to="/masters">Learn about the two routes</Link>.
       </p>
     </div>
@@ -276,8 +311,8 @@ function Home() {
               <GraduationCap />
               <h3>Masters+ pathway</h3>
               <p>
-                Explore a Master's-to-doctoral research pathway within our
-                interdisciplinary community.
+                Explore a Master's-to-doctoral research pathway at the
+                University of Glasgow.
               </p>
               <span className="path-link">
                 Explore Masters+ <ArrowUpRight size={21} />
@@ -395,6 +430,31 @@ function About() {
           curiosity-driven research into a responsible future for hybrid intelligence.
         </p>
       </section>
+      <section className="section paths">
+        <div className="container community">
+          <div>
+            <span className="eyebrow">WHO WE ARE</span>
+            <h2>Built around<br />connections.</h2>
+            <p>
+              RHI brings a breadth of scientific, technical, and conceptual
+              expertise into one funded doctoral programme.
+            </p>
+            <p>
+              Our shared ambition is to establish the foundations of Responsible
+              Hybrid Intelligence: understanding how biological and artificial
+              systems learn, act, and remain accountable together.
+            </p>
+          </div>
+          <div className="community-disciplines">
+            <h3>One connected<br />community</h3>
+            <ul className="discipline-list">
+              {disciplines.map((discipline) => (
+                <li key={discipline}>{discipline}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
       <section className="section container">
         <span className="eyebrow">OUR PEOPLE</span>
         <h2>A genuinely interdisciplinary team.</h2>
@@ -479,23 +539,30 @@ function Themes() {
           intelligence is grounded in experience and context.
         </p>
       </section>
-      <section className="section paths">
-        <div className="container path-grid">
-          {themes.map((theme, index) => (
-            <article className="path-item" id={`theme-${index + 1}`} key={theme}>
+      {themes.map((theme, index) => (
+        <section className="theme-detail" id={`theme-${index + 1}`} key={theme}>
+          <div className="container theme-detail-inner">
+            <div>
+              <span className="eyebrow">RESEARCH THEME / 0{index + 1}</span>
               {index === 0 ? <BrainCircuit /> : index === 1 ? <Scale /> : <Globe2 />}
               <h2>{theme}</h2>
-              <p>{themeDescriptions[index]}</p>
+            </div>
+            <div>
+              <p className="lead">{themeDescriptions[index]}</p>
               <h3 className="theme-question-heading">Questions we ask</h3>
               <ul className="theme-question-list">
                 {themeQuestions[index].map((question) => (
                   <li key={question}>{question}</li>
                 ))}
               </ul>
-            </article>
-          ))}
-        </div>
-      </section>
+              <div className="theme-connection">
+                <strong>The connection</strong>
+                {themeConnections[index]}
+              </div>
+            </div>
+          </div>
+        </section>
+      ))}
       <section className="section container prose">
         <h2>Connected questions. Different pathways.</h2>
         <p>Explore the doctoral programme or the Masters+ pathway, then browse the individual research opportunities.</p>
@@ -511,7 +578,8 @@ function Masters() {
   return (
     <>
       <PageIntro eyebrow="Masters+" title="A foundation for doctoral discovery.">
-        A Master's-to-PhD pathway in Responsible Hybrid Intelligence.
+        A Master's-to-PhD pathway in Responsible Hybrid Intelligence, offered
+        at the University of Glasgow.
       </PageIntro>
       <section className="section container prose">
         <span className="eyebrow">MASTERS+ PATHWAY</span>
@@ -529,14 +597,20 @@ function Masters() {
           human intelligence, intelligent systems, and responsible innovation.
         </p>
         <p>
+          <strong>Masters+ is offered at the University of Glasgow only.</strong>{" "}
+          Doctoral opportunities hosted at the University of Strathclyde follow
+          the four-year PhD route.
+        </p>
+        <p>
           Which first-cohort opportunities will be offered through each route
           has not yet been confirmed.
         </p>
         <h3>The Master's stage</h3>
         <p>
-          The Master's stage provides a foundation for the proposed doctoral
-          research. The specific degree, taught modules, research component,
-          and host university will be confirmed in the application guidance.
+          The Master's stage takes place at the University of Glasgow and
+          provides a foundation for the proposed doctoral research. The specific
+          degree, taught modules, and research component will be confirmed in
+          the application guidance.
         </p>
         <h3>Progression to a PhD</h3>
         <p>
@@ -658,7 +732,8 @@ function Programme() {
               <p>Investigate questions spanning co-adaptation, agency, and grounding, within a community connecting human intelligence, intelligent systems, and society.</p>
               <p className="muted">
                 Four-year PhD, or one-year Master's plus four-year PhD through
-                Masters+. Training schedule and funding terms to be confirmed.
+                Masters+ (University of Glasgow only). Training schedule and
+                funding terms to be confirmed.
               </p>
             </article>
           </div>
@@ -679,6 +754,140 @@ function Programme() {
             Applicant information <ArrowRight size={18} />
           </Link>
         </div>
+      </section>
+    </>
+  );
+}
+function Pdra() {
+  return (
+    <>
+      <PageIntro eyebrow="Postdoctoral & PDRA support" title="Beyond the doctorate. Towards independence.">
+        Transition fellowships and interdisciplinary bridging support help
+        outstanding RHI graduates take their next career step.
+      </PageIntro>
+      <section className="section container intro">
+        <div>
+          <span className="eyebrow">A NEW STAGE OF RESEARCH</span>
+          <h2>Build on your contribution. Define what comes next.</h2>
+        </div>
+        <div className="intro-copy">
+          <p className="lead">
+            The programme includes ring-fenced postdoctoral transition funding
+            for outstanding graduates.
+          </p>
+          <p>
+            Competitive awards support a distinct research direction beyond the
+            PhD, helping researchers establish independence and prepare for
+            opportunities in academia, policy, and industry.
+          </p>
+          <p>
+            This support is awarded separately. It is not an automatic extension
+            of a doctoral studentship.
+          </p>
+        </div>
+      </section>
+      <section className="section paths">
+        <div className="container">
+          <span className="eyebrow">WHAT SUPPORT CAN ENABLE</span>
+          <div className="path-grid">
+            <article className="path-item">
+              <span className="path-number">01 / RESEARCH</span>
+              <BrainCircuit />
+              <h3>Develop your next contribution</h3>
+              <p>Time-limited fellowships can support high-quality publications and substantively new research beyond the doctorate.</p>
+            </article>
+            <article className="path-item">
+              <span className="path-number">02 / INDEPENDENCE</span>
+              <GraduationCap />
+              <h3>Prepare for future funding</h3>
+              <p>Develop competitive fellowship or first-grant applications, supported by a senior academic sponsor.</p>
+            </article>
+            <article className="path-item">
+              <span className="path-number">03 / CONNECTIONS</span>
+              <Users />
+              <h3>Broaden your research environment</h3>
+              <p>Short research visits and tailored secondments can strengthen networks and perspectives across academic and non-academic settings.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section className="section container intro">
+        <div>
+          <span className="eyebrow">HOW AWARDS ARE CONSIDERED</span>
+          <h2>Excellence, originality, and a clear next step.</h2>
+        </div>
+        <div className="intro-copy">
+          <p>
+            Assessment considers research quality, feasibility, scholarly
+            distinctiveness, and evidence of emerging independence.
+          </p>
+          <p>
+            Applicants should demonstrate a clearly defined new trajectory,
+            aligned with the programme's intellectual agenda and their own
+            career development. Each awardee is supported by a senior academic
+            sponsor, and awards are allocated competitively.
+          </p>
+          <div className="notice">
+            <strong>Calls and applications</strong>
+            <p>
+              Competitive calls are planned for programme years 4–6, aligned
+              with cohort progression. Award lengths, budgets, eligibility, and
+              deadlines will be published with each call.
+            </p>
+          </div>
+          <Link className="text-link" to="/contact">
+            Enquire about postdoctoral support <ArrowRight size={18} />
+          </Link>
+        </div>
+      </section>
+    </>
+  );
+}
+function Activities() {
+  const [kind, setKind] = useState("");
+  const visible = cohortActivities.filter((activity) => !kind || activity.kind === kind);
+  return (
+    <>
+      <PageIntro eyebrow="Conferences & cohort activities" title="A programme of exchange. A culture of connection.">
+        Regular opportunities to share research, develop methods, and build
+        relationships across Strathclyde, Glasgow, and the wider research
+        community.
+      </PageIntro>
+      <section className="section container">
+        <div className="section-heading">
+          <div>
+            <span className="eyebrow">THE SHARED PROGRAMME</span>
+            <h2>From first conversations to international exchange.</h2>
+          </div>
+        </div>
+        <div className="activity-filters" role="group" aria-label="Filter activity types">
+          {["", ...activityKinds].map((item) => (
+            <button type="button" key={item || "all"} aria-pressed={kind === item} onClick={() => setKind(item)}>
+              {item || "All activities"}
+            </button>
+          ))}
+        </div>
+        <div className="activity-grid">
+          {visible.map((activity) => (
+            <article className="activity-card" key={activity.title}>
+              <span className="eyebrow">{activity.rhythm.toUpperCase()}</span>
+              <h3>{activity.title}</h3>
+              <p>{activity.description}</p>
+              <span className="activity-type">{activity.kind}</span>
+            </article>
+          ))}
+        </div>
+        <div className="notice activity-notice">
+          <strong>Dates and participation</strong>
+          <p>
+            These activities describe the programme framework; they are not
+            dated event listings. Dates, speakers, venues, and registration
+            details will be added as individual events are confirmed.
+          </p>
+        </div>
+        <Link className="text-link" to="/contact">
+          Contact the programme about an event <ArrowRight size={18} />
+        </Link>
       </section>
     </>
   );
@@ -912,7 +1121,7 @@ function Opportunity() {
         <StudyRoutesNotice />
         <h2>Opportunity details</h2>
         <dl>
-          <div><dt>Route</dt><dd>Four-year PhD or Masters+ (to be confirmed)</dd></div>
+          <div><dt>Route</dt><dd>{project.university === "University of Glasgow" ? "Four-year PhD or Masters+ (to be confirmed)" : "Four-year PhD (Masters+ is offered at the University of Glasgow only)"}</dd></div>
           <div><dt>Lead supervisor</dt><dd>{project.supervisor}</dd></div>
           <div><dt>Based at</dt><dd>{project.university} (placeholder; host to be confirmed)</dd></div>
           <div><dt>Research theme</dt><dd>{project.theme} (indicative)</dd></div>
@@ -923,91 +1132,264 @@ function Opportunity() {
         <p>The full title, research questions, methods, and supervisory team will be published here when the project brief is approved.</p>
         <h2>Apply for this opportunity</h2>
         <div className="notice">
-          <strong>Applications are not yet open on this website.</strong>
-          <p>The official university application link, required documents, selection criteria, and deadline for this specific opportunity will appear here once confirmed. No application is submitted by visiting this page.</p>
+          <strong>Apply by email.</strong>
+          <p>Follow the How to Apply guidance and quote "RHI opportunity {String(project.id).padStart(2, "0")}" in your email. The deadline and selection criteria for this opportunity will appear here once confirmed.</p>
         </div>
         <div className="hero-actions">
-          <Action to="/masters">Explore the two routes</Action>
-          <Link className="text-link" to="/apply">General application guidance <ArrowRight size={18} /></Link>
+          <Action to="/apply">How to apply</Action>
+          <Link className="text-link" to="/masters">Explore the two routes <ArrowRight size={18} /></Link>
         </div>
       </section>
     </>
   );
 }
+const applicationChecklist = [
+  ["Full name", "As it appears on your passport or official documents."],
+  ["Email address", "The address you would like us to use for all correspondence."],
+  ["Nationality and country of residence", "This helps us confirm fee status and eligibility."],
+  ["Preferred route", "Four-year PhD, or Masters+ (one-year Master's followed by a four-year PhD, offered at the University of Glasgow only)."],
+  ["Research theme(s) of interest", "Co-adaptation, Agency, Grounding, or a combination."],
+  ["Project of interest", "The opportunity title or number from the PhD Proposals page. If you are not sure yet, briefly describe the area you would like to explore."],
+  ["Preferred host university", "University of Strathclyde, University of Glasgow, or no preference."],
+  ["Supervisor or group", "Any supervisor or research group you would particularly like to work with, if known."],
+];
+const applicationAttachments = [
+  ["CV", "Cover the areas set out in the CV guidance below."],
+  ["Academic transcripts", "For each degree listed in your CV, including any you are currently studying for."],
+];
+const cvGuidance = [
+  ["Research interests", "Open with a short summary of your research interests and why Responsible Hybrid Intelligence appeals to you. Connect it to the theme or project you are interested in."],
+  ["Education", "List each degree with its title, institution, dates, and grade (or expected grade). You can include relevant modules, projects, or dissertations. We welcome applicants from scientific, technical, philosophical, and legal backgrounds."],
+  ["Research experience", "Summarise undergraduate, Master's, or other research projects, including your role, methods used, and what you found."],
+  ["Employment history", "Include roles that are relevant to research or that developed useful skills."],
+  ["Technical and methodological skills", "For example programming, data analysis, machine learning, neuroimaging, experimental design, qualitative methods, or legal and philosophical analysis."],
+  ["Additional experience", "Transferable skills such as communication, collaboration, or public engagement, with examples. Include membership of relevant societies or professional bodies."],
+];
+// Set this to the programme's application address once confirmed.
+const applicationEmail = "";
+const applicationSubject = "RHI application – [Your name] – [Project or theme]";
+const applicationTemplate = `Subject: ${applicationSubject}
+
+Full name:
+Email address:
+Nationality:
+Country of residence:
+Preferred route (PhD / Masters+ at Glasgow):
+Research theme(s) of interest:
+Project of interest (title/number or brief description):
+Preferred host university:
+Supervisor or group (if known):
+
+Attached:
+- CV
+- Academic transcripts
+
+I confirm that the information provided is accurate and consent to it being shared with the relevant supervisory teams for the purposes of discussing potential projects.`;
 function Apply() {
+  const [copied, setCopied] = useState(false);
+  const mailto = applicationEmail
+    ? `mailto:${applicationEmail}?subject=${encodeURIComponent(applicationSubject)}&body=${encodeURIComponent(applicationTemplate.split("\n").slice(2).join("\n"))}`
+    : "";
+  const copyTemplate = async () => {
+    try {
+      await navigator.clipboard.writeText(applicationTemplate);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    } catch {
+      setCopied(false);
+    }
+  };
   return (
     <>
       <PageIntro eyebrow="How to Apply" title="Bring your curiosity.">
-        Your next step towards Responsible Hybrid Intelligence.
+        Applying to the Responsible Hybrid Intelligence Leverhulme Doctoral
+        Programme.
       </PageIntro>
-      <section className="section container apply-layout">
+      <section className="section container intro">
         <div>
           <span className="eyebrow">COHORT 01 · 11 STUDENTSHIPS</span>
-          <h2>Start your research journey.</h2>
+          <h2>Application to Responsible Hybrid Intelligence.</h2>
+        </div>
+        <div className="intro-copy">
           <p className="lead">
-            The programme is preparing its first intake of doctoral researchers.
+            RHI brings together the University of Strathclyde and the University
+            of Glasgow to establish the foundations of a new interdisciplinary
+            field.
+          </p>
+          <p>
+            Over nine years, the programme will train 40 doctoral researchers
+            across AI, neuroscience, neurotechnology, psychology, engineering,
+            philosophy, and law. Doctoral researchers pursue a research project
+            within a shared cohort, with interdisciplinary supervision and
+            training across both universities.
           </p>
           <div className="notice">
-            <strong>Application guidance is being finalised.</strong>
+            <strong>Application details are being finalised.</strong>
             <p>
-              No application form is live on this website yet. Opening dates,
-              deadlines, eligibility, stipend, fee coverage, and the official
-              submission route will be published once confirmed.
+              Opening dates, deadlines, eligibility, stipend, and fee coverage
+              will be confirmed here. The process below is indicative and may
+              change before applications open.
             </p>
           </div>
-          <h3>Before you apply</h3>
-          <ol className="steps">
-            <li>
-              <h3>Explore the programme</h3>
-              <p>
-                Learn about the RHI themes, PhD scholarships, and Masters+
-                pathway.
-              </p>
-            </li>
-            <li>
-              <h3>Find your research direction</h3>
-              <p>
-                Browse the provisional studentships catalogue. Final project
-                briefs and supervisors are still to be confirmed.
-              </p>
-            </li>
-            <li>
-              <h3>Check the final guidance</h3>
-              <p>
-                Wait for approved eligibility criteria, required documents, and
-                official university application links before submitting.
-              </p>
-            </li>
-          </ol>
-          <Action to="/projects">Browse studentships</Action>
         </div>
-        <aside>
-          <Globe2 size={30} />
-          <h3>International applicants</h3>
-          <p>
-            We welcome your interest. Funding eligibility, overseas fees,
-            English-language requirements, and visa guidance remain to be
-            confirmed.
-          </p>
-          <hr />
-          <h3>Programme enquiries</h3>
-          <p>
-            Contact the programme leadership through their official university
-            profiles.
-          </p>
-          <a
-            className="text-link"
-            href="https://www.strath.ac.uk/staff/moshfeghiyashardr/"
-          >
-            Programme Director <ArrowUpRight size={16} />
-          </a>
-          <a
-            className="text-link"
-            href="https://www.gla.ac.uk/schools/psychologyneuroscience/staff/simonhanslmayr/"
-          >
-            Deputy Director <ArrowUpRight size={16} />
-          </a>
-        </aside>
+      </section>
+      <section className="section paths">
+        <div className="container apply-layout">
+          <div>
+            <span className="eyebrow">APPLICATION PROCESS</span>
+            <h2>Apply by email.</h2>
+            <p className="lead">
+              There is no online form. To be considered, send us an email with
+              the details listed below, your CV, and your transcripts.
+            </p>
+            <ol className="steps">
+              <li>
+                <h3>Explore the programme</h3>
+                <p>
+                  Read about the <Link className="inline-link" to="/themes">research themes</Link>,
+                  the <Link className="inline-link" to="/programme">PhD programme</Link>, the{" "}
+                  <Link className="inline-link" to="/masters">Masters+ pathway</Link>, and the{" "}
+                  <Link className="inline-link" to="/projects">PhD proposals</Link>.
+                </p>
+              </li>
+              <li>
+                <h3>Email your application</h3>
+                <p>
+                  Include every detail in the checklist and attach your CV and
+                  transcripts. Tell us which project you are interested in, or
+                  describe the area you would like to explore.
+                </p>
+              </li>
+              <li>
+                <h3>Discuss potential projects</h3>
+                <p>
+                  If you name a project, we will put you in touch with its
+                  supervisory team. If you name a theme, we will suggest relevant
+                  supervisors and groups to talk to.
+                </p>
+              </li>
+              <li>
+                <h3>Apply to the host university</h3>
+                <p>
+                  After those discussions, you will be asked to submit a formal
+                  application to the host university. We will tell you when and
+                  how.
+                </p>
+              </li>
+            </ol>
+          </div>
+          <aside>
+            <Globe2 size={30} />
+            <h3>International applicants</h3>
+            <p>
+              We welcome applications from international candidates. Funding
+              eligibility, overseas fees, English-language requirements, and
+              visa guidance will be confirmed with the final application details.
+            </p>
+            <hr />
+            <h3>Questions?</h3>
+            <p>
+              Please direct questions about the programme or the application
+              process to{" "}
+              {applicationEmail ? (
+                <a className="inline-link" href={`mailto:${applicationEmail}`}>{applicationEmail}</a>
+              ) : (
+                "the programme email address, which will be published here shortly"
+              )}
+              .
+            </p>
+            <Link className="text-link" to="/contact">
+              Contact the programme <ArrowRight size={16} />
+            </Link>
+          </aside>
+        </div>
+      </section>
+      <section className="section container">
+        <div className="section-heading">
+          <div>
+            <span className="eyebrow">WHAT TO INCLUDE</span>
+            <h2>Your application email.</h2>
+          </div>
+        </div>
+        <div className="application-grid">
+          <div>
+            <h3>Details to confirm</h3>
+            <dl className="application-checklist">
+              {applicationChecklist.map(([term, description]) => (
+                <div key={term}>
+                  <dt>{term}</dt>
+                  <dd>{description}</dd>
+                </div>
+              ))}
+            </dl>
+            <h3>Attachments</h3>
+            <dl className="application-checklist">
+              {applicationAttachments.map(([term, description]) => (
+                <div key={term}>
+                  <dt>{term}</dt>
+                  <dd>{description}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+          <div className="application-email">
+            <span className="eyebrow">SEND YOUR APPLICATION TO</span>
+            {applicationEmail ? (
+              <a className="application-address" href={`mailto:${applicationEmail}`}>{applicationEmail}</a>
+            ) : (
+              <p className="application-address pending">Email address to be confirmed</p>
+            )}
+            <p className="application-subject">
+              <strong>Subject line:</strong> {applicationSubject}
+            </p>
+            <pre className="application-template" aria-label="Application email template">{applicationTemplate}</pre>
+            <div className="hero-actions">
+              {mailto && (
+                <a className="action" href={mailto}>
+                  Open in your email app <ArrowUpRight size={19} aria-hidden="true" />
+                </a>
+              )}
+              <button type="button" className="copy-template" onClick={copyTemplate}>
+                {copied ? "Template copied" : "Copy email template"}
+              </button>
+              <span className="visually-hidden" aria-live="polite">{copied ? "Template copied to clipboard" : ""}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="section paths">
+        <div className="container">
+          <span className="eyebrow">CV GUIDANCE</span>
+          <h2>What your CV should cover.</h2>
+          <div className="cv-guidance">
+            {cvGuidance.map(([title, description], index) => (
+              <article key={title}>
+                <span className="path-number">0{index + 1}</span>
+                <h3>{title}</h3>
+                <p>{description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="section container prose">
+        <span className="eyebrow">CONSENT AND PRIVACY</span>
+        <h2>How we use your information.</h2>
+        <p>
+          The information you send will be shared with the relevant supervisory
+          teams only to help discuss potential projects with you. In your email,
+          please confirm that the details are accurate and that you consent to
+          them being shared in this way.
+        </p>
+        <p>
+          See the{" "}
+          <a className="inline-link" href="https://www.strath.ac.uk/websiteprivacynotice/">
+            University of Strathclyde privacy notice
+          </a>{" "}
+          for more information. A privacy statement specific to the programme
+          will be added when confirmed.
+        </p>
+        <Action to="/projects">Browse PhD proposals</Action>
       </section>
     </>
   );
@@ -1053,7 +1435,23 @@ function Contact() {
 }
 function Site() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [programmeOpen, setProgrammeOpen] = useState(false);
   const location = useLocation();
+  const programmeActive = programmeLinks.some(([to]) => location.pathname === to);
+  useEffect(() => {
+    if (!programmeOpen) return undefined;
+    const close = (event) => {
+      if (event.type === "keydown" ? event.key === "Escape" : !event.target.closest(".programme-menu")) {
+        setProgrammeOpen(false);
+      }
+    };
+    document.addEventListener("click", close);
+    document.addEventListener("keydown", close);
+    return () => {
+      document.removeEventListener("click", close);
+      document.removeEventListener("keydown", close);
+    };
+  }, [programmeOpen]);
   useEffect(() => {
     const titles = {
       "/": "Responsible Hybrid Intelligence",
@@ -1061,6 +1459,8 @@ function Site() {
       "/programme": "PhD Programme",
       "/themes": "Themes",
       "/masters": "Masters+",
+      "/pdra": "Postdoctoral & PDRA support",
+      "/activities": "Conferences & cohort activities",
       "/students": "Students",
       "/projects": "PhD Proposals",
       "/apply": "How to Apply",
@@ -1080,9 +1480,6 @@ function Site() {
     ["/themes", "Themes"],
     ["/about", "About"],
     ["/students", "Students"],
-    ["/programme", "PhD Programmes"],
-    ["/masters", "Masters + Programmes"],
-    ["/projects", "Opportunities"],
   ];
   return (
     <>
@@ -1136,11 +1533,34 @@ function Site() {
             aria-label="Main navigation"
           >
             {navigation.map(([to, name]) => (
-              <NavLink key={to} to={to} end={to !== "/projects"} className={to === "/projects" ? "nav-apply" : undefined} onClick={() => setMenuOpen(false)}>
+              <NavLink key={to} to={to} end onClick={() => setMenuOpen(false)}>
                 {name}
-                {to === "/projects" && <ArrowUpRight size={17} />}
               </NavLink>
             ))}
+            <div className={`programme-menu ${programmeActive ? "active" : ""}`}>
+              <button
+                type="button"
+                aria-expanded={programmeOpen}
+                aria-controls="programme-links"
+                onClick={() => setProgrammeOpen(!programmeOpen)}
+              >
+                Programme <ChevronDown size={16} aria-hidden="true" />
+              </button>
+              <div id="programme-links" className="programme-links" hidden={!programmeOpen}>
+                {programmeLinks.map(([to, name]) => (
+                  <NavLink key={to} to={to} end onClick={() => {
+                    setProgrammeOpen(false);
+                    setMenuOpen(false);
+                  }}>
+                    {name}
+                  </NavLink>
+                ))}
+              </div>
+            </div>
+            <NavLink to="/projects" className="nav-apply" onClick={() => setMenuOpen(false)}>
+              Opportunities
+              <ArrowUpRight size={17} />
+            </NavLink>
           </nav>
         </div>
       </header>
@@ -1151,6 +1571,8 @@ function Site() {
           <Route path="/themes" element={<Themes />} />
           <Route path="/masters" element={<Masters />} />
           <Route path="/programme" element={<Programme />} />
+          <Route path="/pdra" element={<Pdra />} />
+          <Route path="/activities" element={<Activities />} />
           <Route path="/students" element={<Students />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/projects/:projectId" element={<Opportunity />} />
@@ -1196,6 +1618,8 @@ function Site() {
             <Link to="/programme">PhD Programme</Link>
             <Link to="/themes">Research themes</Link>
             <Link to="/masters">Masters+</Link>
+            <Link to="/pdra">Postdoctoral & PDRA support</Link>
+            <Link to="/activities">Conferences & cohort activities</Link>
             <Link to="/students">Our students</Link>
           </div>
           <div className="footer-links">

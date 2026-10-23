@@ -21,7 +21,7 @@ npm run preview
 
 ## Editing
 
-Main navigation: Home, Themes, About, Students, PhD Programmes, Masters + Programmes, and a prominent blue Opportunities link leading to the opportunity catalogue. Applications are not yet open; How to Apply and Contact remain available through the footer. Themes covers co-adaptation, agency, and grounding, separately from About. Masters+ has its own pathway page and is not mentioned in the PhD page content.
+Main navigation: Home, Themes, About, Students, a Programme drop-down (PhD Programme, Masters+, Postdoctoral & PDRA support, Conferences & cohort activities), and a prominent Opportunities link leading to the opportunity catalogue. Applications are not yet open; How to Apply and Contact remain available through the footer. Themes covers co-adaptation, agency, and grounding, separately from About, with guiding questions and connections for each theme. About includes a "One connected community" disciplines section. Masters+ has its own pathway page and is offered at the University of Glasgow only.
 
 The proposal catalogue contains three Masters+ opportunities and eight PhD scholarships. The first three placeholder entries are provisionally assigned Masters+; replace these assignments when the approved catalogue arrives. Projects support keyword search, combined pathway/theme/university filters, expandable details, and empty results. Supervisor and host information and a View details link are visible without expanding. Each link leads to that opportunity's own page at `/projects/1` through `/projects/11`; individual opportunities are not linked from the main navigation. These are public pages, not access-controlled pages, and no submission form is live.
 
@@ -32,8 +32,9 @@ Content and project data are in `src/App.jsx`. Global styles are in `src/index.c
 ## Before publication
 
 - Replace the 11 placeholder projects with approved briefs, supervisors, pathway assignments, themes, and university allocations. The draft's alternating 6/5 host allocations are placeholders, not a promised recruitment split. The supplied 50/50 figure describes the overall partnership. Theme descriptions and guiding questions are draft explanatory copy and need approval. The Programme page gives a general overview of interdisciplinary exchange; confirm the activities, training offer, formats, and schedule before making more specific promises.
-- Confirm application dates, eligibility, duration, stipend, home/international fee coverage, visa/language requirements, and official application links.
+- Confirm application dates, eligibility, duration, stipend, home/international fee coverage, and visa/language requirements. Applications are made by email (no form): set `applicationEmail` in `src/App.jsx` to the confirmed address to show it on the How to Apply page and enable the "Open in your email app" button.
 - Confirm Master's courses, modules, duration, funding, entry criteria, progression requirements, and cohort dates. The Masters+ page describes the pathway without promising unapproved terms. Student profiles have not been invented.
+- The PDRA support and cohort activities pages describe the planned framework; add confirmed call dates, budgets, and dated events when available.
 - Add the approved programme email, accessibility/privacy statements, and institutional branding approvals. The privacy link currently points to Strathclyde's notice, not a bespoke website policy.
 - Confirm usage rights for the supplied RHI artwork. Review institutional logo and Trust acknowledgement requirements before launch.
 - Funding headlines use the £5 million Leverhulme Trust award. The pasted programme announcement separately identifies £4.1 million of university investment; do not describe the combined figure as studentship funding.
