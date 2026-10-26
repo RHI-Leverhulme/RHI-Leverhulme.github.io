@@ -159,7 +159,7 @@ function PartnershipSection() {
           className="university-wordmark strath"
           href="https://www.strath.ac.uk/"
         >
-          <img src={imagePath("strathclyde-logo.png")} alt="University of Strathclyde Glasgow" width="205" height="75" loading="lazy" />
+          <img src={imagePath("strathclyde-logo.jpg")} alt="University of Strathclyde Glasgow" width="489" height="154" loading="lazy" />
         </a>
         <a
           className="university-wordmark glasgow"
