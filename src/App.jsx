@@ -27,6 +27,8 @@ import {
 import "./App.css";
 
 const SiteRouter = import.meta.env.MODE === "github-pages" ? HashRouter : BrowserRouter;
+// Set this to the programme's email address once confirmed; it is used for applications, enquiries, and registering interest.
+const programmeEmail = "";
 const imagePath = (filename) => `${import.meta.env.BASE_URL}images/${filename}`;
 const copyrightYear = new Date().getFullYear();
 const visibleCohorts = import.meta.env.VITE_SHOW_FUTURE_COHORTS === "true" ? [1, 2, 3] : [1];
@@ -38,7 +40,7 @@ const themes = [
 const themeDescriptions = [
   "How do people and intelligent systems learn and adapt together? We explore how their interaction changes over time, and how this mutual adaptation can support human capability.",
   "How can people retain autonomy and meaningful control when working with intelligent systems? We examine intention, decision-making, responsibility, and accountability in human-AI collaboration.",
-  "How can intelligent systems connect to human experience and the world? We bring together perspectives on perception, cognition, embodiment, and context to investigate shared understanding.",
+  "How should responsibility and accountability be understood when people and intelligent systems act together? We draw on philosophy, ethics, and law to examine who is answerable for hybrid action, and why, grounding the programme's science in a clear account of responsibility.",
 ];
 const themeQuestions = [
   [
@@ -97,22 +99,23 @@ const projects = Array.from({ length: 11 }, (_, index) => ({
   university: index % 2 ? "University of Glasgow" : "University of Strathclyde",
 }));
 const team = [
-  { name: "Professor Keith Mathieson", university: "University of Strathclyde", photo: "keith-mathieson.webp", profile: "https://pureportal.strath.ac.uk/en/persons/keith-mathieson/" },
-  { name: "Professor Shuzo Sakata", university: "University of Strathclyde", photo: "shuzo-sakata.webp", profile: "https://pureportal.strath.ac.uk/en/persons/shuzo-sakata/" },
-  { name: "Professor Aleksandra Vuckovic", university: "University of Glasgow", photo: "aleksandra-vuckovic.jpg", profile: "https://www.gla.ac.uk/schools/engineering/staff/aleksandravuckovic/" },
-  { name: "Professor Jonathan Delafield-Butt", university: "University of Strathclyde", photo: "jonathan-delafield-butt.webp", profile: "https://pureportal.strath.ac.uk/en/persons/jonathan-delafield-butt/" },
-  { name: "Professor Monika Harvey", university: "University of Glasgow", photo: "monika-harvey.jpg", profile: "https://www.gla.ac.uk/schools/psychologyneuroscience/staff/monikaharvey/" },
-  { name: "Professor Guido Noto La Diega", university: "University of Strathclyde", photo: "guido-noto-la-diega.webp", profile: "https://pureportal.strath.ac.uk/en/persons/guido-noto-la-diega/" },
-  { name: "Dr William McGeown", university: "University of Strathclyde", photo: "william-mcgeown.webp", profile: "https://pureportal.strath.ac.uk/en/persons/william-mcgeown/" },
-  { name: "Dr Emma Gordon", university: "University of Glasgow", photo: "emma-gordon.jpg", profile: "https://www.gla.ac.uk/schools/humanities/staff/emmagordon/" },
-  { name: "Dr Brianna Vandrey", university: "University of Glasgow", photo: "1695656485944.jpg", profile: "https://www.gla.ac.uk/schools/psychologyneuroscience/staff/briannavandrey/" },
-  { name: "Professor Patricia Connolly", university: "University of Strathclyde", photo: "patricia-connolly.webp", profile: "https://www.strath.ac.uk/staff/connollypatriciaprof/" },
+  // role: one line covering the person's RHI role and any theme leadership, e.g. "Co-investigator · Grounding theme lead".
+  { name: "Professor Keith Mathieson", university: "University of Strathclyde", role: "", photo: "keith-mathieson.webp", profile: "https://pureportal.strath.ac.uk/en/persons/keith-mathieson/" },
+  { name: "Professor Shuzo Sakata", university: "University of Strathclyde", role: "", photo: "shuzo-sakata.webp", profile: "https://pureportal.strath.ac.uk/en/persons/shuzo-sakata/" },
+  { name: "Professor Aleksandra Vuckovic", university: "University of Glasgow", role: "", photo: "aleksandra-vuckovic.jpg", profile: "https://www.gla.ac.uk/schools/engineering/staff/aleksandravuckovic/" },
+  { name: "Professor Jonathan Delafield-Butt", university: "University of Strathclyde", role: "", photo: "jonathan-delafield-butt.webp", profile: "https://pureportal.strath.ac.uk/en/persons/jonathan-delafield-butt/" },
+  { name: "Professor Monika Harvey", university: "University of Glasgow", role: "", photo: "monika-harvey.jpg", profile: "https://www.gla.ac.uk/schools/psychologyneuroscience/staff/monikaharvey/" },
+  { name: "Professor Guido Noto La Diega", university: "University of Strathclyde", role: "", photo: "guido-noto-la-diega.webp", profile: "https://pureportal.strath.ac.uk/en/persons/guido-noto-la-diega/" },
+  { name: "Dr William McGeown", university: "University of Strathclyde", role: "", photo: "william-mcgeown.webp", profile: "https://pureportal.strath.ac.uk/en/persons/william-mcgeown/" },
+  { name: "Dr Emma Gordon", university: "University of Glasgow", role: "", photo: "emma-gordon.jpg", profile: "https://www.gla.ac.uk/schools/humanities/staff/emmagordon/" },
+  { name: "Dr Brianna Vandrey", university: "University of Glasgow", role: "", photo: "1695656485944.jpg", profile: "https://www.gla.ac.uk/schools/psychologyneuroscience/staff/briannavandrey/" },
+  { name: "Professor Patricia Connolly", university: "University of Strathclyde", role: "", photo: "patricia-connolly.webp", profile: "https://www.strath.ac.uk/staff/connollypatriciaprof/" },
 ];
 function Action({ to, children, light = false }) {
   return (
     <Link className={`action ${light ? "light" : ""}`} to={to}>
       {children}
-      <ArrowUpRight size={19} aria-hidden="true" />
+      <ArrowUpRight size={22} aria-hidden="true" />
     </Link>
   );
 }
@@ -122,9 +125,9 @@ function StudyRoutesNotice() {
       <strong>Two routes to a PhD</strong>
       <p>
         Opportunities may be offered as a four-year PhD or as a one-year
-        Master's followed by a four-year PhD (Masters+). Masters+ is offered
-        at the University of Glasgow only. Which opportunities will follow
-        each route has not yet been confirmed.{" "}
+        Master's followed by a four-year PhD (Masters+). For this first
+        cohort, Masters+ is offered at the University of Glasgow only. Which
+        opportunities will follow each route has not yet been confirmed.{" "}
         <Link to="/masters">Learn about the two routes</Link>.
       </p>
     </div>
@@ -167,7 +170,7 @@ function PartnershipSection() {
         >
           <img src={imagePath("glasgow-logo.svg")} alt="University of Glasgow" width="205" height="75" loading="lazy" />
         </a>
-        <a href="https://www.leverhulme.ac.uk/">
+        <a className="leverhulme-logo" href="https://www.leverhulme.ac.uk/">
           <img
             src={imagePath("leverhulme.png")}
             alt="The Leverhulme Trust"
@@ -209,7 +212,7 @@ function Home() {
           <div className="hero-actions">
             <Action to="/projects" light>Explore research opportunities</Action>
             <Link className="hero-programme-link" to="/programme">
-              Discover the programme <ArrowRight size={18} />
+              Discover the programme <ArrowRight size={20} />
             </Link>
           </div>
         </div>
@@ -228,7 +231,7 @@ function Home() {
             </p>
           </div>
           <Link to="/projects">
-            Recruitment information <ArrowUpRight size={21} />
+            Recruitment information <ArrowUpRight size={24} />
           </Link>
         </div>
       </section>
@@ -258,7 +261,7 @@ function Home() {
             scientific foundations of Responsible Hybrid Intelligence.
           </p>
           <Link className="text-link" to="/about">
-            Meet Responsible Hybrid Intelligence <ArrowRight size={18} />
+            Meet Responsible Hybrid Intelligence <ArrowRight size={20} />
           </Link>
         </div>
       </section>
@@ -290,7 +293,7 @@ function Home() {
               <h2>Your next chapter starts here.</h2>
             </div>
             <Link className="text-link" to="/programme">
-              Explore the programme <ArrowRight size={18} />
+              Explore the programme <ArrowRight size={20} />
             </Link>
           </div>
           <div className="path-grid">
@@ -303,7 +306,7 @@ function Home() {
                 AI, and responsible innovation.
               </p>
               <span className="path-link">
-                View PhD projects <ArrowUpRight size={21} />
+                View PhD projects <ArrowUpRight size={24} />
               </span>
             </Link>
             <Link className="path-item" to="/masters">
@@ -311,11 +314,11 @@ function Home() {
               <GraduationCap />
               <h3>Masters+ pathway</h3>
               <p>
-                Explore a Master's-to-doctoral research pathway at the
-                University of Glasgow.
+                Explore a Master's-to-doctoral research pathway, offered at the
+                University of Glasgow for the first cohort.
               </p>
               <span className="path-link">
-                Explore Masters+ <ArrowUpRight size={21} />
+                Explore Masters+ <ArrowUpRight size={24} />
               </span>
             </Link>
             <Link className="path-item" to="/students">
@@ -327,7 +330,7 @@ function Home() {
                 researcher in Glasgow.
               </p>
               <span className="path-link">
-                Meet our students <ArrowUpRight size={21} />
+                Meet our students <ArrowUpRight size={24} />
               </span>
             </Link>
           </div>
@@ -346,7 +349,7 @@ function Home() {
               <Link to={`/themes#theme-${index + 1}`} key={theme}>
                 <span>0{index + 1}</span>
                 {theme}
-                <ArrowUpRight size={22} />
+                <ArrowUpRight size={25} />
               </Link>
             ))}
           </div>
@@ -380,7 +383,7 @@ function Home() {
               target="_blank"
               rel="noreferrer"
             >
-              Read the Trust’s announcement <ArrowUpRight size={18} />
+              Read the Trust’s announcement <ArrowUpRight size={20} />
             </a>
           </div>
         </div>
@@ -480,7 +483,7 @@ function About() {
               className="text-link"
               href="https://www.strath.ac.uk/staff/moshfeghiyashardr/"
             >
-              View profile <ArrowUpRight size={16} />
+              View profile <ArrowUpRight size={18} />
             </a>
           </article>
           <article>
@@ -499,17 +502,18 @@ function About() {
               className="text-link"
               href="https://www.gla.ac.uk/schools/psychologyneuroscience/staff/simonhanslmayr/"
             >
-              View profile <ArrowUpRight size={16} />
+              View profile <ArrowUpRight size={18} />
             </a>
           </article>
         </div>
         <div className="team-list">
           {team.map((person) => (
             <article className="team-member" key={person.name}>
-              {person.photo ? <img className="team-portrait" src={imagePath(person.photo)} alt={person.name} width="180" height="180" loading="lazy" /> : <div className="team-portrait portrait-pending"><Users size={32} aria-hidden="true" /><span>Photo coming soon</span></div>}
+              {person.photo ? <img className="team-portrait" src={imagePath(person.photo)} alt={person.name} width="180" height="180" loading="lazy" /> : <div className="team-portrait portrait-pending"><Users size={38} aria-hidden="true" /><span>Photo coming soon</span></div>}
               <h3>{person.name}</h3>
+              <p className="team-role">{person.role || "Theme lead and RHI role to be confirmed"}</p>
               <p>{person.university}</p>
-              <a className="text-link" href={person.profile} aria-label={`View ${person.name}'s profile`}>View profile <ArrowUpRight size={16} /></a>
+              <a className="text-link" href={person.profile} aria-label={`View ${person.name}'s profile`}>View profile <ArrowUpRight size={18} /></a>
             </article>
           ))}
         </div>
@@ -535,8 +539,9 @@ function Themes() {
         </p>
         <p>
           Three connected themes frame this work: how humans and systems change
-          through interaction, who retains control and responsibility, and how
-          intelligence is grounded in experience and context.
+          through interaction, who retains control, and how responsibility and
+          accountability should be understood when humans and intelligent
+          systems act together.
         </p>
       </section>
       {themes.map((theme, index) => (
@@ -579,7 +584,7 @@ function Masters() {
     <>
       <PageIntro eyebrow="Masters+" title="A foundation for doctoral discovery.">
         A Master's-to-PhD pathway in Responsible Hybrid Intelligence, offered
-        at the University of Glasgow.
+        at the University of Glasgow for the first cohort.
       </PageIntro>
       <section className="section container prose">
         <span className="eyebrow">MASTERS+ PATHWAY</span>
@@ -597,9 +602,10 @@ function Masters() {
           human intelligence, intelligent systems, and responsible innovation.
         </p>
         <p>
-          <strong>Masters+ is offered at the University of Glasgow only.</strong>{" "}
-          Doctoral opportunities hosted at the University of Strathclyde follow
-          the four-year PhD route.
+          <strong>For this first cohort, Masters+ is offered at the University of Glasgow only.</strong>{" "}
+          First-cohort doctoral opportunities hosted at the University of
+          Strathclyde follow the four-year PhD route. Arrangements for future
+          cohorts will be confirmed in due course.
         </p>
         <p>
           Which first-cohort opportunities will be offered through each route
@@ -607,7 +613,8 @@ function Masters() {
         </p>
         <h3>The Master's stage</h3>
         <p>
-          The Master's stage takes place at the University of Glasgow and
+          For the first cohort, the Master's stage takes place at the
+          University of Glasgow and
           provides a foundation for the proposed doctoral research. The specific
           degree, taught modules, and research component will be confirmed in
           the application guidance.
@@ -631,7 +638,7 @@ function Masters() {
         </div>
         <div className="hero-actions">
           <Action to="/projects">View all 11 opportunities</Action>
-          <Link className="text-link" to="/programme">Explore the PhD pathway <ArrowRight size={18} /></Link>
+          <Link className="text-link" to="/programme">Explore the PhD pathway <ArrowRight size={20} /></Link>
         </div>
       </section>
     </>
@@ -732,15 +739,15 @@ function Programme() {
               <p>Investigate questions spanning co-adaptation, agency, and grounding, within a community connecting human intelligence, intelligent systems, and society.</p>
               <p className="muted">
                 Four-year PhD, or one-year Master's plus four-year PhD through
-                Masters+ (University of Glasgow only). Training schedule and
-                funding terms to be confirmed.
+                Masters+ (University of Glasgow only for the first cohort).
+                Training schedule and funding terms to be confirmed.
               </p>
             </article>
           </div>
         </div>
       </section>
       <section className="section container international">
-        <Globe2 size={35} />
+        <Globe2 size={42} />
         <div>
           <span className="eyebrow">A GLOBAL COMMUNITY</span>
           <h2>International perspectives welcome.</h2>
@@ -751,7 +758,7 @@ function Programme() {
             guidance.
           </p>
           <Link className="text-link" to="/apply">
-            Applicant information <ArrowRight size={18} />
+            Applicant information <ArrowRight size={20} />
           </Link>
         </div>
       </section>
@@ -836,7 +843,7 @@ function Pdra() {
             </p>
           </div>
           <Link className="text-link" to="/contact">
-            Enquire about postdoctoral support <ArrowRight size={18} />
+            Enquire about postdoctoral support <ArrowRight size={20} />
           </Link>
         </div>
       </section>
@@ -886,7 +893,7 @@ function Activities() {
           </p>
         </div>
         <Link className="text-link" to="/contact">
-          Contact the programme about an event <ArrowRight size={18} />
+          Contact the programme about an event <ArrowRight size={20} />
         </Link>
       </section>
     </>
@@ -941,7 +948,7 @@ function Students() {
           aria-labelledby={`cohort-tab-${cohort}`}
           className="cohort-panel"
         >
-          <Users size={40} />
+          <Users size={48} />
           <h3>
             {cohort === 1
               ? "Meet our first cohort soon."
@@ -994,7 +1001,7 @@ function Projects() {
           <label className="search-field">
             <span>Search projects</span>
             <div>
-              <Search size={19} />
+              <Search size={22} />
               <input
                 type="search"
                 placeholder="Search by keyword…"
@@ -1041,7 +1048,7 @@ function Projects() {
                 setUniversity("");
               }}
             >
-              Clear filters <X size={16} />
+              Clear filters <X size={18} />
             </button>
           )}
           <span>COHORT 01 · PROVISIONAL CATALOGUE</span>
@@ -1063,8 +1070,8 @@ function Projects() {
               <summary>
                 <span>Research overview</span>
                 <span className="detail-toggle">
-                  <Plus className="plus" size={22} />
-                  <Minus className="minus" size={22} />
+                  <Plus className="plus" size={25} />
+                  <Minus className="minus" size={25} />
                 </span>
               </summary>
               <div className="project-content">
@@ -1097,7 +1104,7 @@ function Projects() {
         </div>
         {!filtered.length && (
           <div className="empty">
-            <Search size={32} />
+            <Search size={38} />
             <h2>No matching studentships</h2>
             <p>Try another keyword or clear the filters.</p>
           </div>
@@ -1121,7 +1128,7 @@ function Opportunity() {
         <StudyRoutesNotice />
         <h2>Opportunity details</h2>
         <dl>
-          <div><dt>Route</dt><dd>{project.university === "University of Glasgow" ? "Four-year PhD or Masters+ (to be confirmed)" : "Four-year PhD (Masters+ is offered at the University of Glasgow only)"}</dd></div>
+          <div><dt>Route</dt><dd>{project.university === "University of Glasgow" ? "Four-year PhD or Masters+ (to be confirmed)" : "Four-year PhD (for the first cohort, Masters+ is offered at the University of Glasgow only)"}</dd></div>
           <div><dt>Lead supervisor</dt><dd>{project.supervisor}</dd></div>
           <div><dt>Based at</dt><dd>{project.university} (placeholder; host to be confirmed)</dd></div>
           <div><dt>Research theme</dt><dd>{project.theme} (indicative)</dd></div>
@@ -1137,7 +1144,7 @@ function Opportunity() {
         </div>
         <div className="hero-actions">
           <Action to="/apply">How to apply</Action>
-          <Link className="text-link" to="/masters">Explore the two routes <ArrowRight size={18} /></Link>
+          <Link className="text-link" to="/masters">Explore the two routes <ArrowRight size={20} /></Link>
         </div>
       </section>
     </>
@@ -1147,7 +1154,7 @@ const applicationChecklist = [
   ["Full name", "As it appears on your passport or official documents."],
   ["Email address", "The address you would like us to use for all correspondence."],
   ["Nationality and country of residence", "This helps us confirm fee status and eligibility."],
-  ["Preferred route", "Four-year PhD, or Masters+ (one-year Master's followed by a four-year PhD, offered at the University of Glasgow only)."],
+  ["Preferred route", "Four-year PhD, or Masters+ (one-year Master's followed by a four-year PhD, offered at the University of Glasgow only for the first cohort)."],
   ["Research theme(s) of interest", "Co-adaptation, Agency, Grounding, or a combination."],
   ["Project of interest", "The opportunity title or number from the PhD Proposals page. If you are not sure yet, briefly describe the area you would like to explore."],
   ["Preferred host university", "University of Strathclyde, University of Glasgow, or no preference."],
@@ -1165,8 +1172,6 @@ const cvGuidance = [
   ["Technical and methodological skills", "For example programming, data analysis, machine learning, neuroimaging, experimental design, qualitative methods, or legal and philosophical analysis."],
   ["Additional experience", "Transferable skills such as communication, collaboration, or public engagement, with examples. Include membership of relevant societies or professional bodies."],
 ];
-// Set this to the programme's application address once confirmed.
-const applicationEmail = "";
 const applicationSubject = "RHI application – [Your name] – [Project or theme]";
 const applicationTemplate = `Subject: ${applicationSubject}
 
@@ -1187,8 +1192,8 @@ Attached:
 I confirm that the information provided is accurate and consent to it being shared with the relevant supervisory teams for the purposes of discussing potential projects.`;
 function Apply() {
   const [copied, setCopied] = useState(false);
-  const mailto = applicationEmail
-    ? `mailto:${applicationEmail}?subject=${encodeURIComponent(applicationSubject)}&body=${encodeURIComponent(applicationTemplate.split("\n").slice(2).join("\n"))}`
+  const mailto = programmeEmail
+    ? `mailto:${programmeEmail}?subject=${encodeURIComponent(applicationSubject)}&body=${encodeURIComponent(applicationTemplate.split("\n").slice(2).join("\n"))}`
     : "";
   const copyTemplate = async () => {
     try {
@@ -1279,7 +1284,7 @@ function Apply() {
             </ol>
           </div>
           <aside>
-            <Globe2 size={30} />
+            <Globe2 size={36} />
             <h3>International applicants</h3>
             <p>
               We welcome applications from international candidates. Funding
@@ -1291,15 +1296,18 @@ function Apply() {
             <p>
               Please direct questions about the programme or the application
               process to{" "}
-              {applicationEmail ? (
-                <a className="inline-link" href={`mailto:${applicationEmail}`}>{applicationEmail}</a>
+              {programmeEmail ? (
+                <a className="inline-link" href={`mailto:${programmeEmail}`}>{programmeEmail}</a>
               ) : (
                 "the programme email address, which will be published here shortly"
               )}
               .
             </p>
             <Link className="text-link" to="/contact">
-              Contact the programme <ArrowRight size={16} />
+              Contact the programme <ArrowRight size={18} />
+            </Link>
+            <Link className="text-link" to="/register">
+              Register interest <ArrowRight size={18} />
             </Link>
           </aside>
         </div>
@@ -1334,8 +1342,8 @@ function Apply() {
           </div>
           <div className="application-email">
             <span className="eyebrow">SEND YOUR APPLICATION TO</span>
-            {applicationEmail ? (
-              <a className="application-address" href={`mailto:${applicationEmail}`}>{applicationEmail}</a>
+            {programmeEmail ? (
+              <a className="application-address" href={`mailto:${programmeEmail}`}>{programmeEmail}</a>
             ) : (
               <p className="application-address pending">Email address to be confirmed</p>
             )}
@@ -1346,7 +1354,7 @@ function Apply() {
             <div className="hero-actions">
               {mailto && (
                 <a className="action" href={mailto}>
-                  Open in your email app <ArrowUpRight size={19} aria-hidden="true" />
+                  Open in your email app <ArrowUpRight size={22} aria-hidden="true" />
                 </a>
               )}
               <button type="button" className="copy-template" onClick={copyTemplate}>
@@ -1382,12 +1390,8 @@ function Apply() {
           them being shared in this way.
         </p>
         <p>
-          See the{" "}
-          <a className="inline-link" href="https://www.strath.ac.uk/websiteprivacynotice/">
-            University of Strathclyde privacy notice
-          </a>{" "}
-          for more information. A privacy statement specific to the programme
-          will be added when confirmed.
+          See the <Link className="inline-link" to="/privacy">RHI privacy notice</Link>{" "}
+          for more information on how your details are used.
         </p>
         <Action to="/projects">Browse PhD proposals</Action>
       </section>
@@ -1403,9 +1407,18 @@ function Contact() {
       <section className="section container prose">
         <h2>Programme enquiries</h2>
         <p>
-          A dedicated programme email address will be added once confirmed. In
-          the meantime, contact the programme leadership through their official
-          university pages.
+          Email{" "}
+          <ProgrammeEmail
+            subject="RHI enquiry"
+            pendingText="the programme at its dedicated email address, which will be published here shortly"
+          />
+          . In the meantime, you can also contact the programme leadership
+          through their official university pages.
+        </p>
+        <p>
+          Not ready to apply?{" "}
+          <Link className="inline-link" to="/register">Register your interest</Link>{" "}
+          to hear when studentships open and events are announced.
         </p>
         <div className="directors">
           <article>
@@ -1415,7 +1428,7 @@ function Contact() {
               className="text-link"
               href="https://www.strath.ac.uk/staff/moshfeghiyashardr/"
             >
-              University profile <ArrowUpRight size={18} />
+              University profile <ArrowUpRight size={20} />
             </a>
           </article>
           <article>
@@ -1425,10 +1438,263 @@ function Contact() {
               className="text-link"
               href="https://www.gla.ac.uk/schools/psychologyneuroscience/staff/simonhanslmayr/"
             >
-              University profile <ArrowUpRight size={18} />
+              University profile <ArrowUpRight size={20} />
             </a>
           </article>
         </div>
+      </section>
+    </>
+  );
+}
+function ProgrammeEmail({ subject, pendingText = "the programme email address (to be published shortly)" }) {
+  if (!programmeEmail) return pendingText;
+  const href = `mailto:${programmeEmail}${subject ? `?subject=${encodeURIComponent(subject)}` : ""}`;
+  return <a className="inline-link" href={href}>{programmeEmail}</a>;
+}
+const interestSubject = "RHI – Register interest – [Your name]";
+const interestTemplate = `Subject: ${interestSubject}
+
+Full name:
+Email address:
+Current role or degree:
+Area(s) of interest (Co-adaptation, Agency, Grounding, Masters+, postdoctoral support, events):
+Anything you would like to tell us:
+
+I consent to the programme holding these details to contact me about Responsible Hybrid Intelligence opportunities and events.`;
+function RegisterInterest() {
+  const [copied, setCopied] = useState(false);
+  const copyTemplate = async () => {
+    try {
+      await navigator.clipboard.writeText(interestTemplate);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    } catch {
+      setCopied(false);
+    }
+  };
+  return (
+    <>
+      <PageIntro eyebrow="Register interest" title="Stay in the loop.">
+        Hear when studentships open, application dates are confirmed, and
+        events are announced.
+      </PageIntro>
+      <section className="section container intro">
+        <div>
+          <span className="eyebrow">REGISTER YOUR INTEREST</span>
+          <h2>Not ready to apply yet?</h2>
+        </div>
+        <div className="intro-copy">
+          <p className="lead">
+            Send us a short email and we will let you know about new
+            opportunities and programme updates.
+          </p>
+          <p>
+            Registering interest is not an application and does not affect how
+            any future application is assessed. You can ask us to remove your
+            details at any time.
+          </p>
+          <div className="application-email">
+            <span className="eyebrow">EMAIL US AT</span>
+            {programmeEmail ? (
+              <a className="application-address" href={`mailto:${programmeEmail}?subject=${encodeURIComponent(interestSubject)}`}>{programmeEmail}</a>
+            ) : (
+              <p className="application-address pending">Email address to be confirmed</p>
+            )}
+            <p className="application-subject">
+              <strong>Subject line:</strong> {interestSubject}
+            </p>
+            <pre className="application-template" aria-label="Register interest email template">{interestTemplate}</pre>
+            <div className="hero-actions">
+              <button type="button" className="copy-template" onClick={copyTemplate}>
+                {copied ? "Template copied" : "Copy email template"}
+              </button>
+              <span className="visually-hidden" aria-live="polite">{copied ? "Template copied to clipboard" : ""}</span>
+            </div>
+          </div>
+          <p>
+            We will use your details only to contact you about the programme.
+            See the <Link className="inline-link" to="/privacy">RHI privacy notice</Link>.
+          </p>
+        </div>
+      </section>
+    </>
+  );
+}
+function DraftNotice({ children }) {
+  return (
+    <div className="notice">
+      <strong>Draft statement awaiting approval.</strong>
+      <p>{children}</p>
+    </div>
+  );
+}
+function Accessibility() {
+  return (
+    <>
+      <PageIntro eyebrow="Accessibility" title="A website for everyone.">
+        How we aim to make this website accessible, and how to get help.
+      </PageIntro>
+      <section className="section container prose">
+        <DraftNotice>
+          This statement will be reviewed and finalised with the partner
+          universities. Last updated October 2026.
+        </DraftNotice>
+        <h2>Our approach</h2>
+        <p>
+          This website is run by Responsible Hybrid Intelligence, a Leverhulme
+          Doctoral Programme of the University of Strathclyde and the University
+          of Glasgow. We want as many people as possible to be able to use it,
+          and we aim to meet the Web Content Accessibility Guidelines (WCAG) 2.2
+          at level AA.
+        </p>
+        <p>You should be able to:</p>
+        <ul>
+          <li>navigate the whole site using a keyboard, including a skip-to-content link</li>
+          <li>zoom in up to 400% without content being lost</li>
+          <li>use the site with a screen reader, with descriptive text for meaningful images</li>
+          <li>read text with sufficient colour contrast</li>
+        </ul>
+        <h2>Known limitations</h2>
+        <p>
+          Some linked documents and pages on other websites, including university
+          and funder pages, are outside our control and may not be fully
+          accessible. We are reviewing the site and will update this statement
+          as issues are identified and fixed.
+        </p>
+        <h2>Alternative formats and feedback</h2>
+        <p>
+          If you need information on this website in a different format, need
+          adjustments to take part in the application process, or find an
+          accessibility problem, please contact{" "}
+          <ProgrammeEmail subject="RHI – Accessibility" />.
+        </p>
+        <h2>Enforcement procedure</h2>
+        <p>
+          The Equality and Human Rights Commission (EHRC) is responsible for
+          enforcing the Public Sector Bodies (Websites and Mobile Applications)
+          (No. 2) Accessibility Regulations 2018. If you are not happy with how
+          we respond to your complaint, contact the{" "}
+          <a className="inline-link" href="https://www.equalityadvisoryservice.com/">
+            Equality Advisory and Support Service (EASS)
+          </a>.
+        </p>
+        <h2>University accessibility statements</h2>
+        <p>
+          See also the{" "}
+          <a className="inline-link" href="https://www.strath.ac.uk/accessibility/">University of Strathclyde</a>{" "}
+          and{" "}
+          <a className="inline-link" href="https://www.gla.ac.uk/legal/accessibility/">University of Glasgow</a>{" "}
+          accessibility statements.
+        </p>
+      </section>
+    </>
+  );
+}
+function Edi() {
+  return (
+    <>
+      <PageIntro eyebrow="Equality, diversity & inclusion" title="Different perspectives. Shared discovery.">
+        Our commitment to an inclusive research community.
+      </PageIntro>
+      <section className="section container prose">
+        <DraftNotice>
+          This statement will be finalised with the programme leadership and
+          partner universities.
+        </DraftNotice>
+        <h2>Our commitment</h2>
+        <p className="lead">
+          Responsible Hybrid Intelligence depends on bringing different
+          disciplines, experiences, and perspectives together.
+        </p>
+        <p>
+          We welcome applications from people of all backgrounds, and
+          particularly encourage applications from groups that are
+          under-represented in AI, neuroscience, engineering, philosophy, and
+          law. We value applicants from scientific, technical, philosophical,
+          and legal backgrounds, and from non-traditional routes into research.
+        </p>
+        <h2>In recruitment</h2>
+        <ul>
+          <li>Selection is based on published criteria applied consistently to every applicant.</li>
+          <li>Reasonable adjustments are available at every stage of the application and interview process.</li>
+          <li>Those involved in selection are expected to complete equality and unconscious bias training.</li>
+        </ul>
+        <h2>In the programme</h2>
+        <p>
+          We aim to build a cohort culture where everyone can contribute and be
+          heard, and to make training, events, and cohort activities accessible.
+          Doctoral researchers are supported by the equality, diversity, and
+          inclusion policies and services of their host university.
+        </p>
+        <p>
+          To discuss adjustments or raise a concern, please contact{" "}
+          <ProgrammeEmail subject="RHI – Equality, diversity and inclusion" />.
+        </p>
+        <h2>University policies</h2>
+        <p>
+          See{" "}
+          <a className="inline-link" href="https://www.strath.ac.uk/equalitydiversity/">equality and diversity at the University of Strathclyde</a>{" "}
+          and{" "}
+          <a className="inline-link" href="https://www.gla.ac.uk/myglasgow/humanresources/equalitydiversity/">equality and diversity at the University of Glasgow</a>.
+        </p>
+      </section>
+    </>
+  );
+}
+function Privacy() {
+  return (
+    <>
+      <PageIntro eyebrow="Privacy notice" title="How we use your information.">
+        How Responsible Hybrid Intelligence handles personal information from
+        enquiries, expressions of interest, and applications.
+      </PageIntro>
+      <section className="section container prose">
+        <DraftNotice>
+          This programme-specific notice is awaiting review by the partner
+          universities' data protection teams. Until it is approved, the
+          University of Strathclyde and University of Glasgow privacy notices
+          apply.
+        </DraftNotice>
+        <h2>What we collect</h2>
+        <p>
+          When you register interest, make an enquiry, or apply, we collect the
+          information you choose to send us. This usually includes your name,
+          email address, nationality and country of residence, academic history,
+          research interests, CV, and transcripts.
+        </p>
+        <h2>How we use it</h2>
+        <ul>
+          <li>to respond to your enquiry or keep you informed, if you have registered interest</li>
+          <li>to assess your suitability for doctoral opportunities</li>
+          <li>to share your application with the relevant supervisory teams at the University of Strathclyde and the University of Glasgow, so they can discuss potential projects with you</li>
+        </ul>
+        <p>
+          We do not sell your information or use it for unrelated marketing.
+          Formal applications to a host university are covered by that
+          university's own applicant privacy notice.
+        </p>
+        <h2>How long we keep it</h2>
+        <p>
+          Retention periods will be confirmed in the approved notice. You can ask
+          us to delete your expression-of-interest details at any time.
+        </p>
+        <h2>Your rights</h2>
+        <p>
+          Under UK data protection law you have rights to access, correct, and
+          request deletion of your personal information, and to object to or
+          restrict how it is used. To exercise these rights, contact{" "}
+          <ProgrammeEmail subject="RHI – Privacy" /> or the data protection
+          officer of the relevant university. You can also complain to the{" "}
+          <a className="inline-link" href="https://ico.org.uk/">Information Commissioner's Office</a>.
+        </p>
+        <h2>University privacy notices</h2>
+        <p>
+          See the{" "}
+          <a className="inline-link" href="https://www.strath.ac.uk/dataprotection/">University of Strathclyde data protection pages</a>,
+          the{" "}
+          <a className="inline-link" href="https://www.strath.ac.uk/websiteprivacynotice/">University of Strathclyde website privacy notice</a>, and the{" "}
+          <a className="inline-link" href="https://www.gla.ac.uk/legal/privacy/">University of Glasgow privacy notice</a>.
+        </p>
       </section>
     </>
   );
@@ -1465,6 +1731,10 @@ function Site() {
       "/projects": "PhD Proposals",
       "/apply": "How to Apply",
       "/contact": "Contact",
+      "/register": "Register interest",
+      "/accessibility": "Accessibility",
+      "/edi": "Equality, diversity & inclusion",
+      "/privacy": "Privacy notice",
     };
     const opportunity = projects.find((project) => location.pathname === `/projects/${project.id}`);
     const title = opportunity ? `RHI opportunity ${String(opportunity.id).padStart(2, "0")}` : titles[location.pathname];
@@ -1493,7 +1763,7 @@ function Site() {
         <div className="container">
           <span>A LEVERHULME TRUST DOCTORAL PROGRAMME</span>
           <Link to="/contact">
-            Get in touch <ArrowUpRight size={13} />
+            Get in touch <ArrowUpRight size={15} />
           </Link>
         </div>
       </div>
@@ -1544,7 +1814,7 @@ function Site() {
                 aria-controls="programme-links"
                 onClick={() => setProgrammeOpen(!programmeOpen)}
               >
-                Programme <ChevronDown size={16} aria-hidden="true" />
+                Programme <ChevronDown size={18} aria-hidden="true" />
               </button>
               <div id="programme-links" className="programme-links" hidden={!programmeOpen}>
                 {programmeLinks.map(([to, name]) => (
@@ -1559,7 +1829,7 @@ function Site() {
             </div>
             <NavLink to="/projects" className="nav-apply" onClick={() => setMenuOpen(false)}>
               Opportunities
-              <ArrowUpRight size={17} />
+              <ArrowUpRight size={19} />
             </NavLink>
           </nav>
         </div>
@@ -1578,6 +1848,10 @@ function Site() {
           <Route path="/projects/:projectId" element={<Opportunity />} />
           <Route path="/apply" element={<Apply />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/register" element={<RegisterInterest />} />
+          <Route path="/accessibility" element={<Accessibility />} />
+          <Route path="/edi" element={<Edi />} />
+          <Route path="/privacy" element={<Privacy />} />
           <Route
             path="*"
             element={
@@ -1625,7 +1899,11 @@ function Site() {
           <div className="footer-links">
             <Link to="/projects">PhD Proposals</Link>
             <Link to="/apply">How to Apply</Link>
+            <Link to="/register">Register interest</Link>
             <Link to="/contact">Contact</Link>
+            <Link to="/accessibility">Accessibility</Link>
+            <Link to="/edi">Equality, diversity & inclusion</Link>
+            <Link to="/privacy">Privacy notice</Link>
           </div>
           <div className="footer-cta">
             <span>YOUR NEXT CHAPTER</span>
@@ -1639,9 +1917,9 @@ function Site() {
             © {copyrightYear} Responsible Hybrid Intelligence
           </span>
           <span>University of Strathclyde × University of Glasgow</span>
-          <a href="https://www.strath.ac.uk/websiteprivacynotice/">
-            University privacy notice <ArrowUpRight size={13} />
-          </a>
+          <Link to="/privacy">
+            RHI privacy notice
+          </Link>
           <a href="https://www.flickr.com/photos/giuseppemilo/16331067284/">Glasgow skyline: Giuseppe Milo</a>
           <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0 (display cropped)</a>
         </div>
