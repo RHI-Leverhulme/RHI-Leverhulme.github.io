@@ -23,6 +23,10 @@ import {
   BrainCircuit,
   Scale,
   Users,
+  Check,
+  MapPin,
+  Clock,
+  FileCheck,
 } from "lucide-react";
 import "./App.css";
 
@@ -90,6 +94,7 @@ const programmeLinks = [
   ["/masters", "Masters+"],
   ["/pdra", "Postdoctoral & PDRA support"],
   ["/activities", "Conferences & cohort activities"],
+  ["/eligibility", "Eligibility"],
   ["/apply", "How to Apply"],
 ];
 const projects = Array.from({ length: 11 }, (_, index) => ({
@@ -126,9 +131,12 @@ function StudyRoutesNotice() {
       <p>
         Opportunities may be offered as a four-year PhD or as a one-year
         Master's followed by a four-year PhD (Masters+). For this first
-        cohort, Masters+ is offered at the University of Glasgow only. Which
-        opportunities will follow each route has not yet been confirmed.{" "}
-        <Link to="/masters">Learn about the two routes</Link>.
+        cohort, Masters+ is offered at the University of Glasgow only, and
+        places are ring-fenced for applicants from under-represented groups.
+        Which opportunities will follow each route has not yet been
+        confirmed.{" "}
+        <Link to="/eligibility">Check eligibility</Link> or{" "}
+        <Link to="/masters">learn about the two routes</Link>.
       </p>
     </div>
   );
@@ -227,7 +235,7 @@ function Home() {
           <div>
             <h2>Your PhD. A new field. A shared future.</h2>
             <p>
-              First-cohort studentships: project briefs and application guidance are being finalised.
+              First-cohort studentships: applications close in mid-December 2026, with interviews in early January 2027.
             </p>
           </div>
           <Link to="/projects">
@@ -274,7 +282,7 @@ function Home() {
         </div>
         <div>
           <strong>40</strong>
-          <span>PhD researchers</span>
+          <span>Leverhulme PhD Students</span>
         </div>
         <div>
           <strong>9</strong>
@@ -326,11 +334,11 @@ function Home() {
               <Users />
               <h3>Belong to something new</h3>
               <p>
-                Meet our growing community and discover life as an RHI doctoral
-                researcher in Glasgow.
+                Meet our growing community and discover life as a Leverhulme
+                PhD Student in Glasgow.
               </p>
               <span className="path-link">
-                Meet our students <ArrowUpRight size={24} />
+                Meet our Leverhulme PhD Students <ArrowUpRight size={24} />
               </span>
             </Link>
           </div>
@@ -422,7 +430,7 @@ function About() {
         <p>
           The programme builds on the complementary strengths of the Strathclyde
           Neurotechnology Centre and Glasgow Neurotechnology Centre, with an equal
-          partnership between the two universities. Students, academics, and
+          partnership between the two universities. Leverhulme PhD Students, academics, and
           collaborators will work together across disciplines to address the
           scientific and societal questions at the heart of human–AI collaboration.
         </p>
@@ -627,14 +635,26 @@ function Masters() {
         </p>
         <h3>Eligibility and funding</h3>
         <p>
-          Entry qualifications, selection criteria, tuition-fee coverage,
-          maintenance support, and home and international eligibility are
-          awaiting confirmation. Check the individual opportunity's approved
-          terms before applying.
+          The Leverhulme Trust ring-fences Masters+ places for students from
+          under-represented groups. To be eligible, you must be UK-domiciled,
+          must not already hold a Master's degree from the University of
+          Glasgow, and must be from a low-income household background (for
+          example, you received a full maintenance loan or Special Support loan
+          as an undergraduate) and/or identify as Black African, Black
+          Caribbean, Black Other, or of mixed heritage including Black African,
+          Black Caribbean, or Black Other. If you feel you meet these criteria,
+          you can apply for Masters+ with supporting evidence. The University
+          of Glasgow will verify eligibility.{" "}
+          <Link className="inline-link" to="/eligibility">Check if you are eligible</Link>.
+        </p>
+        <p>
+          Entry qualifications, tuition-fee coverage, and maintenance support
+          are awaiting confirmation. Check the individual opportunity's
+          approved terms before applying.
         </p>
         <div className="notice">
-          <strong>Detailed guidance is being finalised.</strong>
-          <p>Opportunity titles, Master's courses, supervisors, deadlines, and official application links will be published once approved.</p>
+          <strong>Applications close in mid-December 2026.</strong>
+          <p>Round 1 interviews take place in early January 2027. Opportunity titles, Master's courses, supervisors, and official application links will be published once approved.</p>
         </div>
         <div className="hero-actions">
           <Action to="/projects">View all 11 opportunities</Action>
@@ -667,7 +687,7 @@ function Programme() {
             Join an interdisciplinary community across Strathclyde and Glasgow.
           </p>
           <p>
-            The programme will train 40 doctoral researchers over nine years,
+            The programme will train 40 Leverhulme PhD Students over nine years,
             connecting expertise in AI, neuroscience, neurotechnology,
             psychology, engineering, philosophy, and law.
           </p>
@@ -740,7 +760,9 @@ function Programme() {
               <p className="muted">
                 Four-year PhD, or one-year Master's plus four-year PhD through
                 Masters+ (University of Glasgow only for the first cohort).
-                Training schedule and funding terms to be confirmed.
+                Studentships are full-time; part-time study (at least 50%) is
+                only possible with the Leverhulme Trust's permission.{" "}
+                <Link className="inline-link" to="/eligibility">Check eligibility</Link>.
               </p>
             </article>
           </div>
@@ -752,13 +774,14 @@ function Programme() {
           <span className="eyebrow">A GLOBAL COMMUNITY</span>
           <h2>International perspectives welcome.</h2>
           <p>
-            We welcome interest from international candidates. International
-            eligibility, fee coverage, visa requirements, and funding
-            arrangements will be published with the confirmed application
-            guidance.
+            We welcome applications from international candidates for the
+            four-year PhD. To keep cohorts balanced and strengthen UK research
+            capacity, the number of international places is limited, and
+            applicants cannot self-fund the difference between international
+            and UK fees. Masters+ is open to UK-domiciled students only.
           </p>
-          <Link className="text-link" to="/apply">
-            Applicant information <ArrowRight size={20} />
+          <Link className="text-link" to="/eligibility">
+            Check eligibility <ArrowRight size={20} />
           </Link>
         </div>
       </section>
@@ -834,12 +857,19 @@ function Pdra() {
             career development. Each awardee is supported by a senior academic
             sponsor, and awards are allocated competitively.
           </p>
+          <h3>Who is eligible?</h3>
+          <p>
+            Postdoctoral support is for programme graduates who were Leverhulme
+            PhD Students, to help them move successfully into
+            academic or non-academic careers. The selection process will take
+            equality, diversity, and inclusion into account.
+          </p>
           <div className="notice">
             <strong>Calls and applications</strong>
             <p>
               Competitive calls are planned for programme years 4–6, aligned
-              with cohort progression. Award lengths, budgets, eligibility, and
-              deadlines will be published with each call.
+              with cohort progression. Award types, lengths, and deadlines will
+              be published with each call.
             </p>
           </div>
           <Link className="text-link" to="/contact">
@@ -903,7 +933,7 @@ function Students() {
   const [cohort, setCohort] = useState(visibleCohorts[0]);
   return (
     <>
-      <PageIntro eyebrow="Students" title="Our people. Our shared future.">
+      <PageIntro eyebrow="Leverhulme PhD Students" title="Our people. Our shared future.">
         A growing community of researchers, connected by curiosity.
       </PageIntro>
       <section className="section container">
@@ -912,7 +942,7 @@ function Students() {
         <div
           className="cohort-tabs"
           role="tablist"
-          aria-label="Student cohorts"
+          aria-label="Leverhulme PhD Student cohorts"
         >
           {visibleCohorts.map((number, index) => (
             <button
@@ -956,8 +986,8 @@ function Students() {
           </h3>
           <p>
             {cohort === 1
-              ? "The first cohort has 11 planned studentships. Student profiles will appear here once recruitment and enrolment are complete."
-              : "Recruitment dates and student profiles for this future cohort will be announced in due course."}
+              ? "The first cohort has 11 planned studentships. Profiles of our Leverhulme PhD Students will appear here once recruitment and enrolment are complete."
+              : "Recruitment dates and Leverhulme PhD Student profiles for this future cohort will be announced in due course."}
           </p>
           {cohort === 1 && (
             <Action to="/projects">Explore first-cohort studentships</Action>
@@ -993,8 +1023,8 @@ function Projects() {
           <strong>First-cohort recruitment</strong>
           <p>
             The entries below are placeholders, not confirmed research
-            projects. Titles, supervisors, host allocations, funding terms, and
-            application dates are awaiting approval.
+            projects. Titles, supervisors, host allocations, and funding terms
+            are awaiting approval. Applications close in mid-December 2026.
           </p>
         </div>
         <div className="filters">
@@ -1094,7 +1124,11 @@ function Projects() {
                   </div>
                   <div>
                     <dt>Application deadline</dt>
-                    <dd>To be announced</dd>
+                    <dd>Mid-December 2026</dd>
+                  </div>
+                  <div>
+                    <dt>Funding and eligibility</dt>
+                    <dd><Link className="inline-link" to="/eligibility">Check if you are eligible</Link></dd>
                   </div>
                 </dl>
               </div>
@@ -1132,15 +1166,15 @@ function Opportunity() {
           <div><dt>Lead supervisor</dt><dd>{project.supervisor}</dd></div>
           <div><dt>Based at</dt><dd>{project.university} (placeholder; host to be confirmed)</dd></div>
           <div><dt>Research theme</dt><dd>{project.theme} (indicative)</dd></div>
-          <div><dt>Application deadline</dt><dd>To be announced</dd></div>
-          <div><dt>Funding and eligibility</dt><dd>Awaiting approved terms</dd></div>
+          <div><dt>Application deadline</dt><dd>Mid-December 2026 (round 1 interviews in early January 2027)</dd></div>
+          <div><dt>Funding and eligibility</dt><dd><Link className="inline-link" to="/eligibility">Check if you are eligible</Link></dd></div>
         </dl>
         <h2>Research proposal</h2>
         <p>The full title, research questions, methods, and supervisory team will be published here when the project brief is approved.</p>
         <h2>Apply for this opportunity</h2>
         <div className="notice">
           <strong>Apply by email.</strong>
-          <p>Follow the How to Apply guidance and quote "RHI opportunity {String(project.id).padStart(2, "0")}" in your email. The deadline and selection criteria for this opportunity will appear here once confirmed.</p>
+          <p>Follow the How to Apply guidance and quote "RHI opportunity {String(project.id).padStart(2, "0")}" in your email. Applications close in mid-December 2026, with round 1 interviews in early January 2027. Selection criteria for this opportunity will appear here once confirmed.</p>
         </div>
         <div className="hero-actions">
           <Action to="/apply">How to apply</Action>
@@ -1150,11 +1184,195 @@ function Opportunity() {
     </>
   );
 }
+const mastersPlusEthnicities = [
+  "Black African",
+  "Black Caribbean",
+  "Black Other",
+  "Mixed – White and Black Caribbean",
+  "Mixed – White and Black African",
+  "Other mixed background (including Black African, Black Caribbean and Black Other)",
+];
+function CriteriaList({ items }) {
+  return (
+    <ul className="criteria-list">
+      {items.map((item) => (
+        <li key={item}>
+          <Check size={20} aria-hidden="true" />
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+function Eligibility() {
+  return (
+    <>
+      <PageIntro eyebrow="Eligibility" title="Find your route.">
+        Check whether you are eligible for the four-year PhD or Masters+
+        before you apply.
+      </PageIntro>
+      <section className="section container">
+        <div className="section-heading">
+          <div>
+            <span className="eyebrow">AT A GLANCE</span>
+            <h2>Two routes to a PhD.</h2>
+          </div>
+        </div>
+        <div className="route-cards">
+          <article className="route-card">
+            <span className="path-number">ROUTE 01</span>
+            <h3>Four-year PhD</h3>
+            <p>Start your doctoral research straight away.</p>
+            <dl>
+              <div><dt><Users size={18} aria-hidden="true" /> Open to</dt><dd>Home and international applicants</dd></div>
+              <div><dt><MapPin size={18} aria-hidden="true" /> Where</dt><dd>University of Strathclyde or University of Glasgow</dd></div>
+              <div><dt><Clock size={18} aria-hidden="true" /> Study mode</dt><dd>Full-time</dd></div>
+            </dl>
+            <Link className="text-link" to="/eligibility#phd-eligibility">
+              PhD eligibility <ArrowRight size={18} />
+            </Link>
+          </article>
+          <article className="route-card">
+            <span className="path-number">ROUTE 02</span>
+            <h3>Masters+</h3>
+            <p>A one-year Master's followed by a four-year PhD.</p>
+            <dl>
+              <div><dt><Users size={18} aria-hidden="true" /> Open to</dt><dd>UK-domiciled students from under-represented groups</dd></div>
+              <div><dt><MapPin size={18} aria-hidden="true" /> Where</dt><dd>University of Glasgow only (first cohort)</dd></div>
+              <div><dt><Clock size={18} aria-hidden="true" /> Study mode</dt><dd>Full-time</dd></div>
+            </dl>
+            <Link className="text-link" to="/eligibility#masters-plus-eligibility">
+              Masters+ eligibility <ArrowRight size={18} />
+            </Link>
+          </article>
+        </div>
+      </section>
+      <section className="section paths eligibility-section" id="phd-eligibility">
+        <div className="container eligibility-layout">
+          <div>
+            <span className="eyebrow">ROUTE 01</span>
+            <h2>Four-year PhD</h2>
+          </div>
+          <div>
+            <h3>You can apply if you:</h3>
+            <CriteriaList
+              items={[
+                "meet the host university's PhD entry requirements",
+                "are a home or international applicant",
+                "can study full-time",
+              ]}
+            />
+            <div className="notice">
+              <strong>International applicants</strong>
+              <p>
+                The number of international places is limited, to keep cohorts
+                balanced and strengthen UK research capacity. You cannot
+                self-fund the difference between international and UK fees.
+              </p>
+            </div>
+            <div className="notice">
+              <strong>Part-time study</strong>
+              <p>
+                Part-time study (at least 50%) is only possible with the
+                Leverhulme Trust's permission, for example because of caring
+                responsibilities or illness.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="section eligibility-section" id="masters-plus-eligibility">
+        <div className="container eligibility-layout">
+          <div>
+            <span className="eyebrow">ROUTE 02</span>
+            <h2>Masters+</h2>
+            <p className="muted">
+              Masters+ places are ring-fenced by the Leverhulme Trust for
+              students from under-represented groups. For the first cohort,
+              Masters+ is offered at the University of Glasgow only.
+            </p>
+          </div>
+          <div>
+            <ol className="eligibility-steps">
+              <li>
+                <h3>You must meet both of these</h3>
+                <CriteriaList
+                  items={[
+                    "You are a UK-domiciled student.",
+                    "You do not already hold a Master's degree from the University of Glasgow.",
+                  ]}
+                />
+              </li>
+              <li>
+                <h3>And at least one of these</h3>
+                <div className="criteria-options">
+                  <article>
+                    <h4>Low-income household background</h4>
+                    <p>
+                      For example, you received a full maintenance loan or a
+                      Special Support loan during your undergraduate studies.
+                    </p>
+                  </article>
+                  <span className="criteria-or" aria-hidden="true">and/or</span>
+                  <article>
+                    <h4>Ethnicity</h4>
+                    <p>You identify as one of the following:</p>
+                    <ul>
+                      {mastersPlusEthnicities.map((item) => <li key={item}>{item}</li>)}
+                    </ul>
+                  </article>
+                </div>
+              </li>
+              <li>
+                <h3>Provide evidence</h3>
+                <p>
+                  In your application, tell us which criteria you meet and
+                  attach supporting evidence. The University of Glasgow will
+                  verify eligibility.
+                </p>
+              </li>
+            </ol>
+            <p className="muted">
+              If you do not meet the Masters+ criteria, you can still apply for
+              the four-year PhD.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section className="section paths">
+        <div className="container eligibility-layout">
+          <div>
+            <span className="eyebrow">NEXT STEPS</span>
+            <h2>Ready to apply?</h2>
+          </div>
+          <div>
+            <CriteriaList
+              items={[
+                "Choose your route: four-year PhD, Masters+, or either.",
+                "Choose a project or research theme.",
+                "Email your application before mid-December 2026, stating your route and, for Masters+, the criteria you meet with evidence.",
+              ]}
+            />
+            <div className="hero-actions">
+              <Action to="/apply">How to apply</Action>
+              <Link className="text-link" to="/projects">Browse PhD proposals <ArrowRight size={20} /></Link>
+            </div>
+            <p className="muted eligibility-help">
+              <FileCheck size={18} aria-hidden="true" /> Not sure if you are
+              eligible? <Link className="inline-link" to="/contact">Contact the programme</Link>.
+            </p>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
 const applicationChecklist = [
   ["Full name", "As it appears on your passport or official documents."],
   ["Email address", "The address you would like us to use for all correspondence."],
   ["Nationality and country of residence", "This helps us confirm fee status and eligibility."],
-  ["Preferred route", "Four-year PhD, or Masters+ (one-year Master's followed by a four-year PhD, offered at the University of Glasgow only for the first cohort)."],
+  ["Route you are applying for", "Four-year PhD, Masters+ (one-year Master's followed by a four-year PhD, offered at the University of Glasgow only for the first cohort), or either. See the Eligibility page to check which route you can apply for."],
+  ["Masters+ eligibility (if applicable)", "If you are applying for Masters+, confirm that you are UK-domiciled and do not already hold a Master's from the University of Glasgow, and tell us whether you meet the low-income and/or ethnicity criterion."],
   ["Research theme(s) of interest", "Co-adaptation, Agency, Grounding, or a combination."],
   ["Project of interest", "The opportunity title or number from the PhD Proposals page. If you are not sure yet, briefly describe the area you would like to explore."],
   ["Preferred host university", "University of Strathclyde, University of Glasgow, or no preference."],
@@ -1163,6 +1381,7 @@ const applicationChecklist = [
 const applicationAttachments = [
   ["CV", "Cover the areas set out in the CV guidance below."],
   ["Academic transcripts", "For each degree listed in your CV, including any you are currently studying for."],
+  ["Masters+ eligibility evidence (if applicable)", "Supporting evidence that you meet the Masters+ criteria, for example confirmation that you received a full maintenance loan or Special Support loan during your undergraduate studies."],
 ];
 const cvGuidance = [
   ["Research interests", "Open with a short summary of your research interests and why Responsible Hybrid Intelligence appeals to you. Connect it to the theme or project you are interested in."],
@@ -1179,7 +1398,8 @@ Full name:
 Email address:
 Nationality:
 Country of residence:
-Preferred route (PhD / Masters+ at Glasgow):
+Route applying for (Four-year PhD / Masters+ at Glasgow / Either):
+Masters+ eligibility criteria met (if applying for Masters+):
 Research theme(s) of interest:
 Project of interest (title/number or brief description):
 Preferred host university:
@@ -1188,6 +1408,7 @@ Supervisor or group (if known):
 Attached:
 - CV
 - Academic transcripts
+- Masters+ eligibility evidence (if applicable)
 
 I confirm that the information provided is accurate and consent to it being shared with the relevant supervisory teams for the purposes of discussing potential projects.`;
 function Apply() {
@@ -1222,20 +1443,36 @@ function Apply() {
             field.
           </p>
           <p>
-            Over nine years, the programme will train 40 doctoral researchers
+            Over nine years, the programme will train 40 Leverhulme PhD Students
             across AI, neuroscience, neurotechnology, psychology, engineering,
-            philosophy, and law. Doctoral researchers pursue a research project
+            philosophy, and law. Leverhulme PhD Students pursue a research project
             within a shared cohort, with interdisciplinary supervision and
             training across both universities.
           </p>
           <div className="notice">
-            <strong>Application details are being finalised.</strong>
+            <strong>Key dates: Cohort 1, round 1</strong>
             <p>
-              Opening dates, deadlines, eligibility, stipend, and fee coverage
-              will be confirmed here. The process below is indicative and may
-              change before applications open.
+              Applications close in mid-December 2026. Shortlisted applicants
+              will be invited to interview in early January 2027. Stipend, fee
+              coverage, and the formal host-university application process will
+              be confirmed here.
             </p>
           </div>
+        </div>
+      </section>
+      <section className="section container">
+        <div className="eligibility-callout">
+          <div>
+            <span className="eyebrow">BEFORE YOU APPLY</span>
+            <h2>Check which route you are eligible for.</h2>
+            <p>
+              The four-year PhD is open to home and international applicants.
+              Masters+ is ring-fenced for UK-domiciled students from
+              under-represented groups. Your application must say which route
+              you are applying for.
+            </p>
+          </div>
+          <Action to="/eligibility">Check if you are eligible</Action>
         </div>
       </section>
       <section className="section paths">
@@ -1287,9 +1524,11 @@ function Apply() {
             <Globe2 size={36} />
             <h3>International applicants</h3>
             <p>
-              We welcome applications from international candidates. Funding
-              eligibility, overseas fees, English-language requirements, and
-              visa guidance will be confirmed with the final application details.
+              We welcome applications from international candidates for the
+              four-year PhD. International places are limited, and applicants
+              cannot self-fund the difference between international and UK
+              fees. English-language requirements and visa guidance will be
+              confirmed with the final application details.
             </p>
             <hr />
             <h3>Questions?</h3>
@@ -1537,7 +1776,7 @@ function Accessibility() {
       <section className="section container prose">
         <DraftNotice>
           This statement will be reviewed and finalised with the partner
-          universities. Last updated October 2026.
+          universities. Last updated November 2026.
         </DraftNotice>
         <h2>Our approach</h2>
         <p>
@@ -1567,6 +1806,16 @@ function Accessibility() {
           adjustments to take part in the application process, or find an
           accessibility problem, please contact{" "}
           <ProgrammeEmail subject="RHI – Accessibility" />.
+        </p>
+        <h2>Applying and studying with us</h2>
+        <p>
+          Reasonable adjustments are available at every stage of the
+          application and interview process. Studentships are full-time, but
+          part-time study (at least 50%) may be possible with the Leverhulme
+          Trust's permission where it is justified, for example because of
+          caring responsibilities or illness. See our{" "}
+          <Link className="inline-link" to="/edi">equality, diversity and inclusion statement</Link>{" "}
+          for more information.
         </p>
         <h2>Enforcement procedure</h2>
         <p>
@@ -1616,6 +1865,11 @@ function Edi() {
         <h2>In recruitment</h2>
         <ul>
           <li>Selection is based on published criteria applied consistently to every applicant.</li>
+          <li>
+            Masters+ places are ring-fenced by the Leverhulme Trust for
+            applicants from groups that are under-represented in research.{" "}
+            <Link className="inline-link" to="/eligibility">Check Masters+ eligibility</Link>.
+          </li>
           <li>Reasonable adjustments are available at every stage of the application and interview process.</li>
           <li>Those involved in selection are expected to complete equality and unconscious bias training.</li>
         </ul>
@@ -1623,8 +1877,24 @@ function Edi() {
         <p>
           We aim to build a cohort culture where everyone can contribute and be
           heard, and to make training, events, and cohort activities accessible.
-          Doctoral researchers are supported by the equality, diversity, and
+          Leverhulme PhD Students are supported by the equality, diversity, and
           inclusion policies and services of their host university.
+        </p>
+        <p>
+          Studentships are full-time. Part-time study (at least 50%) is only
+          possible with the Leverhulme Trust's permission, and may be
+          considered where it is justified, for example because of caring
+          responsibilities, illness, or similar circumstances.
+        </p>
+        <h2>The Leverhulme Trust's commitment</h2>
+        <p>
+          The Leverhulme Trust states that a world-class research system must
+          be inclusive of ideas and people. It is committed to making its
+          grant-making more inclusive, encouraging applications from groups
+          that have historically been less likely to apply, and monitoring
+          participation by under-represented groups, including the Leverhulme
+          PhD Students recruited to its doctoral programmes. Read the{" "}
+          <a className="inline-link" href="https://www.leverhulme.ac.uk/equity-diversity-inclusion">Leverhulme Trust's equity, diversity and inclusion strategy</a>.
         </p>
         <p>
           To discuss adjustments or raise a concern, please contact{" "}
@@ -1727,8 +1997,9 @@ function Site() {
       "/masters": "Masters+",
       "/pdra": "Postdoctoral & PDRA support",
       "/activities": "Conferences & cohort activities",
-      "/students": "Students",
+      "/students": "Leverhulme PhD Students",
       "/projects": "PhD Proposals",
+      "/eligibility": "Eligibility",
       "/apply": "How to Apply",
       "/contact": "Contact",
       "/register": "Register interest",
@@ -1749,7 +2020,7 @@ function Site() {
     ["/", "Home"],
     ["/themes", "Themes"],
     ["/about", "About"],
-    ["/students", "Students"],
+    ["/students", "Leverhulme PhD Students"],
   ];
   return (
     <>
@@ -1846,6 +2117,7 @@ function Site() {
           <Route path="/students" element={<Students />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/projects/:projectId" element={<Opportunity />} />
+          <Route path="/eligibility" element={<Eligibility />} />
           <Route path="/apply" element={<Apply />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/register" element={<RegisterInterest />} />
@@ -1894,10 +2166,11 @@ function Site() {
             <Link to="/masters">Masters+</Link>
             <Link to="/pdra">Postdoctoral & PDRA support</Link>
             <Link to="/activities">Conferences & cohort activities</Link>
-            <Link to="/students">Our students</Link>
+            <Link to="/students">Leverhulme PhD Students</Link>
           </div>
           <div className="footer-links">
             <Link to="/projects">PhD Proposals</Link>
+            <Link to="/eligibility">Eligibility</Link>
             <Link to="/apply">How to Apply</Link>
             <Link to="/register">Register interest</Link>
             <Link to="/contact">Contact</Link>
