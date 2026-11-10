@@ -993,7 +993,7 @@ function Students() {
           </h3>
           <p>
             {cohort === 1
-              ? "The first cohort has 11 planned studentships. Profiles of our Leverhulme PhD Students will appear here once recruitment and enrolment are complete."
+              ? "Profiles of our Leverhulme PhD Students will appear here once recruitment and enrolment are complete."
               : "Recruitment dates and Leverhulme PhD Student profiles for this future cohort will be announced in due course."}
           </p>
           {cohort === 1 && (
@@ -1027,9 +1027,8 @@ function Projects() {
         <div className="notice">
           <strong>First-cohort recruitment</strong>
           <p>
-            The first cohort has 11 planned studentships across these{" "}
-            {projects.length} approved research proposals. Applications close
-            in mid-December 2026.
+            There are {projects.length} approved research proposals for the
+            first cohort. Applications close in mid-December 2026.
           </p>
         </div>
         <div className="filters">
@@ -1463,7 +1462,7 @@ function Apply() {
       </PageIntro>
       <section className="section container intro">
         <div>
-          <span className="eyebrow">COHORT 01 · 11 STUDENTSHIPS</span>
+          <span className="eyebrow">COHORT 01 · {projects.length} PROPOSALS</span>
           <h2>Application to Responsible Hybrid Intelligence.</h2>
         </div>
         <div className="intro-copy">
