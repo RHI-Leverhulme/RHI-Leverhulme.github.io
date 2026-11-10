@@ -1691,7 +1691,7 @@ function Contact() {
         </p>
         <div className="directors">
           <article>
-            <h3>Dr Yashar Moshfeghi</h3>
+            <h3>Professor Yashar Moshfeghi</h3>
             <p>Programme Director · University of Strathclyde</p>
             <a
               className="text-link"
