@@ -1,0 +1,777 @@
+[
+  {
+    "id": "av-1",
+    "reference": "RHI-AV-1",
+    "title": "THINC: Team Human-AI Intelligence through Neural Control",
+    "theme": "Co-adaptation",
+    "hostUniversity": "University of Glasgow",
+    "leadSupervisor": {
+      "name": "Professor Aleksandra Vučković",
+      "position": "Professor of Neurotechnology and Rehabilitation Engineering",
+      "department": "James Watt School of Engineering",
+      "university": "University of Glasgow",
+      "email": "Aleksandra.Vuckovic@glasgow.ac.uk"
+    },
+    "summary": "Can two people and an AI learn to work as one team through brain signals? You will investigate how shared brain-computer control affects collaboration, performance and each person’s sense of control.",
+    "keywords": [
+      "brain-computer interfaces",
+      "EEG",
+      "human-AI collaboration",
+      "machine learning",
+      "shared control",
+      "agency",
+      "neurotechnology",
+      "cognitive psychology"
+    ],
+    "background": [
+      "Brain-computer interfaces translate patterns of brain activity into commands for a computer or another device. Most are designed for one person, but many activities depend on teamwork. What happens when two people use their brain signals to control the same environment, with an AI deciding how to combine their contributions?",
+      "This project explores that question through a shared virtual task. You will investigate whether combining two people’s signals improves performance, how an AI can learn to balance their contributions, and whether a better result also means better collaboration. A team could complete a task successfully while one participant feels ignored or unable to influence what happens. Understanding that difference is essential to designing responsible systems.",
+      "The project connects neuroscience and brain-computer interfaces with adaptive AI and the psychology of agency: our experience of initiating and controlling actions. It will examine how people change their strategies as the AI learns, and how different approaches to combining signals affect individual and joint control. The central Responsible Hybrid Intelligence question is how biological and artificial partners can adapt together while preserving meaningful human contributions.",
+      "As the Leverhulme PhD Student, you will help shape experiments on shared control and learning, alongside developing the computational and analytical methods needed to study them. The work aims to produce a clearer understanding of human-human-AI collaboration and reusable ways to evaluate it."
+    ],
+    "aims": [
+      "Compare individual and two-person brain-computer control, including fixed and adaptive ways of combining signals.",
+      "Test whether learning AI improves task performance while preserving each participant’s contribution.",
+      "Investigate how feedback, transparency and AI intervention affect individual and shared agency.",
+      "Examine how collaboration changes over repeated sessions and transfers to new tasks."
+    ],
+    "methods": [
+      "You will work with non-invasive electroencephalography (EEG), which records electrical brain activity through sensors on the scalp. Experiments with healthy adult volunteers will use imagined movement to control a shared virtual environment. You will compare fixed signal-combination rules with approaches that use confidence estimates and learning algorithms.",
+      "Performance measures will be combined with participants’ reports of control and EEG measures related to action monitoring. Recording both participants at the same time will allow you to study coordinated activity while accounting for shared stimuli and other possible explanations. Repeated sessions will reveal how people and the AI change together."
+    ],
+    "supervision": "Professor Aleksandra Vučković (Neurotechnology and Rehabilitation Engineering) leads the brain-computer interface experiments. Professor Yashar Moshfeghi (Artificial Intelligence) leads adaptive decoding and AI integration. Dr William McGeown (Psychology) designs measures of agency and participant experience. Professor Simon Hanslmayr (Brain Rhythms and Cognition) provides continuity supervision. You will work with Glasgow’s brain-computer interface facilities and develop skills in experimental design, real-time signal processing, machine learning and reproducible analysis. At Strathclyde, you will work with Professor Moshfeghi and Dr McGeown on adaptive AI and measures of shared agency."
+  },
+  {
+    "id": "av-2",
+    "reference": "RHI-AV-2",
+    "title": "Agency in the Loop: Understanding Control in Brain-Computer Interfaces",
+    "theme": "Agency",
+    "hostUniversity": "University of Glasgow",
+    "leadSupervisor": {
+      "name": "Professor Aleksandra Vučković",
+      "position": "Professor of Neurotechnology and Rehabilitation Engineering",
+      "department": "James Watt School of Engineering",
+      "university": "University of Glasgow",
+      "email": "Aleksandra.Vuckovic@glasgow.ac.uk"
+    },
+    "summary": "Does feeling in control help people learn to use a brain-computer interface, or does that feeling simply follow good performance? You will investigate this relationship through brain signals, feedback and learning experiments.",
+    "keywords": [
+      "brain-computer interfaces",
+      "sense of agency",
+      "EEG",
+      "neurofeedback",
+      "motor imagery",
+      "human-AI interaction",
+      "adaptive systems",
+      "experimental psychology"
+    ],
+    "background": [
+      "When an action produces the result we intended, we usually feel that we caused it. This sense of agency helps us distinguish our own actions from events controlled by someone or something else. Brain-computer interfaces create an unusual test of that experience: a person acts through a system that interprets noisy brain signals and may change its behaviour as it learns.",
+      "Good performance can make users feel more in control. But could the reverse also be true? Feeling in control might help someone learn to use the system more effectively. This project will investigate both directions of that relationship, separating the effects of agency from accuracy, reward and expectations.",
+      "You will compare two ways of interacting through brain activity. In one, participants imagine a movement that the interface translates into an action. In the other, they learn to regulate a brain signal using feedback, a process called neurofeedback. Comparing these approaches offers a way to explore whether agency depends on intending an external action or can also emerge through learning to influence one’s own neural activity.",
+      "Agency is the central Responsible Hybrid Intelligence theme. The project asks how control is experienced when a person and an adaptive system work together, and whether that experience changes learning. You will help design experiments that make this relationship testable and develop evidence about when adaptation supports meaningful human control."
+    ],
+    "aims": [
+      "Compare agency during imagined-movement control and neurofeedback.",
+      "Separate the effects of perceived control from performance, reward and expectation.",
+      "Test whether changing feedback alters agency and subsequent interface learning.",
+      "Evaluate whether brain and physiological signals provide useful measures of agency."
+    ],
+    "methods": [
+      "The core research will involve non-invasive experiments with healthy adults using established EEG and brain-computer interface facilities at Glasgow. You will manipulate feedback while participants complete imagined-movement and neurofeedback tasks, and examine whether training in one setting transfers to the other.",
+      "Measures will include self-reported control, task performance, EEG responses to errors, and physiological responses such as heart rate or skin conductance. Statistical modelling and validated decoding methods will help distinguish agency-related effects from changes in performance.",
+      "Depending on the findings and collaboration arrangements, later work could explore control of a soft robotic hand; a matched virtual hand provides an alternative. You will have scope to shape the experimental questions and analytical emphasis."
+    ],
+    "supervision": "Professor Aleksandra Vučković (Neurotechnology and Rehabilitation Engineering) leads the EEG and neurofeedback experiments. Professor Jonathan Delafield-Butt (Child Development) grounds the measures of agency in research on movement and intention. Professor Yashar Moshfeghi (Artificial Intelligence) advises on adaptive decoding and AI. Professor Simon Hanslmayr (Brain Rhythms and Cognition) provides continuity supervision. Professor Delafield-Butt hosts the Strathclyde secondment, with input from Professor Moshfeghi on adaptive AI. The optional robotics placement would be with Dr Lucas Ferrari Gerez (Soft Wearable Robotics) at the University of Auckland, subject to agreement."
+  },
+  {
+    "id": "bv-1",
+    "reference": "RHI-BV-1",
+    "title": "Decoding Memory States Across Mouse and Human Brains",
+    "theme": "Co-adaptation",
+    "hostUniversity": "University of Glasgow",
+    "leadSupervisor": {
+      "name": "Dr Brianna Vandrey",
+      "position": "Lecturer in Psychology & Neuroscience",
+      "department": "School of Psychology and Neuroscience",
+      "university": "University of Glasgow",
+      "email": "brianna.vandrey@glasgow.ac.uk"
+    },
+    "summary": "Why do some experiences become lasting memories while others fade? You will combine mouse brain imaging, human EEG and machine learning to investigate the neural patterns behind remembering and their potential to inform adaptive learning systems.",
+    "keywords": [
+      "memory",
+      "systems neuroscience",
+      "machine learning",
+      "EEG",
+      "microscopy",
+      "neural decoding",
+      "cross-species research",
+      "adaptive learning"
+    ],
+    "background": [
+      "Remembering depends on activity across networks of brain cells, rather than a single area for memory in the brain. Yet we still know relatively little about which networks are recruited when an experience is first learned or later recalled, and how their activity predicts successful remembering. Answering these questions could distinguish different brain states that are associated with remembering or forgetting.",
+      "This project brings together techniques for labelling active brain cells in mice and non-invasive recordings in healthy human volunteers. New molecular techniques will be used that can label cells that were active during learning and recall stages of a mouse memory task. Whole-brain imaging can then reveal how active cells are distributed. Human electroencephalography, or EEG, offers a complementary view of the rapidly changing electrical activity associated with learning and recall.",
+      "You will use these approaches to investigate whether shared principles of memory organisation can be identified across species and methods. Machine learning will help reveal patterns that distinguish successful from unsuccessful memory formation. Any differences across species will be highly informative, helping us understand translatability from mice to humans and where measurements can effectively inform technologies that support human learning and memory.",
+      "Within Responsible Hybrid Intelligence, the core contribution is to establish how reliably memory states can be decoded across individuals, providing evidence about the possibilities and limits of systems that adapt to a learner’s changing state. You will have scope to shape the experimental comparisons and computational methods, while developing an interdisciplinary understanding of memory and the limits of neural prediction."
+    ],
+    "aims": [
+      "Map brain-cell networks recruited during learning and recall in healthy mice.",
+      "Identify network features associated with successful remembering.",
+      "Investigate related memory processes using EEG in healthy human volunteers.",
+      "Test the reliability and individual variability of memory-state decoding, with adaptive tasks explored only if predictions are sufficiently robust."
+    ],
+    "methods": [
+      "The first stages will use activity-dependent cell labelling, mouse memory tasks and whole-brain microscopy to map networks of brain cells involved in encoding and retrieval. Machine-learning analyses will examine which patterns of brain cell recruitment predict memory outcomes.",
+      "You will then learn human EEG methods through collaboration with William McGeown’s group at Strathclyde and conduct an analogous human memory study. Computational models will assess whether EEG can distinguish memory states and whether predictions generalise across individuals. If decoding is reliable, a later pilot could test adjusting the presentation of information in response to predicted memory state.",
+      "This project includes experimental work with animals as well as human participants. Training will cover the relevant experimental techniques, ethical and welfare requirements, statistics and reproducible analysis. The combination offers experience spanning molecular neuroscience, imaging, electrophysiology and AI."
+    ],
+    "supervision": "Dr Brianna Vandrey (Psychology and Neuroscience) leads mouse experiments and brain imaging. Dr William McGeown (Psychology) guides the human memory and EEG studies. Professor Yashar Moshfeghi (Artificial Intelligence) advises on machine learning for decoding memory states. Professor Simon Hanslmayr (Brain Rhythms and Cognition) provides continuity supervision. A Strathclyde secondment with Dr McGeown will develop the human EEG skills needed to connect the mouse and human memory studies."
+  },
+  {
+    "id": "eg-1",
+    "reference": "RHI-EG-1",
+    "title": "Agency in AI-Driven Memory Enhancement",
+    "theme": "Agency",
+    "hostUniversity": "University of Glasgow",
+    "leadSupervisor": {
+      "name": "Dr Emma C. Gordon",
+      "position": "Reader in Philosophy",
+      "department": "School of Humanities, Philosophy",
+      "university": "University of Glasgow",
+      "email": "Emma.Gordon@glasgow.ac.uk"
+    },
+    "summary": "If AI helps you remember, how can you know when to trust your memory and remain in charge of your learning? This philosophy project examines when adaptive memory technologies support autonomy and when they undermine it.",
+    "keywords": [
+      "philosophy",
+      "AI ethics",
+      "memory",
+      "autonomy",
+      "epistemology",
+      "neuroethics",
+      "cognitive agency",
+      "human enhancement"
+    ],
+    "background": [
+      "Imagine a technology that monitors your brain activity and uses AI to decide when to influence memory. Even if it improved recall, would it help you judge which recollections to trust? Would you still direct your own learning, or could the system quietly shape what you remember and how you evaluate it?",
+      "This project examines these questions through philosophy informed by neuroscience and AI. Its focus is episodic memory: memory of personally experienced events. Such memories matter not only because they supply information, but because we use them to understand our lives, assess evidence and make choices. A change in memory performance does not by itself show that a person has gained greater autonomy or better judgement.",
+      "You will investigate what users need to understand about an adaptive memory system, which decisions they should retain control over, and how responsibility for remembering changes as reliance develops. The project will examine technologies as evolving partnerships, asking how user understanding and trust might change when both the system and the person adapt over time.",
+      "Agency is the central Responsible Hybrid Intelligence theme, with links to the ethical basis of trust and the consequences of co-adaptation. The research will develop philosophical arguments about when technological influence supports cognitive agency. It offers scope to shape cases and concepts while working across disciplinary boundaries, without requiring the development of a new device or the testing of a treatment."
+    ],
+    "aims": [
+      "Establish when AI-driven memory support strengthens rather than disrupts cognitive agency.",
+      "Identify which aspects of remembering and learning should remain under users’ control.",
+      "Examine what users need to understand to judge the reliability of assisted memories.",
+      "Explore how system adaptation and changing reliance affect autonomy over time."
+    ],
+    "methods": [
+      "You will combine philosophical argument with critical analysis of published neuroscience and AI research. Carefully constructed hypothetical cases will compare systems that differ in what they predict, when they act, what they explain and how much influence users retain.",
+      "Input from neuroscience will help keep these cases sensitive to realistic capabilities, limitations and individual differences. AI expertise will support analysis of what predictions actually establish, rather than assuming that a system can directly read or verify a memory. A sequence of cases will examine how agency may change as users and systems adapt.",
+      "The project is primarily philosophical and does not require new brain-stimulation experiments, clinical testing or a new simulation platform. Expected contributions include a doctoral thesis and reusable questions for evaluating the relationship between memory assistance, understanding and autonomy."
+    ],
+    "supervision": "Dr Emma C. Gordon (Philosophy) leads the analysis of autonomy and epistemic agency. Professor Simon Hanslmayr (Brain Rhythms and Cognition) connects the analysis to evidence on episodic memory and stimulation. Professor Yashar Moshfeghi (Artificial Intelligence) assesses AI prediction and adaptation. Professor Monika Harvey (Cognitive Psychology) advises on attention, ageing and differences between users. You will develop skills in philosophical argument and interdisciplinary case analysis. A planned Strathclyde secondment with Professor Moshfeghi will help you build technically realistic cases about prediction uncertainty, adaptive memory support and user autonomy."
+  },
+  {
+    "id": "eg-2",
+    "reference": "RHI-EG-2",
+    "title": "Mental Privacy and Criminal Intent in Hybrid Cognitive Systems",
+    "theme": "Agency",
+    "hostUniversity": "University of Glasgow",
+    "leadSupervisor": {
+      "name": "Dr Emma C. Gordon",
+      "position": "Reader in Philosophy",
+      "department": "School of Humanities, Philosophy",
+      "university": "University of Glasgow",
+      "email": "Emma.Gordon@glasgow.ac.uk"
+    },
+    "summary": "Could something suggested by an AI be mistaken for your intention? This project explores mental privacy and the ethical limits of using records from AI-assisted cognitive systems as evidence of criminal intent.",
+    "keywords": [
+      "mental privacy",
+      "philosophy",
+      "criminal intent",
+      "AI ethics",
+      "cognitive liberty",
+      "legal evidence",
+      "autonomy",
+      "brain-computer interfaces"
+    ],
+    "background": [
+      "An AI assistant may record possible plans, suggest actions or help a person organise their thinking. A brain-computer interface may generate further records about activity interpreted by a machine. If authorities gain access to these systems, what could their contents legitimately tell us about the person’s intentions?",
+      "Considering an action is different from intending to carry it out. An AI suggestion is different again. Yet records from a closely connected human-AI system could blur these distinctions. A prediction about a cognitive state might appear authoritative even when it is uncertain or shaped by the system’s own contribution. These possibilities raise questions about mental privacy, fair treatment and the evidence needed to attribute an intention to someone.",
+      "This project will develop a philosophical and legally informed account of when access to hybrid cognitive systems is ethically justified and how their records should be interpreted. It asks whether some intrusions into mental life remain impermissible even when they could help an investigation, and what safeguards should govern access, interpretation and use.",
+      "Agency is the central Responsible Hybrid Intelligence theme because the project examines when a record reflects a person’s own intention rather than a passing thought or an AI-generated possibility. Grounding contributes questions about evidence, responsibility and rights. You will bring ethical analysis into dialogue with legal reasoning and the technical limits of cognitive inference, with scope to refine the cases and arguments that define the thesis."
+    ],
+    "aims": [
+      "Clarify mental privacy and the ethical limits of a right to it.",
+      "Assess when information from hybrid cognitive systems can justify attributing criminal intent.",
+      "Distinguish intentions from imagined possibilities, passing considerations and AI suggestions.",
+      "Develop principled safeguards for accessing devices and interpreting their records as evidence."
+    ],
+    "methods": [
+      "The research will combine philosophical argumentation, legal analysis and critical evaluation of peer-reviewed work on AI-based inference about cognition. You will use hypothetical cases to test distinctions between thinking, considering and intending, and assess how reliably technical systems support each kind of claim.",
+      "The legal analysis will draw on relevant Scottish rules on criminal evidence, alongside data protection, privacy, cognitive liberty and fair-trial principles. Collaboration across philosophy, law and AI will connect questions about permissible access with questions about what a system can actually establish.",
+      "The project does not require criminal case files or real neural datasets. Its outputs will include a doctoral thesis and a reusable ethical framework for analysing cases in which records from AI-integrated devices are proposed as evidence of intention."
+    ],
+    "supervision": "Dr Emma C. Gordon (Philosophy) leads the analysis of intention and mental privacy. Professor Guido Noto La Diega (Law, Technology and Innovation) guides the work on legal rights and data governance. Professor Yashar Moshfeghi (Artificial Intelligence) helps assess what AI and neural decoding can establish about cognitive states. You will develop skills in philosophical argument, legal reasoning and evaluating the technical limits of AI inference. A planned Strathclyde secondment with Professor Noto La Diega will connect philosophical analysis of intention with legal reasoning about how records are accessed and interpreted."
+  },
+  {
+    "id": "gd-1",
+    "reference": "RHI-GD-1",
+    "title": "Accountable Hybrid Intelligence: Rethinking Responsibility and Liability in Brain-AI Systems",
+    "theme": "Grounding",
+    "hostUniversity": "University of Strathclyde",
+    "leadSupervisor": {
+      "name": "Professor Guido Noto La Diega",
+      "position": "Professor of Law, Technology and Innovation",
+      "department": "Strathclyde Law School",
+      "university": "University of Strathclyde",
+      "email": "guido.notoladiega@strath.ac.uk"
+    },
+    "summary": "When a brain-AI system makes a decision, who should be accountable? You will connect legal analysis with experiments on a system that turns brain signals into commands to investigate what technical records of what the system did can – and cannot – tell us about responsibility and liability.",
+    "keywords": [
+      "AI accountability",
+      "technology law",
+      "brain-computer interfaces",
+      "liability",
+      "AI law",
+      "neural data",
+      "neurotechnology",
+      "NeuroLaw",
+      "responsible AI",
+      "explainability",
+      "human oversight"
+    ],
+    "background": [
+      "A command produced by a brain-AI system passes through several stages. Brain signals are interpreted by software; evidence is combined into a decision, and an adaptive controller may change what happens next. When something goes wrong, a detailed record of those stages can help explain the sequence of events. But a record does not automatically tell us what caused the outcome, or who should be legally responsible.",
+      "This project starts with that distinction. It separates traceability, causal attribution and legal responsibility – what the records show, what actually caused the outcome, and who should answer for it – then investigates how the design of a brain-computer interface (a system that lets someone control a device with brain signals) affects each. For example, making the system more or less cautious can change which part of it drives an action, even if the person’s brain signals are identical.",
+      "You will bring legal reasoning into direct dialogue with technical experiments. The legal strand examines assumptions about control, defects, and fault when control passes back and forth between the person and the system. The computational strand tests what can be recorded and inferred from a system fitted with detailed logging. Together, they will explore whether meaningful human oversight can be supported by the system’s own measure of how sure it is (uncertainty estimates), auditable decisions, and clear limits on intervention.",
+      "Grounding is the central Responsible Hybrid Intelligence theme: how responsibility can be justified when action is distributed across biological and artificial components. You will help choose the failure scenarios and legal questions that anchor the research, developing an interdisciplinary contribution that goes beyond treating transparency as a complete solution to accountability."
+    ],
+    "aims": [
+      "Examine how liability frameworks address changing control and authority in brain-AI systems.",
+      "Test what a brain-computer interface’s records reveal about the components behind an executed command.",
+      "Distinguish technical traceability from causal attribution and legal responsibility.",
+      "Evaluate whether systems that admit doubt, keep reliable records and limit their own intervention can support meaningful human oversight."
+    ],
+    "methods": [
+      "You will combine legal analysis of liability and data-protection law with experiments on a computer model of a brain-computer interface that records each step of its decision-making. Openly available recordings of brain activity (EEG) will be replayed through the model’s three steps: reading the signals, weighing the evidence for what the person intends, and deciding whether to act, so you can change how much evidence the system needs before it acts, how it handles doubt, and when its controller steps in.",
+      "You will introduce deliberate faults to test whether the system’s records give enough evidence to show, defensibly, what went wrong and who or what was responsible. Technical work will focus on three safeguards: systems that can say ‘I’m not sure’ and choose not to act, records that cannot be altered without detection, and limits on how far the system can step in by itself. Workshops with legal, technical and clinical experts will use realistic scenarios to test what accountability should require.",
+      "Replaying existing recordings is the core of the project. A small test with live users is an optional extra and would need separate ethical approval. The project will not claim more than replayed recordings can show, particularly about how people adapt to these systems over time."
+    ],
+    "supervision": "Professor Guido Noto La Diega (Law, Technology and Innovation) turns legal accountability requirements into audit criteria. Professor Yashar Moshfeghi (Artificial Intelligence) leads the technical work on neural decoding and responsible AI. Professor Aleksandra Vučković (Neurotechnology and Rehabilitation Engineering) reviews decision records against real-time interface practice. Professor Keith Mathieson (Neurophotonics) advises on device constraints. Dr Jonathan Brown (Law) maintains the supervision record and provides continuity cover. You will develop skills in legal analysis, reproducible technical experiments and evaluating audit records. A Glasgow secondment with Professor Vučković will relate the project’s decision records and oversight requirements to brain-computer interface practice."
+  },
+  {
+    "id": "gd-2",
+    "reference": "RHI-GD-2",
+    "title": "Fundamental Rights by Design in AI-Brain Interfaces",
+    "theme": "Grounding",
+    "hostUniversity": "University of Strathclyde",
+    "leadSupervisor": {
+      "name": "Professor Guido Noto La Diega",
+      "position": "Professor of Law, Technology and Innovation",
+      "department": "Strathclyde Law School",
+      "university": "University of Strathclyde",
+      "email": "guido.notoladiega@strath.ac.uk"
+    },
+    "summary": "How can a person’s fundamental rights – such as mental and physical integrity, privacy, freedom of expression – be built into technologies that connect AI with the brain? You will combine law, participatory research, and speculative design to explore fundamental rights in hybrid intelligence.",
+    "keywords": [
+      "technology law",
+      "human rights",
+      "neuroethics",
+      "mental privacy",
+      "regulation by design",
+      "participatory research",
+      "speculative design",
+      "legal design",
+      "AI governance",
+      "neurotechnology",
+      "brain-computer interfaces",
+      "AI law"
+    ],
+    "background": [
+      "Technologies that connect AI with brain activity raise questions that go beyond data security. They may work out things about how a person thinks or feels, influence a person’s experience, or change how decisions are made. What would it mean for such systems to respect mental integrity, freedom, and consent from the outset?",
+      "Existing approaches to trustworthy AI often focus on transparency and privacy. These are important, but they may not fully address a system that learns with its user or shares control over an action. Consent can become harder to interpret as capabilities and reliance change. Responsibility can become less clear when decisions arise from several interacting components. These questions are especially significant when a person’s ability to be heard or to make decisions is questioned.",
+      "This project explores Fundamental Rights by Design: the idea that rights should inform how a hybrid system is conceived and evaluated, rather than being considered only after it exists. You will investigate the legal and ethical meaning of rights in AI-brain interfaces and examine how healthy adults understand their implications.",
+      "Grounding is the central Responsible Hybrid Intelligence theme, connected to agency and co-adaptation. The research combines legal analysis with participatory inquiry and speculative legal design (i.e. ‘provotypes’). You will have scope to choose the case studies and develop research scenarios that make abstract questions about rights tangible, while keeping a clear distinction between exploratory research devices and technologies intended for clinical use."
+    ],
+    "aims": [
+      "Investigate how a person and an AI system adjusting to each other over time affects the person’s fundamental rights.",
+      "Explore how people with lived experience understand the control shared between person and machine in AI-brain interfaces.",
+      "Examine how fundamental rights can be translated into design requirements and inform responsibility.",
+      "Use participatory and speculative design to test the implications of alternative approaches."
+    ],
+    "methods": [
+      "The project will combine legal and literature analysis with a small number of current and prospective AI-brain interface case studies. You will examine relevant AI regulation, liability frameworks and human rights law.",
+      "Subject to ethical approval, interviews and focus groups will involve people with lived experience and relevant professional perspectives. Participatory workshops will develop and discuss speculative designs, sometimes called 'provotypes’ (provocative prototypes): research objects intended to provoke questions and reveal assumptions. These will be exploratory devices for studying rights, rather than clinical tools tested on patients or real interfaces.",
+      "Collaboration with philosophy, neuroscience, and AI researchers will help connect participants’ experiences with technical possibilities and limitations. The work will contribute a thesis, academic analysis and principles for understanding rights in hybrid systems, with careful attention to consent, accessibility and participant wellbeing."
+    ],
+    "supervision": "Professor Guido Noto La Diega (Law, Technology and Innovation) leads the legal and socio-legal research. Professor Yashar Moshfeghi (Artificial Intelligence) helps translate legal and ethical requirements into design protocols. Dr Emma C. Gordon (Philosophy) guides the ethics analysis. Professor Shuzo Sakata (Systems Neuroscience) checks whether the proposed safeguards could work in practice given what we know about the brain. Dr Birgit Schippers (Law and Human Rights) maintains the supervision record and provides continuity cover. You will develop skills in legal analysis, participatory research, and speculative design. A Glasgow secondment with Dr Gordon will develop the rights and agency analysis and bring the speculative designs into discussion with researchers from other disciplines."
+  },
+  {
+    "id": "jd-1",
+    "reference": "RHI-JD-1",
+    "title": "Intention in Motion: Agency, Authorship, and Responsibility in AI-Assisted Communication Without Speech",
+    "theme": "Agency",
+    "hostUniversity": "University of Strathclyde",
+    "leadSupervisor": {
+      "name": "Professor Jonathan Delafield-Butt",
+      "position": "Professor of Child Development",
+      "department": "Department of Psychological Sciences and Health",
+      "university": "University of Strathclyde",
+      "email": "jonathan.delafield-butt@strath.ac.uk"
+    },
+    "summary": "When someone communicates by spelling rather than speaking, each word begins as an intentional movement. When an AI assistant helps someone communicate by adapting to that movement, whose words are they? You will investigate how intention is expressed in movement, and the evidence needed to distinguish AI support for a person’s own intentions from AI-generated content, combining movement science, philosophy and law.",
+    "keywords": [
+      "communicative agency",
+      "intentional motor control",
+      "authorship",
+      "embodied cognition",
+      "augmented reality",
+      "eye tracking",
+      "human-AI interaction",
+      "communication without speech",
+      "neurodiversity",
+      "philosophy"
+    ],
+    "background": [
+      "Predictive text and other AI tools increasingly influence the words people produce. This raises a basic question: when does a system help someone express an intention, and when does it contribute content that should not simply be attributed to that person? The question becomes particularly significant when spoken communication is unavailable and the preferred medium of communication is instead spelling. Each movement intentionally communicates, and new technology means AI may adapt or anticipate the intention of that movement. Others may dispute who authored a message; the AI may mistake an unintended movement as intentional.",
+      "This project investigates agency, authorship and responsibility in AI-assisted communication. It will use letter-selection tasks and an augmented-reality spelling environment as experimental tools for studying how a person, a communication partner and an AI contribute to an outcome. The purpose is to understand the foundations of communicative agency, rather than to assume that fluent output demonstrates a user’s understanding or intention.",
+      "Intention is visible in movement before an action completes: eye gaze leads the hand, and the prospective timing of a reach anticipates its target. You will examine how these signatures and other signals reveal self-initiated selection, and how they change when an AI adapts to them in a hybrid sensorimotor loop. Experiments will distinguish assistance with movement from assistance that predicts or generates content. The research will also ask how much verification is appropriate when the consequences of misattributing a message become more serious.",
+      "Agency is central to this Responsible Hybrid Intelligence project, with philosophy and law contributing questions about testimony, trust and rights. Because the timing of intentional movement varies between people, comparing adults across neurotypes will test the limits of proposed measures, and of AI that reads intention from movement, rather than assume one pattern applies to everyone. You will have scope to shape the conceptual distinctions and experimental comparisons, while contributing to a more careful account of how human intentions are expressed in movement and through AI."
+    ],
+    "aims": [
+      "Characterise how intention is expressed in movement during self-initiated letter selection, including gaze lead, physiological measures, and the prospective timing of reach.",
+      "Determine how agency in intentional movement is supported, shared or displaced when an adaptive AI couples to it, distinguishing AI support for movement from AI contributions to message content.",
+      "Test proposed agency measures across neurotypical and non- or minimally-speaking neurodivergent adults.",
+      "Examine what evidence justifies attributing a message to a user and how verification should reflect the stakes."
+    ],
+    "methods": [
+      "You will combine conceptual analysis of authorship and testimony with experiments that use known messages as ground truth. Studies will compare physical and augmented-reality letterboards under conditions with no AI, movement assistance and predictive AI assistance.",
+      "Eye tracking, head and kinematic analysis of reaching measurements, together with physiological indicators of effort will help examine the relationship between intention, prospective movement and selection. Participants will include consenting neurotypical adults and non- or minimally-speaking neurodivergent adults who can consent for themselves. A lived-experience advisory group will inform the research.",
+      "The interdisciplinary team connects sensorimotor science, adaptive AI, philosophy and law, with an established international collaboration on the research platform. Preregistered protocols and explicit tests of message attribution will support critical interpretation. The platform is used to investigate agency, not to develop or evaluate a therapy or assistive product."
+    ],
+    "supervision": "Professor Jonathan Delafield-Butt (Child Development) leads the intentional movement and communication experiments. Dr Emma C. Gordon (Philosophy) leads work on authorship and testimony. Professor Yashar Moshfeghi (Artificial Intelligence) guides computational modelling and provides Strathclyde continuity cover. Professor Monika Harvey (Cognitive Psychology) is proposed to advise on the neuroscience of agency and provide Glasgow continuity cover. Dr Olga Dobrushina (Developmental Psychology) will provide additional guidance. You will develop skills in experimental design, movement and psychobiological measurement, and conceptual analysis of communicative agency. A Glasgow secondment with Dr Gordon will develop the analysis of authorship, testimony and trust in AI-assisted communication."
+  },
+  {
+    "id": "km-1",
+    "reference": "RHI-KM-1",
+    "title": "A Wireless Neural Interface for Real-Time Brain-AI Co-adaptation",
+    "theme": "Co-adaptation",
+    "hostUniversity": "University of Strathclyde",
+    "leadSupervisor": {
+      "name": "Professor Keith Mathieson",
+      "position": "Professor of Neurophotonics",
+      "department": "Institute of Photonics",
+      "university": "University of Strathclyde",
+      "email": "keith.mathieson@strath.ac.uk"
+    },
+    "summary": "What happens when a learning AI interacts directly with a living neural circuit? You will develop a wireless optoelectronic interface combining neural recording, light-based stimulation, and embedded AI to investigate how artificial and biological systems adapt together.",
+    "keywords": [
+      "neurotechnology",
+      "embedded AI",
+      "neural interfaces",
+      "optogenetics",
+      "electronics",
+      "machine learning",
+      "systems neuroscience",
+      "co-adaptation"
+    ],
+    "background": [
+      "Neural interfaces are now able to record brain activity and use that information to decide when to stimulate a brain circuit. When this is implemented in a closed loop, the next stimulation action depends on the brain’s latest response. Machine learning algorithms offer great potential in real-time analysis of these signals. However, how these two systems adapt to each other is difficult to understand, as both the artificial controller and the biological network may change during an experiment.",
+      "This project will develop a research platform neural interface that can study this interaction in real time. It combines recording microelectrodes and cellular-scale light sources with wireless electronics and onboard AI processing. The resulting interface will allow neural activity to be measured, interpreted, and used to adjust stimulation while recording what changes in neural circuits.",
+      "These learning algorithms may alter stimulation in unexpected ways, as the neural circuits adapt to the inputs they receive. Understanding these reciprocal changes is important for interpreting experiments and for asking where control resides in a coupled brain-AI system.",
+      "Co-adaptation is a central Responsible Hybrid Intelligence theme. The project brings together electronic engineering, photonics, machine learning and systems neuroscience to help answer questions about learning and control, through development of novel technology. You will help shape the algorithms and experiments that demonstrate the capabilities of the technology, evaluating how an AI’s changes in stimulation relate to subsequent changes in neural activity. Research will focus on technology development with non-disease animal models and basic neuroscience implications; clinical applications are outside the project’s scope. The work offers a route to understanding interactions that cannot be captured by studying either the AI or the neural circuit alone."
+    ],
+    "aims": [
+      "Develop a wireless interface combining neural recording and optical stimulation.",
+      "Integrate real-time signal analysis and learning algorithms into the control electronics.",
+      "Measure how neural activity changes in response to an adaptive stimulation policy.",
+      "Investigate co-learning and the distribution of control across the biological and artificial components."
+    ],
+    "methods": [
+      "You will develop electronic control systems for implantable probes containing recording electrodes and miniature light-emitting diodes. Optical stimulation will use optogenetic approaches, in which selected neural cells can respond to light. Real-time processing will extract information from neural signals and feed it to an embedded learning algorithm that adjusts stimulation.",
+      "The platform will be evaluated through mouse experiments in collaboration with Professor Shuzo Sakata’s laboratory, connecting technical performance with measurements of neural adaptation.",
+      "Keith Mathieson’s neurotechnology group will support interface and electronics development, while collaboration with Yashar Moshfeghi’s team will support AI methods. The work builds on existing expertise in programmable electronics and neural interfaces, bringing hardware, computation and experimental neuroscience into one research programme."
+    ],
+    "supervision": "Professor Keith Mathieson (Neurophotonics) leads wireless interface and electronics development. Professor Yashar Moshfeghi (Artificial Intelligence) guides machine learning for the controller and supervises the planned secondment. Professor Shuzo Sakata (Systems Neuroscience) supervises neural recording and neuroscience aspects. Dr Emma C. Gordon (Philosophy) advises on ethical questions raised by adaptive neural interfaces."
+  },
+  {
+    "id": "pc-1",
+    "reference": "RHI-PC-1",
+    "title": "Who Adapts to Whom in Wearable Human-AI Systems",
+    "theme": "Co-adaptation",
+    "hostUniversity": "University of Strathclyde",
+    "leadSupervisor": {
+      "name": "Professor Patricia Connolly",
+      "position": "Professor of Biomedical Engineering",
+      "department": "Department of Biomedical Engineering",
+      "university": "University of Strathclyde",
+      "email": "patricia.connolly@strath.ac.uk"
+    },
+    "summary": "When a wearable system learns from you, how can you stay in control of what changes? You will compare different ways for people and AI to adapt together during everyday interaction, combining bioengineering, AI and human-computer interaction.",
+    "keywords": [
+      "wearable systems",
+      "co-adaptation",
+      "bioengineering",
+      "human-computer interaction",
+      "adaptive AI",
+      "user control",
+      "sensor interfaces",
+      "AI ethics"
+    ],
+    "background": [
+      "A wearable interface can change with use. A person may learn how to provide a clearer signal, while the AI changes how it interprets that signal or responds to it. Improvements can therefore come from the user, the system or both. Understanding who is adapting, and on what evidence, is essential if learning interfaces are to remain understandable and controllable.",
+      "This project will investigate those processes in a bounded everyday interaction task. Rather than using wearable signals to diagnose health or infer hidden personal states, it will treat a deliberately supplied signal as an input to a system. That creates a practical setting for testing how changes in contact, calibration and repeated use affect interaction.",
+      "You will compare a fixed system, a system whose adaptation is directed by the user, and a system in which both sides can adapt within visible limits. The central question is not simply which performs best, but how adaptation affects understanding, correction, override and willingness to continue. A user’s acceptance or rejection of a change matters separately from an algorithm’s prediction.",
+      "Co-adaptation is the main Responsible Hybrid Intelligence theme, with agency and ethics helping define permissible system updates. The research combines bioengineering, adaptive AI and human-computer interaction. You will help select the task and sensing approach and develop a manageable comparison of adaptation policies, contributing evidence about what makes mutual learning useful and accountable."
+    ],
+    "aims": [
+      "Select a bounded interaction task and evaluate a suitable wearable sensing approach.",
+      "Compare fixed, user-directed and mutually adaptive system policies.",
+      "Measure effects on performance, understanding, correction, override and perceived control.",
+      "Investigate how visible and contestable changes support responsible co-adaptation."
+    ],
+    "methods": [
+      "The project will begin with bench testing and interaction scenarios to establish a feasible task and signal pathway. Candidate inputs include skin impedance, pulse or skin conductance, used as deliberate interaction signals rather than as measures of medical, emotional or cognitive states. For example, a signal could drive a simple biofeedback response, such as a breathing cue, without assessing health. The final device and task will be selected during the research.",
+      "A modest repeated-interaction study with adult volunteers will compare a small number of adaptation policies once the relevant approvals and access are in place. Measures will cover signal quality, interpretation errors, task outcomes and participants’ understanding and control. Users will be able to inspect, correct or reject adaptation and return to a non-adaptive mode.",
+      "Controlled or synthetic signals and scenario-based interaction provide an alternative if wearable or participant access is unavailable."
+    ],
+    "supervision": "Professor Patricia Connolly (Biomedical Engineering) leads wearable sensing and measurement. Professor Yashar Moshfeghi (Artificial Intelligence) leads the comparison of adaptive AI policies. Dr Emma C. Gordon (Philosophy) is proposed to guide ethics and user agency. Professor Keith Mathieson (Neurophotonics) is proposed to advise on technical feasibility and provide continuity cover. You will develop skills in wearable sensing, adaptive AI evaluation and responsible interaction design. A proposed Glasgow secondment with Dr Gordon would examine how users can inspect, correct or reject changes made by an adaptive wearable system."
+  },
+  {
+    "id": "sh-1",
+    "reference": "RHI-SH-1",
+    "title": "Adaptive Brain Stimulation and the Neural Basis of Memory",
+    "theme": "Co-adaptation",
+    "hostUniversity": "University of Glasgow",
+    "leadSupervisor": {
+      "name": "Professor Simon Hanslmayr",
+      "position": "Professor of Brain Rhythms and Cognition",
+      "department": "School of Psychology and Neuroscience",
+      "university": "University of Glasgow",
+      "email": "Simon.Hanslmayr@glasgow.ac.uk"
+    },
+    "summary": "Can AI identify when a brain is ready to form a memory and use that information to guide stimulation? You will investigate adaptive neural control through existing human recordings, animal experiments and a computational model of the hippocampus.",
+    "keywords": [
+      "memory",
+      "machine learning",
+      "neural decoding",
+      "hippocampus",
+      "brain stimulation",
+      "computational neuroscience",
+      "electrophysiology",
+      "co-adaptation"
+    ],
+    "background": [
+      "Brain stimulation can influence memory, but its effects are inconsistent. The same stimulation settings may help in one situation and disrupt remembering in another. One explanation is that fixed settings overlook a moving target: the activity of the brain when a memory is being formed.",
+      "This project will investigate that possibility through a system that analyses neural activity and adapts stimulation in response. The focus is the hippocampus, a brain structure important for forming memories of events. You will study which activity patterns predict successful encoding, the process by which an experience becomes a memory, and whether changing the timing and settings of stimulation changes the outcome.",
+      "The research connects three sources of evidence around one question: how ongoing brain activity should inform adaptive stimulation. Existing intracranial recordings from people performing memory tasks will support the development of predictive algorithms. Animal experiments will allow controlled investigation of stimulation and neural responses. A biologically detailed computer model will provide a further setting for testing how an adaptive framework behaves.",
+      "Co-adaptation is the main Responsible Hybrid Intelligence theme: an artificial system responds to a biological system whose activity is itself changing. The project also raises questions about interpreting neural predictions and understanding the consequences of algorithmic control. You will have scope to shape model design, evaluation measures and the scientific interpretation of results. The aim is to test how brain-state-aware control works, rather than assume that better prediction automatically produces better memory."
+    ],
+    "aims": [
+      "Identify neural patterns that predict successful and unsuccessful memory encoding.",
+      "Develop machine-learning methods for classifying memory-related brain states.",
+      "Test how the timing and parameters of closed-loop stimulation affect neural activity and memory in an animal model.",
+      "Evaluate the adaptive framework in a biologically detailed computer model of the human hippocampus."
+    ],
+    "methods": [
+      "You will first analyse an existing dataset of intracranial neural recordings collected while people performed memory tasks. Machine-learning models will examine which signals predict encoding outcomes and how reliably they distinguish states associated with better and poorer remembering.",
+      "The next stage will use animal experiments to investigate whether stimulation guided by those states can change neural activity and memory performance, including the effects of timing, intensity and duration. The resulting framework will also be studied in a biophysically realistic computational model of the human hippocampus. This project includes animal research; it does not propose a new human stimulation trial.",
+      "You will develop skills in neural-data analysis, model validation and experimental reasoning, with scope to refine the algorithms and questions within the proposed programme."
+    ],
+    "supervision": "Professor Simon Hanslmayr (Brain Rhythms and Cognition) leads the analysis of human intracranial recordings. Dr Brianna Vandrey (Psychology and Neuroscience) supervises animal work and interpretation of neural mechanisms. Professor Yashar Moshfeghi (Artificial Intelligence) guides machine learning and adaptive control. Dr William McGeown (Psychology) provides continuity supervision. A Strathclyde secondment with Dr McGeown will provide training in non-invasive EEG and memory research."
+  },
+  {
+    "id": "sh-2",
+    "reference": "RHI-SH-2",
+    "title": "Personalising Rhythmic Sensory Stimulation for Memory with AI",
+    "theme": "Co-adaptation",
+    "hostUniversity": "University of Glasgow",
+    "leadSupervisor": {
+      "name": "Professor Simon Hanslmayr",
+      "position": "Professor of Brain Rhythms and Cognition",
+      "department": "School of Psychology and Neuroscience",
+      "university": "University of Glasgow",
+      "email": "Simon.Hanslmayr@glasgow.ac.uk"
+    },
+    "summary": "Why do rhythmic lights and sounds affect memory differently from person to person? You will use brain recordings and machine learning to investigate whether stimulation matched to individual neural rhythms produces more reliable effects on remembering.",
+    "keywords": [
+      "memory",
+      "MEG",
+      "machine learning",
+      "sensory stimulation",
+      "neural oscillations",
+      "cognitive neuroscience",
+      "personalisation",
+      "co-adaptation"
+    ],
+    "background": [
+      "Rhythmic light and sound can influence brain activity and sometimes improve remembering. Yet these effects are often small, variable or difficult to reproduce. A common approach is to give everyone the same stimulation pattern, even though the brain rhythms associated with memory differ between people and change over time.",
+      "This project will investigate whether those differences can guide more informative stimulation. You will study the relationship between neural rhythms, memory performance and responses to visual and auditory stimulation, then test whether AI can identify settings suited to an individual. The research asks whether personalisation adds value beyond conventional fixed settings, rather than assuming that a personalised prediction will work.",
+      "Magnetoencephalography, or MEG, records the tiny magnetic fields produced by brain activity. It offers a way to examine the timing of activity in networks involved in episodic memory: memory for events and experiences. Combining these measurements with behavioural data and machine learning could reveal which features are useful for predicting an individual’s response.",
+      "Co-adaptation is the central Responsible Hybrid Intelligence theme. The project connects a changing biological system with an artificial system that learns from neural responses. It will test personalised stimulation against fixed settings and explore how neural responses can inform further adaptation. You will help shape the computational approach, stimulation design and interpretation, while working across neuroscience, psychology, AI and neurotechnology. The resulting evidence will address when brain-informed adaptation is useful and where its predictive limits lie."
+    ],
+    "aims": [
+      "Characterise individual differences in neural rhythms associated with successful memory formation.",
+      "Develop models predicting responses to visual and auditory rhythmic stimulation.",
+      "Test whether personalised settings improve memory performance relative to fixed stimulation.",
+      "Assess how stimulation affects neural rhythms as well as behavioural outcomes."
+    ],
+    "methods": [
+      "You will analyse existing data and collect new MEG recordings during episodic-memory tasks. Neural features and behavioural measures will support machine-learning models that propose individual visual and auditory stimulation settings. Evaluation on held-out data will test whether predictions generalise rather than merely fit the training observations.",
+      "Experiments with healthy participants will compare AI-guided stimulation with conventional fixed-parameter approaches. Memory accuracy will be the main outcome, alongside measurements that examine how neural activity responds to stimulation.",
+      "The project draws on existing MEG facilities, sensory-stimulation equipment and computational expertise within the supervisory team. It offers training in cognitive experiments, brain-signal processing, predictive modelling and reproducible analysis. You will have scope to refine which neural features, stimulation patterns and optimisation methods provide the clearest test of the research questions."
+    ],
+    "supervision": "Professor Simon Hanslmayr (Brain Rhythms and Cognition) leads the studies of brain rhythms, memory and sensory stimulation. Professor Monika Harvey (Cognitive Psychology) is named to support stimulation protocol development, subject to formal confirmation. Professor Yashar Moshfeghi (Artificial Intelligence) guides predictive modelling. Dr Brianna Vandrey (Psychology and Neuroscience) provides continuity supervision. Professor Shuzo Sakata (Systems Neuroscience) hosts the Strathclyde secondment on invasive electrophysiology in animal models."
+  },
+  {
+    "id": "ss-1",
+    "reference": "RHI-SS-1",
+    "title": "Closed-Loop, Adaptive Sensory Entrainment to Enhance Memory",
+    "theme": "Co-adaptation",
+    "hostUniversity": "University of Strathclyde",
+    "leadSupervisor": {
+      "name": "Professor Shuzo Sakata",
+      "position": "Professor of Systems Neuroscience",
+      "department": "Strathclyde Institute of Pharmacy and Biomedical Sciences",
+      "university": "University of Strathclyde",
+      "email": "shuzo.sakata@strath.ac.uk"
+    },
+    "summary": "Can sensory stimuli timed to the brain’s own rhythms alter how memories form? In this multidisciplinary PhD project, you will investigate this question in mice using cutting-edge technologies.",
+    "keywords": [
+      "systems neuroscience",
+      "memory",
+      "neural oscillations",
+      "sensory entrainment",
+      "Neuropixels",
+      "closed-loop systems",
+      "machine learning",
+      "neurotechnology"
+    ],
+    "background": [
+      "Co-adaptation between the brain’s own rhythms and the sensory environment is central to hybrid intelligence. Although neural oscillations are associated with distinct brain states and cognitive processes, a fundamental question remains: can cognitive function be enhanced by sensory stimulation that dynamically adapts to ongoing brain rhythms?",
+      "Rhythmic sensory stimulation, such as auditory click trains or visual flicker delivered at theta and gamma frequencies (slower and faster brain rhythms), has been widely proposed as a non-invasive means of entraining neural oscillations and modulating memory. However, findings across the literature remain inconsistent. Conventional approaches typically deliver stimuli at fixed frequencies, regardless of ongoing brain states. Crucially, stimulus-locked neural activity is often misinterpreted as genuine oscillatory entrainment, even though it may simply reflect a series of rhythmic evoked responses. Despite a decade of research, few studies have systematically distinguished genuine oscillatory entrainment from sensory-evoked responses.",
+      "This project addresses this gap. We will test the hypothesis that closed-loop sensory stimulation, timed to a particular phase of ongoing brain rhythms, synchronises groups of neurons more effectively than open-loop, fixed-frequency stimulation, and whether this improves memory. To achieve this, we will take a multidisciplinary approach, combining systems neuroscience, neurotechnology, and machine learning in mice."
+    ],
+    "aims": [
+      "Study activity across groups of neurons in the hippocampus, a brain region important for memory: Compare how hippocampal neural populations respond to open-loop (fixed-frequency) and closed-loop stimulation, isolating genuine entrainment from sensory-evoked responses.",
+      "Evaluate memory augmentation: Test whether closed-loop sensory stimulation enhances memory in behaving mice."
+    ],
+    "methods": [
+      "The project combines high-density in vivo electrophysiology using Neuropixels probes, rodent memory tests, low-latency signal processing technology, and deep learning for real-time neural signal processing."
+    ],
+    "supervision": "Professor Shuzo Sakata (Systems Neuroscience) leads the mouse electrophysiology and memory experiments. Professor Keith Mathieson (Neurophotonics) guides real-time interface design and provides continuity cover. Professor Yashar Moshfeghi (Artificial Intelligence) supports machine learning and stimulus classification. Professor Simon Hanslmayr (Brain Rhythms and Cognition) connects the mouse findings with human research on stimulation and memory. You will receive training in high-density electrophysiology, mouse behavioural experiments, neural engineering and machine learning. A planned Glasgow secondment with Professor Hanslmayr will compare the mouse findings with human electrophysiological data."
+  },
+  {
+    "id": "ss-2",
+    "reference": "RHI-SS-2",
+    "title": "State-Dependent Multifunctional Brain-Computer Interface",
+    "theme": "Co-adaptation",
+    "hostUniversity": "University of Strathclyde",
+    "leadSupervisor": {
+      "name": "Professor Shuzo Sakata",
+      "position": "Professor of Systems Neuroscience",
+      "department": "Strathclyde Institute of Pharmacy and Biomedical Sciences",
+      "university": "University of Strathclyde",
+      "email": "shuzo.sakata@strath.ac.uk"
+    },
+    "summary": "How could a brain-computer interface (BCI) change its task as the brain shifts its states, such as wakefulness and sleep? In this PhD project, we will combine systems neuroscience, AI and neurotechnology to build a BCI that decodes ongoing brain states and adaptively switches functions in rodent models.",
+    "keywords": [
+      "brain-computer interfaces",
+      "sleep",
+      "systems neuroscience",
+      "Neuropixels",
+      "neural decoding",
+      "machine learning",
+      "real-time computing",
+      "neurotechnology",
+      "neuroethics"
+    ],
+    "background": [
+      "The brain and the technologies that interact with it can adapt to one another. This process, known as ‘co-adaptation’, is central for hybrid intelligence. A key challenge is to develop brain-computer interfaces (BCIs) that can continuously interpret ongoing brain states and respond flexibly to incoming neural signals.",
+      "The brain constantly switches between different states: for example, wakefulness, non-rapid eye movement (NREM) sleep and REM sleep. These states profoundly influence how the brain processes information. Yet most existing BCIs are designed for a single purpose and do not take these dynamic brain states into account. The same brain signals may carry very different information depending on the brain’s current state.",
+      "Recent advances in brain-wide recording technologies have shown that information is distributed across many interconnected brain regions. This raises an exciting possibility: could we decode what the brain is doing by monitoring activity in just a small number of regions, and use this information to make BCIs more flexible?",
+      "In this project, we will investigate whether brain states and their associated functions can be identified from activity recorded in a limited number of brain regions. We will then develop a BCI that automatically adapts its function and decoding parameters in real time as the brain state changes. Here, the interface adapts to changing neural activity; reciprocal learning by the brain is not assumed. By combining neuroscience, neurotechnology and machine learning, we aim to establish a new approach to BCIs that can adapt to the brain's changing needs."
+    ],
+    "aims": [
+      "Decode brain states and functions from activity recorded in a limited set of brain regions.",
+      "Develop a state-dependent, multifunctional BCI that continuously infers the brain’s current state and adapts its function accordingly.",
+      "Implement and validate the state-dependent, multifunctional BCI in behaving mice."
+    ],
+    "methods": [
+      "We will begin with existing high-density Neuropixels recordings, which capture activity from many neurons, from mice during behaviour and sleep. By combining neural decoding with machine learning, we will identify brain states and relevant behavioural events. The next stage will be the development of a state-dependent multifunctional BCI using a field-programmable gate array (FPGA; programmable hardware) and a microcomputer unit (MCU) for real-time neural signal processing. The BCI will then be tested in behaving mice to establish whether it can decode ongoing brain states and adaptively control external devices in response."
+    ],
+    "supervision": "Professor Shuzo Sakata (Systems Neuroscience) leads the mouse neural recording and validation studies. Professor Keith Mathieson (Neurophotonics) guides real-time signal processing and programmable hardware. Professor Yashar Moshfeghi (Artificial Intelligence) supports machine learning for neural decoding. Professor Simon Hanslmayr (Brain Rhythms and Cognition) guides comparison with human neural data. Professor Guido Noto La Diega (Law, Technology and Innovation) advises on neural-data ownership and monitoring safeguards. You will receive training in large-scale electrophysiology, neural engineering and machine learning. A planned Glasgow secondment with Professor Hanslmayr will explore whether the approach extends to existing human neural data. A second placement with Professor Noto La Diega at Strathclyde will examine the ethics and law of continuous neural monitoring to inform interface design."
+  },
+  {
+    "id": "wm-1",
+    "reference": "RHI-WM-1",
+    "title": "Agency in Human-AI Systems: Neural Signals and Adaptive Shared Control",
+    "theme": "Agency",
+    "hostUniversity": "University of Strathclyde",
+    "leadSupervisor": {
+      "name": "Dr William McGeown",
+      "position": "Reader in Psychology",
+      "department": "Department of Psychological Sciences and Health",
+      "university": "University of Strathclyde",
+      "email": "william.mcgeown@strath.ac.uk"
+    },
+    "summary": "Can an AI support movement goals, but recognise when you feel less in control and respond by handing control back? You will study shared action (human-AI) using EEG, behaviour and machine learning, testing whether adaptive assistance can preserve agency as well as performance.",
+    "keywords": [
+      "sense of agency",
+      "EEG",
+      "shared control",
+      "cognitive psychology",
+      "machine learning",
+      "human-AI interaction",
+      "neuroadaptive systems",
+      "neuroscience"
+    ],
+    "background": [
+      "Artificial assistance can make a task easier, while leaving a person less certain that they caused the result. That trade-off matters whenever people share control with AI. A successful goal-based action does not necessarily mean that the person felt in charge, and a lack of agency may be undesirable for that person. An adaptive system needs to develop an informed decision-making capability to enable intervention or return of control, whenever necessary.",
+      "This project investigates sense of agency: the experience of controlling an action and its consequences. You will explore how that experience changes as different levels of assistance are provided during a simple movement task. Brain recordings and behavioural measurements will help test whether changes in agency can be predicted from one trial to the next.",
+      "The key question is whether electroencephalography (EEG) adds useful information beyond behavioural measures. The project will aim to develop neural markers of sense of agency (or lack of it). The neural models will be compared with the behavioural measures and participants’ own reports, with the later goal of investigating the effects of adaptive control.",
+      "Agency is the central Responsible Hybrid Intelligence theme. The project connects psychological questions about sense of agency with neuroscience, machine learning and design of shared control. You will help choose and develop the task, decide on neural features, modelling approaches and adaptation strategies. By testing both performance and perceived control, the research will examine when artificial assistance supports a meaningful human role and when returning control to the user may be the better response."
+    ],
+    "aims": [
+      "Characterise changes in agency as an artificial system takes a greater role in goal-directed movement.",
+      "Compare behavioural, EEG and combined models for predicting trial-level changes in agency.",
+      "Test whether neural measurements add useful information beyond behavioural measures.",
+      "If predictions are reliable, develop and evaluate adaptive assistance that responds to reduced agency."
+    ],
+    "methods": [
+      "You will begin with a focused review of agency measures, EEG findings and neuroadaptive systems. Healthy adult volunteers will then complete a simple goal-directed movement task, such as guiding a cursor with a joystick, while the amount of artificial assistance is varied. Performance, EEG and subjective agency measures will be collected together.",
+      "Machine-learning models will compare information from movement behaviour, EEG and both sources combined, using held-out observations to assess predictive value. A later study will test whether sufficiently reliable predictions can guide changes in assistance and improve agency without undermining performance.",
+      "If EEG adds limited information, behavioural and subjective measures provide alternative inputs for studying adaptive control. You will help define the task, validation approach and system responses."
+    ],
+    "supervision": "Dr William McGeown (Psychology) leads the movement experiments and evaluation of adaptive assistance. Professor Aleksandra Vučković (Neurotechnology and Rehabilitation Engineering) guides EEG feature selection and interface methods. Professor Jonathan Delafield-Butt (Child Development) advises on measures of agency. Professor Yashar Moshfeghi (Artificial Intelligence) provides continuity supervision and AI advice. A Glasgow secondment with Professor Vučković will provide training in brain-computer interfaces and neuroadaptive methods for studying shared control."
+  },
+  {
+    "id": "wm-2",
+    "reference": "RHI-WM-2",
+    "title": "Adaptive Memory Assistance Using EEG-Guided AI",
+    "theme": "Co-adaptation",
+    "hostUniversity": "University of Strathclyde",
+    "leadSupervisor": {
+      "name": "Dr William McGeown",
+      "position": "Reader in Psychology",
+      "department": "Department of Psychological Sciences and Health",
+      "university": "University of Strathclyde",
+      "email": "william.mcgeown@strath.ac.uk"
+    },
+    "summary": "Could an AI offer assistance when you are most likely to need it – and still help you remember independently? You will investigate EEG-guided memory support and how repeated use changes both the system and its user.",
+    "keywords": [
+      "memory",
+      "EEG",
+      "neural decoding",
+      "machine learning",
+      "adaptive assistance",
+      "cognitive psychology",
+      "cognitive offloading",
+      "co-adaptation"
+    ],
+    "background": [
+      "Support for learning is useful only if it arrives at the right time. Too little help may leave a person struggling, while unnecessary assistance can interrupt learning or encourage reliance. An adaptive memory system therefore needs to know not only when help might improve the next response, but also what repeated support does to future remembering.",
+      "This project will investigate those questions using associative memory: learning and recalling relationships between pieces of information. You will test whether electrical brain activity recorded with EEG predicts when learning or retrieval is likely to fail, and whether those predictions add value beyond simpler behavioural measures such as response time.",
+      "After modelling the neural activity underpinning these functions, the next step will be to test assistance such as repeating information during learning or offering additional recall cues. Repeated interaction can then reveal whether recalibrating the model improves support and whether participants retain the ability to remember when that support is withdrawn. These are empirical questions rather than assumed benefits of an AI system.",
+      "Co-adaptation is the central Responsible Hybrid Intelligence theme: assistance responds to the learner, while learning and reliance may change in response to assistance. The project combines cognitive psychology, neuroscience and machine learning. You will help shape the memory task, prediction models and assistance strategy, contributing evidence about how a useful partnership can enhance memory function while preserving independent human capability."
+    ],
+    "aims": [
+      "Test whether EEG predicts learning and recall failures beyond behavioural measures.",
+      "Establish when prediction confidence is sufficient to trigger useful assistance.",
+      "Compare EEG-guided help with no assistance and non-adaptive assistance.",
+      "Investigate how repeated support and its withdrawal affect later unaided remembering."
+    ],
+    "methods": [
+      "Healthy human participants will complete associative-learning and cued-recall tasks while EEG, recall accuracy and response times are recorded. You will compare EEG-only, behavioural-only and combined predictive models, evaluating performance and confidence on held-out blocks or sessions. Existing datasets can complement this work.",
+      "A subsequent experiment will test prospective assistance, such as repeating an item or adding a retrieval cue when a predefined threshold predicts difficulty. We will compare adaptive help with no assistance and a non-adaptive control. Depending on these findings, later work will examine repeated interaction, model recalibration and delayed unaided recall after support is withdrawn.",
+      "Training will support task design, neural-data analysis and responsible handling of data, with explicit attention to unnecessary intervention and dependence."
+    ],
+    "supervision": "Dr William McGeown (Psychology) leads the memory experiments and evaluation of independent remembering. Professor Simon Hanslmayr (Brain Rhythms and Cognition) guides EEG analysis and feature selection. Dr Brianna Vandrey (Psychology and Neuroscience) helps interpret memory measures and neural mechanisms. Professor Yashar Moshfeghi (Artificial Intelligence) provides continuity supervision and AI advice. A Glasgow secondment hosted by Dr Vandrey, with input from Professor Hanslmayr, will offer training in invasive electrophysiology."
+  },
+  {
+    "id": "ym-1",
+    "reference": "RHI-YM-1",
+    "title": "Co-adapting Human and AI Memory for Changing Information Needs",
+    "theme": "Co-adaptation",
+    "hostUniversity": "University of Strathclyde",
+    "leadSupervisor": {
+      "name": "Professor Yashar Moshfeghi",
+      "position": "Professor of Artificial Intelligence",
+      "department": "Department of Computer and Information Sciences",
+      "university": "University of Strathclyde",
+      "email": "yashar.moshfeghi@strath.ac.uk"
+    },
+    "summary": "People forget sources; AI can retain outdated priorities. You will investigate how a person and an AI search partner can adapt their memories together, supporting evidence-based recall and transfer while keeping AI memory visible and editable.",
+    "keywords": [
+      "information retrieval",
+      "human-AI interaction",
+      "multi-agent systems",
+      "memory",
+      "EEG",
+      "co-adaptation",
+      "machine learning",
+      "responsible AI"
+    ],
+    "background": [
+      "Searching is rarely a one-off exchange. A question changes as we discover evidence, reject ideas and remember what we have already tried. When an AI helps across several searches, it may retain information about our earlier needs. That memory can be useful, but it may also preserve priorities we have abandoned or claims we no longer trust.",
+      "This project asks how human and AI memory can adapt together as information needs change. You will investigate whether reciprocal adaptation improves evidence-supported recall and the ability to use knowledge in new situations, beyond the benefits of practice or one-way personalisation. The AI’s memory will remain inspectable and editable: users can correct or delete what it retains.",
+      "A bounded search system will combine agents that plan, retrieve and check evidence. An interpretable model of the partnership will track actions such as reformulating a query, checking a source or overriding an AI suggestion. Behavioural measures and EEG will test what these interactions reveal about later recall, without treating neural signals as proof of a person’s preferences or permission to act.",
+      "Co-adaptation is the central Responsible Hybrid Intelligence theme, connecting information retrieval and adaptive AI with cognitive neuroscience. You will have scope to shape tasks, memory representations and evaluation methods. The scientific aim is to understand reciprocal learning and its limits, while keeping the core research focused on a deliverable behavioural and EEG study."
+    ],
+    "aims": [
+      "Model how human search strategies and editable AI memory change across evolving information needs.",
+      "Compare reciprocal adaptation with fixed coordination, one-way personalisation and replayed changes.",
+      "Test whether EEG improves prediction of delayed recall beyond behaviour and task context.",
+      "Evaluate evidence-supported transfer to new information needs while preserving user correction and override."
+    ],
+    "methods": [
+      "You will develop a bounded multi-agent search prototype with planning, retrieval and evidence-checking components. Its memory will retain user-confirmed changes, source information, corrections and unresolved claims. Updates will be limited and reversible.",
+      "Healthy adults will complete repeated search tasks under different adaptation conditions. Behaviour, interaction traces and EEG will support tests of delayed recall and transfer to held-out information needs. Analysis will examine whether neural measures add predictive value beyond behavioural history, using preregistered measures and comparisons.",
+      "The core is the computational partner model and behavioural/EEG research. Optional MEG work on strategy switching and a separate brain-stimulation study of memory mechanisms will proceed only after a Year-2 review of feasibility and approvals."
+    ],
+    "supervision": "Professor Yashar Moshfeghi (Artificial Intelligence) leads the search system, partner model and editable AI memory. Professor Simon Hanslmayr (Brain Rhythms and Cognition) guides EEG measurement and memory analysis. Dr Emma C. Gordon (Philosophy) advises on responsible AI memory updates. Dr William McGeown (Psychology) advises on search tasks and transfer measures and provides continuity cover. You will develop skills in AI prototyping, behavioural experiments and EEG analysis. Subject to programme approval, Professor Keith Mathieson (Neurophotonics) would host a placement on a simulated workflow for memory-aware neurotechnology."
+  },
+  {
+    "id": "ym-2",
+    "reference": "RHI-YM-2",
+    "title": "Who Should Act Next? Shared Agency in Human-AI Search",
+    "theme": "Agency",
+    "hostUniversity": "University of Strathclyde",
+    "leadSupervisor": {
+      "name": "Professor Yashar Moshfeghi",
+      "position": "Professor of Artificial Intelligence",
+      "department": "Department of Computer and Information Sciences",
+      "university": "University of Strathclyde",
+      "email": "yashar.moshfeghi@strath.ac.uk"
+    },
+    "summary": "When you and an AI search together, who should take the next step? You will investigate whether brain signals, behaviour and evidence checks can help a search partnership recognise mistakes, return control and support better-grounded answers.",
+    "keywords": [
+      "information retrieval",
+      "shared agency",
+      "multi-agent AI",
+      "EEG",
+      "error monitoring",
+      "human oversight",
+      "uncertainty",
+      "human-AI interaction"
+    ],
+    "background": [
+      "People and AI can both make mistakes when searching for information. A person may accept a weak source or stop before checking an important contradiction. An AI may retrieve outdated evidence or present a suggestion that is not supported. A responsible partnership needs to recognise these moments and decide who should act next.",
+      "This project will investigate shared agency in information search. Sometimes the person should retain control; sometimes an AI could carry out a small, reversible checking task; sometimes both should pause for review. The research asks whether brain activity associated with hesitation, conflict or error can add useful evidence to behaviour and checks on the information itself.",
+      "Neural measurements will be treated as uncertain signals, not as proof of a person’s intention or permission for an AI to take over. The user will be able to reject or undo actions and will remain responsible for deciding the final answer. Testing unnecessary interruptions and mistaken handovers will be as important as measuring successful assistance.",
+      "Agency is the central Responsible Hybrid Intelligence theme. The project brings together information retrieval, bounded multi-agent AI and cognitive neuroscience to study how control can be shared without assuming that more automation is better. You will help shape the search tasks, system responses and evaluation, developing a scientific account of when a hybrid partnership should continue, check its evidence or return control to the person."
+    ],
+    "aims": [
+      "Test whether EEG predicts weak-source choices and premature stopping beyond behavioural information.",
+      "Investigate whether responses to AI advice help predict detection of unsupported suggestions.",
+      "Compare behaviour-and-evidence monitoring with a system that also uses EEG-informed cues.",
+      "Evaluate answer quality, recovery from mistakes and unnecessary handovers or interruptions."
+    ],
+    "methods": [
+      "You will build a bounded prototype with agents for planning, retrieval and evidence checking. It will track sourced claims, uncertainty and disagreement, then offer limited and reversible actions. Offline tests will precede any real-time integration.",
+      "Adults will complete search tasks involving conflicting information, source quality and stopping decisions. Independently labelled errors will support controlled comparisons between no proactive handover, behaviour-plus-evidence monitoring and an EEG-informed approach. Pilot work will determine the signal measures used in confirmatory testing.",
+      "A focused Year-3 secondment will study related uncertainty and error-feedback processes in a mouse decision task, providing comparative neural evidence rather than claims about equivalent subjective experience. The project therefore includes animal research alongside the core human behavioural and EEG study and bounded search model; the secondment is a comparative study, not a separate AI-system development project. If real-time integration or neural decoding is insufficiently reliable, replay and behavioural/evidence-based analysis preserve the core research questions."
+    ],
+    "supervision": "Professor Yashar Moshfeghi (Artificial Intelligence) leads information retrieval and computational decision modelling. Professor Aleksandra Vučković (Neurotechnology and Rehabilitation Engineering) leads human EEG measurement and analysis. Professor Guido Noto La Diega (Law, Technology and Innovation) defines accountable limits on AI authority and provides continuity cover. Professor Jonathan Delafield-Butt (Child Development) advises on human decisions and handovers of control. You will develop skills in information retrieval, computational modelling and EEG and behavioural analysis. Professor Shuzo Sakata (Systems Neuroscience) hosts the Year 3 comparative secondment on neural and behavioural measures in a mouse decision task."
+  }
+]

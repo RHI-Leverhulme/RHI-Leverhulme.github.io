@@ -29,6 +29,7 @@ import {
   FileCheck,
 } from "lucide-react";
 import "./App.css";
+import proposals from "./data/proposals.json";
 
 const SiteRouter = import.meta.env.MODE === "github-pages" ? HashRouter : BrowserRouter;
 // Set this to the programme's email address once confirmed; it is used for applications, enquiries, and registering interest.
@@ -97,22 +98,28 @@ const programmeLinks = [
   ["/eligibility", "Eligibility"],
   ["/apply", "How to Apply"],
 ];
-const projects = Array.from({ length: 11 }, (_, index) => ({
-  id: index + 1,
-  supervisor: "To be confirmed",
-  theme: themes[index % 3],
-  university: index % 2 ? "University of Glasgow" : "University of Strathclyde",
-}));
+const projects = proposals.map((proposal, index) => ({ ...proposal, number: String(index + 1).padStart(2, "0") }));
+const projectSearchText = (project) =>
+  [
+    project.reference,
+    project.title,
+    project.theme,
+    project.hostUniversity,
+    project.leadSupervisor.name,
+    project.summary,
+    ...project.keywords,
+    project.supervision,
+  ].join(" ").toLowerCase();
 const team = [
   // role: one line covering the person's RHI role and any theme leadership, e.g. "Co-investigator · Grounding theme lead".
   { name: "Professor Keith Mathieson", university: "University of Strathclyde", role: "", photo: "keith-mathieson.webp", profile: "https://pureportal.strath.ac.uk/en/persons/keith-mathieson/" },
   { name: "Professor Shuzo Sakata", university: "University of Strathclyde", role: "", photo: "shuzo-sakata.webp", profile: "https://pureportal.strath.ac.uk/en/persons/shuzo-sakata/" },
-  { name: "Professor Aleksandra Vuckovic", university: "University of Glasgow", role: "", photo: "aleksandra-vuckovic.jpg", profile: "https://www.gla.ac.uk/schools/engineering/staff/aleksandravuckovic/" },
+  { name: "Professor Aleksandra Vučković", university: "University of Glasgow", role: "", photo: "aleksandra-vuckovic.jpg", profile: "https://www.gla.ac.uk/schools/engineering/staff/aleksandravuckovic/" },
   { name: "Professor Jonathan Delafield-Butt", university: "University of Strathclyde", role: "", photo: "jonathan-delafield-butt.webp", profile: "https://pureportal.strath.ac.uk/en/persons/jonathan-delafield-butt/" },
   { name: "Professor Monika Harvey", university: "University of Glasgow", role: "", photo: "monika-harvey.jpg", profile: "https://www.gla.ac.uk/schools/psychologyneuroscience/staff/monikaharvey/" },
   { name: "Professor Guido Noto La Diega", university: "University of Strathclyde", role: "", photo: "guido-noto-la-diega.webp", profile: "https://pureportal.strath.ac.uk/en/persons/guido-noto-la-diega/" },
   { name: "Dr William McGeown", university: "University of Strathclyde", role: "", photo: "william-mcgeown.webp", profile: "https://pureportal.strath.ac.uk/en/persons/william-mcgeown/" },
-  { name: "Dr Emma Gordon", university: "University of Glasgow", role: "", photo: "emma-gordon.jpg", profile: "https://www.gla.ac.uk/schools/humanities/staff/emmagordon/" },
+  { name: "Dr Emma C. Gordon", university: "University of Glasgow", role: "", photo: "emma-gordon.jpg", profile: "https://www.gla.ac.uk/schools/humanities/staff/emmagordon/" },
   { name: "Dr Brianna Vandrey", university: "University of Glasgow", role: "", photo: "1695656485944.jpg", profile: "https://www.gla.ac.uk/schools/psychologyneuroscience/staff/briannavandrey/" },
   { name: "Professor Patricia Connolly", university: "University of Strathclyde", role: "", photo: "patricia-connolly.webp", profile: "https://www.strath.ac.uk/staff/connollypatriciaprof/" },
 ];
@@ -654,10 +661,10 @@ function Masters() {
         </p>
         <div className="notice">
           <strong>Applications close in mid-December 2026.</strong>
-          <p>Round 1 interviews take place in early January 2027. Opportunity titles, Master's courses, supervisors, and official application links will be published once approved.</p>
+          <p>Round 1 interviews take place in early January 2027. Master's courses and official application links will be published once approved.</p>
         </div>
         <div className="hero-actions">
-          <Action to="/projects">View all 11 opportunities</Action>
+          <Action to="/projects">View all {projects.length} PhD proposals</Action>
           <Link className="text-link" to="/programme">Explore the PhD pathway <ArrowRight size={20} /></Link>
         </div>
       </section>
@@ -696,7 +703,7 @@ function Programme() {
             complementary strengths of both institutions. Individual project
             allocations will be confirmed with the final project catalogue.
           </p>
-          <Action to="/projects">Explore the 11 opportunities</Action>
+          <Action to="/projects">Explore the {projects.length} PhD proposals</Action>
         </div>
       </section>
       <section className="section paths">
@@ -1004,16 +1011,14 @@ function Projects() {
   const filtered = projects.filter(
     (project) =>
       (!theme || theme === project.theme) &&
-      (!university || university === project.university) &&
-      `${project.theme} ${project.university} ${project.supervisor} studentship ${project.id}`
-        .toLowerCase()
-        .includes(query.toLowerCase()),
+      (!university || university === project.hostUniversity) &&
+      projectSearchText(project).includes(query.trim().toLowerCase()),
   );
   return (
     <>
       <PageIntro
         eyebrow="PhD Proposals"
-        title="11 opportunities. A world of possibility."
+        title={`${projects.length} proposals. A world of possibility.`}
       >
         Doctoral opportunities in Responsible Hybrid Intelligence.
       </PageIntro>
@@ -1022,9 +1027,9 @@ function Projects() {
         <div className="notice">
           <strong>First-cohort recruitment</strong>
           <p>
-            The entries below are placeholders, not confirmed research
-            projects. Titles, supervisors, host allocations, and funding terms
-            are awaiting approval. Applications close in mid-December 2026.
+            The first cohort has 11 planned studentships across these{" "}
+            {projects.length} approved research proposals. Applications close
+            in mid-December 2026.
           </p>
         </div>
         <div className="filters">
@@ -1067,7 +1072,7 @@ function Projects() {
         <div className="results-heading">
           <p aria-live="polite">
             <strong>{filtered.length}</strong>{" "}
-            {filtered.length === 1 ? "studentship" : "studentships"}
+            {filtered.length === 1 ? "proposal" : "proposals"}
           </p>
           {(query || theme || university) && (
             <button
@@ -1081,18 +1086,18 @@ function Projects() {
               Clear filters <X size={18} />
             </button>
           )}
-          <span>COHORT 01 · PROVISIONAL CATALOGUE</span>
+          <span>COHORT 01 · APPROVED PROPOSALS</span>
         </div>
         <div className="projects-list">
           {filtered.map((project) => (
             <article className="project" key={project.id}>
               <div className="project-overview">
-                <span className="project-index">{String(project.id).padStart(2, "0")}</span>
+                <span className="project-index">{project.number}</span>
                 <div>
                   <span className="project-theme">{project.theme}</span>
-                  <h2>RHI opportunity {String(project.id).padStart(2, "0")}</h2>
-                  <p><strong>Lead supervisor:</strong> {project.supervisor}</p>
-                  <p><strong>Based at:</strong> {project.university} (placeholder; host to be confirmed)</p>
+                  <h2>{project.title}</h2>
+                  <p><strong>Lead supervisor:</strong> {project.leadSupervisor.name}</p>
+                  <p><strong>Based at:</strong> {project.hostUniversity}</p>
                 </div>
                 <Action to={`/projects/${project.id}`}>View details</Action>
               </div>
@@ -1105,22 +1110,24 @@ function Projects() {
                 </span>
               </summary>
               <div className="project-content">
-                <span className="eyebrow">
-                  PROJECT DETAILS AWAITING CONFIRMATION
-                </span>
-                <p>The approved research brief for this opportunity will appear here. Its current research grouping is {project.theme.toLowerCase()}.</p>
+                <span className="eyebrow">{project.reference}</span>
+                <p>{project.summary}</p>
                 <dl>
                   <div>
-                    <dt>Primary supervisor</dt>
-                    <dd>{project.supervisor}</dd>
+                    <dt>Lead supervisor</dt>
+                    <dd>{project.leadSupervisor.name}{project.leadSupervisor.position && `, ${project.leadSupervisor.position}`}</dd>
                   </div>
                   <div>
                     <dt>Research theme</dt>
-                    <dd>{project.theme} (indicative)</dd>
+                    <dd>{project.theme}</dd>
                   </div>
                   <div>
                     <dt>Host university</dt>
-                    <dd>{project.university} (placeholder)</dd>
+                    <dd>{project.hostUniversity}</dd>
+                  </div>
+                  <div>
+                    <dt>Keywords</dt>
+                    <dd>{project.keywords.join("; ")}</dd>
                   </div>
                   <div>
                     <dt>Application deadline</dt>
@@ -1139,7 +1146,7 @@ function Projects() {
         {!filtered.length && (
           <div className="empty">
             <Search size={38} />
-            <h2>No matching studentships</h2>
+            <h2>No matching proposals</h2>
             <p>Try another keyword or clear the filters.</p>
           </div>
         )}
@@ -1153,28 +1160,51 @@ function Opportunity() {
   if (!project) {
     return <section className="section container"><h1>Opportunity not found</h1><Action to="/projects">Return to proposals</Action></section>;
   }
+  const { leadSupervisor } = project;
   return (
     <>
-      <PageIntro eyebrow="PhD Proposals" title={`RHI opportunity ${String(project.id).padStart(2, "0")}`}>
-        {project.theme} · First-cohort opportunity
+      <PageIntro eyebrow="PhD Proposals" title={project.title}>
+        {project.reference} · {project.theme} · {project.hostUniversity}
       </PageIntro>
       <section className="section container prose opportunity-page">
         <StudyRoutesNotice />
+        <p className="lead">{project.summary}</p>
         <h2>Opportunity details</h2>
         <dl>
-          <div><dt>Route</dt><dd>{project.university === "University of Glasgow" ? "Four-year PhD or Masters+ (to be confirmed)" : "Four-year PhD (for the first cohort, Masters+ is offered at the University of Glasgow only)"}</dd></div>
-          <div><dt>Lead supervisor</dt><dd>{project.supervisor}</dd></div>
-          <div><dt>Based at</dt><dd>{project.university} (placeholder; host to be confirmed)</dd></div>
-          <div><dt>Research theme</dt><dd>{project.theme} (indicative)</dd></div>
+          <div><dt>Reference</dt><dd>{project.reference}</dd></div>
+          <div><dt>Route</dt><dd>{project.hostUniversity === "University of Glasgow" ? "Four-year PhD or Masters+ (to be confirmed)" : "Four-year PhD (for the first cohort, Masters+ is offered at the University of Glasgow only)"}</dd></div>
+          <div>
+            <dt>Lead supervisor</dt>
+            <dd>
+              {leadSupervisor.name}
+              {leadSupervisor.position && <>, {leadSupervisor.position}</>}
+              <br />
+              {leadSupervisor.department}, {leadSupervisor.university}
+              <br />
+              <a className="inline-link" href={`mailto:${leadSupervisor.email}`}>{leadSupervisor.email}</a>
+            </dd>
+          </div>
+          <div><dt>Based at</dt><dd>{project.hostUniversity}</dd></div>
+          <div><dt>Research theme</dt><dd>{project.theme}</dd></div>
+          <div><dt>Keywords</dt><dd>{project.keywords.join("; ")}</dd></div>
           <div><dt>Application deadline</dt><dd>Mid-December 2026 (round 1 interviews in early January 2027)</dd></div>
           <div><dt>Funding and eligibility</dt><dd><Link className="inline-link" to="/eligibility">Check if you are eligible</Link></dd></div>
         </dl>
         <h2>Research proposal</h2>
-        <p>The full title, research questions, methods, and supervisory team will be published here when the project brief is approved.</p>
+        <h3>Background</h3>
+        {project.background.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+        <h3>Research questions or aims</h3>
+        <ul>
+          {project.aims.map((aim) => <li key={aim}>{aim}</li>)}
+        </ul>
+        <h3>Methods and approach</h3>
+        {project.methods.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+        <h3>Supervision, training and secondments</h3>
+        <p>{project.supervision}</p>
         <h2>Apply for this opportunity</h2>
         <div className="notice">
           <strong>Apply by email.</strong>
-          <p>Follow the How to Apply guidance and quote "RHI opportunity {String(project.id).padStart(2, "0")}" in your email. Applications close in mid-December 2026, with round 1 interviews in early January 2027. Selection criteria for this opportunity will appear here once confirmed.</p>
+          <p>Follow the How to Apply guidance and quote the reference "{project.reference}" and the title "{project.title}" in your email. Applications close in mid-December 2026, with round 1 interviews in early January 2027. Selection criteria for this opportunity will appear here once confirmed.</p>
         </div>
         <div className="hero-actions">
           <Action to="/apply">How to apply</Action>
@@ -1374,7 +1404,7 @@ const applicationChecklist = [
   ["Route you are applying for", "Four-year PhD, Masters+ (one-year Master's followed by a four-year PhD, offered at the University of Glasgow only for the first cohort), or either. See the Eligibility page to check which route you can apply for."],
   ["Masters+ eligibility (if applicable)", "If you are applying for Masters+, confirm that you are UK-domiciled and do not already hold a Master's from the University of Glasgow, and tell us whether you meet the low-income and/or ethnicity criterion."],
   ["Research theme(s) of interest", "Co-adaptation, Agency, Grounding, or a combination."],
-  ["Project of interest", "The opportunity title or number from the PhD Proposals page. If you are not sure yet, briefly describe the area you would like to explore."],
+  ["Project of interest", "The proposal reference and title from the PhD Proposals page (for example, RHI-AV-1). If you are not sure yet, briefly describe the area you would like to explore."],
   ["Preferred host university", "University of Strathclyde, University of Glasgow, or no preference."],
   ["Supervisor or group", "Any supervisor or research group you would particularly like to work with, if known."],
 ];
@@ -1401,7 +1431,7 @@ Country of residence:
 Route applying for (Four-year PhD / Masters+ at Glasgow / Either):
 Masters+ eligibility criteria met (if applying for Masters+):
 Research theme(s) of interest:
-Project of interest (title/number or brief description):
+Project of interest (proposal reference and title, or brief description):
 Preferred host university:
 Supervisor or group (if known):
 
@@ -2008,7 +2038,7 @@ function Site() {
       "/privacy": "Privacy notice",
     };
     const opportunity = projects.find((project) => location.pathname === `/projects/${project.id}`);
-    const title = opportunity ? `RHI opportunity ${String(opportunity.id).padStart(2, "0")}` : titles[location.pathname];
+    const title = opportunity ? opportunity.title : titles[location.pathname];
     document.title = `${title || "Page not found"} | Leverhulme Doctoral Programme`;
     if (location.hash)
       requestAnimationFrame(() =>

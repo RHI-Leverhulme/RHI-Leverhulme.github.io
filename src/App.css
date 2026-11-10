@@ -1094,6 +1094,7 @@ footer {
 }
 .opportunity-page dd {
   margin: 6px 0 0;
+  overflow-wrap: anywhere;
 }
 @media (max-width: 600px) {
   .project-overview {
