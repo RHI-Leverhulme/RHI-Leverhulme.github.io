@@ -7,10 +7,8 @@
     "hostUniversity": "University of Glasgow",
     "leadSupervisor": {
       "name": "Professor Aleksandra Vučković",
-      "position": "Professor of Neurotechnology and Rehabilitation Engineering",
       "department": "James Watt School of Engineering",
-      "university": "University of Glasgow",
-      "email": "Aleksandra.Vuckovic@glasgow.ac.uk"
+      "university": "University of Glasgow"
     },
     "summary": "Can two people and an AI learn to work as one team through brain signals? You will investigate how shared brain-computer control affects collaboration, performance and each person’s sense of control.",
     "keywords": [
@@ -49,10 +47,8 @@
     "hostUniversity": "University of Glasgow",
     "leadSupervisor": {
       "name": "Professor Aleksandra Vučković",
-      "position": "Professor of Neurotechnology and Rehabilitation Engineering",
       "department": "James Watt School of Engineering",
-      "university": "University of Glasgow",
-      "email": "Aleksandra.Vuckovic@glasgow.ac.uk"
+      "university": "University of Glasgow"
     },
     "summary": "Does feeling in control help people learn to use a brain-computer interface, or does that feeling simply follow good performance? You will investigate this relationship through brain signals, feedback and learning experiments.",
     "keywords": [
@@ -92,10 +88,8 @@
     "hostUniversity": "University of Glasgow",
     "leadSupervisor": {
       "name": "Dr Brianna Vandrey",
-      "position": "Lecturer in Psychology & Neuroscience",
       "department": "School of Psychology and Neuroscience",
-      "university": "University of Glasgow",
-      "email": "brianna.vandrey@glasgow.ac.uk"
+      "university": "University of Glasgow"
     },
     "summary": "Why do some experiences become lasting memories while others fade? You will combine mouse brain imaging, human EEG and machine learning to investigate the neural patterns behind remembering and their potential to inform adaptive learning systems.",
     "keywords": [
@@ -131,14 +125,12 @@
     "id": "eg-1",
     "reference": "RHI-EG-1",
     "title": "Agency in AI-Driven Memory Enhancement",
-    "theme": "Agency",
+    "theme": "Grounding",
     "hostUniversity": "University of Glasgow",
     "leadSupervisor": {
       "name": "Dr Emma C. Gordon",
-      "position": "Reader in Philosophy",
       "department": "School of Humanities, Philosophy",
-      "university": "University of Glasgow",
-      "email": "Emma.Gordon@glasgow.ac.uk"
+      "university": "University of Glasgow"
     },
     "summary": "If AI helps you remember, how can you know when to trust your memory and remain in charge of your learning? This philosophy project examines when adaptive memory technologies support autonomy and when they undermine it.",
     "keywords": [
@@ -174,14 +166,12 @@
     "id": "eg-2",
     "reference": "RHI-EG-2",
     "title": "Mental Privacy and Criminal Intent in Hybrid Cognitive Systems",
-    "theme": "Agency",
+    "theme": "Grounding",
     "hostUniversity": "University of Glasgow",
     "leadSupervisor": {
       "name": "Dr Emma C. Gordon",
-      "position": "Reader in Philosophy",
       "department": "School of Humanities, Philosophy",
-      "university": "University of Glasgow",
-      "email": "Emma.Gordon@glasgow.ac.uk"
+      "university": "University of Glasgow"
     },
     "summary": "Could something suggested by an AI be mistaken for your intention? This project explores mental privacy and the ethical limits of using records from AI-assisted cognitive systems as evidence of criminal intent.",
     "keywords": [
@@ -221,10 +211,8 @@
     "hostUniversity": "University of Strathclyde",
     "leadSupervisor": {
       "name": "Professor Guido Noto La Diega",
-      "position": "Professor of Law, Technology and Innovation",
       "department": "Strathclyde Law School",
-      "university": "University of Strathclyde",
-      "email": "guido.notoladiega@strath.ac.uk"
+      "university": "University of Strathclyde"
     },
     "summary": "When a brain-AI system makes a decision, who should be accountable? You will connect legal analysis with experiments on a system that turns brain signals into commands to investigate what technical records of what the system did can – and cannot – tell us about responsibility and liability.",
     "keywords": [
@@ -267,10 +255,8 @@
     "hostUniversity": "University of Strathclyde",
     "leadSupervisor": {
       "name": "Professor Guido Noto La Diega",
-      "position": "Professor of Law, Technology and Innovation",
       "department": "Strathclyde Law School",
-      "university": "University of Strathclyde",
-      "email": "guido.notoladiega@strath.ac.uk"
+      "university": "University of Strathclyde"
     },
     "summary": "How can a person’s fundamental rights – such as mental and physical integrity, privacy, freedom of expression – be built into technologies that connect AI with the brain? You will combine law, participatory research, and speculative design to explore fundamental rights in hybrid intelligence.",
     "keywords": [
@@ -314,10 +300,8 @@
     "hostUniversity": "University of Strathclyde",
     "leadSupervisor": {
       "name": "Professor Jonathan Delafield-Butt",
-      "position": "Professor of Child Development",
       "department": "Department of Psychological Sciences and Health",
-      "university": "University of Strathclyde",
-      "email": "jonathan.delafield-butt@strath.ac.uk"
+      "university": "University of Strathclyde"
     },
     "summary": "When someone communicates by spelling rather than speaking, each word begins as an intentional movement. When an AI assistant helps someone communicate by adapting to that movement, whose words are they? You will investigate how intention is expressed in movement, and the evidence needed to distinguish AI support for a person’s own intentions from AI-generated content, combining movement science, philosophy and law.",
     "keywords": [
@@ -359,10 +343,8 @@
     "hostUniversity": "University of Strathclyde",
     "leadSupervisor": {
       "name": "Professor Keith Mathieson",
-      "position": "Professor of Neurophotonics",
       "department": "Institute of Photonics",
-      "university": "University of Strathclyde",
-      "email": "keith.mathieson@strath.ac.uk"
+      "university": "University of Strathclyde"
     },
     "summary": "What happens when a learning AI interacts directly with a living neural circuit? You will develop a wireless optoelectronic interface combining neural recording, light-based stimulation, and embedded AI to investigate how artificial and biological systems adapt together.",
     "keywords": [
@@ -402,10 +384,8 @@
     "hostUniversity": "University of Strathclyde",
     "leadSupervisor": {
       "name": "Professor Patricia Connolly",
-      "position": "Professor of Biomedical Engineering",
       "department": "Department of Biomedical Engineering",
-      "university": "University of Strathclyde",
-      "email": "patricia.connolly@strath.ac.uk"
+      "university": "University of Strathclyde"
     },
     "summary": "When a wearable system learns from you, how can you stay in control of what changes? You will compare different ways for people and AI to adapt together during everyday interaction, combining bioengineering, AI and human-computer interaction.",
     "keywords": [
@@ -445,10 +425,8 @@
     "hostUniversity": "University of Glasgow",
     "leadSupervisor": {
       "name": "Professor Simon Hanslmayr",
-      "position": "Professor of Brain Rhythms and Cognition",
       "department": "School of Psychology and Neuroscience",
-      "university": "University of Glasgow",
-      "email": "Simon.Hanslmayr@glasgow.ac.uk"
+      "university": "University of Glasgow"
     },
     "summary": "Can AI identify when a brain is ready to form a memory and use that information to guide stimulation? You will investigate adaptive neural control through existing human recordings, animal experiments and a computational model of the hippocampus.",
     "keywords": [
@@ -488,10 +466,8 @@
     "hostUniversity": "University of Glasgow",
     "leadSupervisor": {
       "name": "Professor Simon Hanslmayr",
-      "position": "Professor of Brain Rhythms and Cognition",
       "department": "School of Psychology and Neuroscience",
-      "university": "University of Glasgow",
-      "email": "Simon.Hanslmayr@glasgow.ac.uk"
+      "university": "University of Glasgow"
     },
     "summary": "Why do rhythmic lights and sounds affect memory differently from person to person? You will use brain recordings and machine learning to investigate whether stimulation matched to individual neural rhythms produces more reliable effects on remembering.",
     "keywords": [
@@ -531,10 +507,8 @@
     "hostUniversity": "University of Strathclyde",
     "leadSupervisor": {
       "name": "Professor Shuzo Sakata",
-      "position": "Professor of Systems Neuroscience",
       "department": "Strathclyde Institute of Pharmacy and Biomedical Sciences",
-      "university": "University of Strathclyde",
-      "email": "shuzo.sakata@strath.ac.uk"
+      "university": "University of Strathclyde"
     },
     "summary": "Can sensory stimuli timed to the brain’s own rhythms alter how memories form? In this multidisciplinary PhD project, you will investigate this question in mice using cutting-edge technologies.",
     "keywords": [
@@ -569,10 +543,8 @@
     "hostUniversity": "University of Strathclyde",
     "leadSupervisor": {
       "name": "Professor Shuzo Sakata",
-      "position": "Professor of Systems Neuroscience",
       "department": "Strathclyde Institute of Pharmacy and Biomedical Sciences",
-      "university": "University of Strathclyde",
-      "email": "shuzo.sakata@strath.ac.uk"
+      "university": "University of Strathclyde"
     },
     "summary": "How could a brain-computer interface (BCI) change its task as the brain shifts its states, such as wakefulness and sleep? In this PhD project, you will combine systems neuroscience, AI and neurotechnology to build a BCI that decodes ongoing brain states and adaptively switches functions in rodent models.",
     "keywords": [
@@ -611,10 +583,8 @@
     "hostUniversity": "University of Strathclyde",
     "leadSupervisor": {
       "name": "Dr William McGeown",
-      "position": "Reader in Psychology",
       "department": "Department of Psychological Sciences and Health",
-      "university": "University of Strathclyde",
-      "email": "william.mcgeown@strath.ac.uk"
+      "university": "University of Strathclyde"
     },
     "summary": "Can an AI support movement goals, but recognise when you feel less in control and respond by handing control back? You will study shared action (human-AI) using EEG, behaviour and machine learning, testing whether adaptive assistance can preserve agency as well as performance.",
     "keywords": [
@@ -654,10 +624,8 @@
     "hostUniversity": "University of Strathclyde",
     "leadSupervisor": {
       "name": "Dr William McGeown",
-      "position": "Reader in Psychology",
       "department": "Department of Psychological Sciences and Health",
-      "university": "University of Strathclyde",
-      "email": "william.mcgeown@strath.ac.uk"
+      "university": "University of Strathclyde"
     },
     "summary": "Could an AI offer assistance when you are most likely to need it – and still help you remember independently? You will investigate EEG-guided memory support and how repeated use changes both the system and its user.",
     "keywords": [
@@ -697,10 +665,8 @@
     "hostUniversity": "University of Strathclyde",
     "leadSupervisor": {
       "name": "Professor Yashar Moshfeghi",
-      "position": "Professor of Artificial Intelligence",
       "department": "Department of Computer and Information Sciences",
-      "university": "University of Strathclyde",
-      "email": "yashar.moshfeghi@strath.ac.uk"
+      "university": "University of Strathclyde"
     },
     "summary": "People forget sources; AI can retain outdated priorities. You will investigate how a person and an AI search partner can adapt their memories together, supporting evidence-based recall and transfer while keeping AI memory visible and editable.",
     "keywords": [
@@ -740,10 +706,8 @@
     "hostUniversity": "University of Strathclyde",
     "leadSupervisor": {
       "name": "Professor Yashar Moshfeghi",
-      "position": "Professor of Artificial Intelligence",
       "department": "Department of Computer and Information Sciences",
-      "university": "University of Strathclyde",
-      "email": "yashar.moshfeghi@strath.ac.uk"
+      "university": "University of Strathclyde"
     },
     "summary": "When you and an AI search together, who should take the next step? You will investigate whether brain signals, behaviour and evidence checks can help a search partnership recognise mistakes, return control and support better-grounded answers.",
     "keywords": [

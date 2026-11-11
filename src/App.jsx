@@ -98,7 +98,21 @@ const programmeLinks = [
   ["/eligibility", "Eligibility"],
   ["/apply", "How to Apply"],
 ];
-const projects = proposals.map((proposal, index) => ({ ...proposal, number: String(index + 1).padStart(2, "0") }));
+const projects = [...proposals]
+  .sort((a, b) => a.title.localeCompare(b.title, "en", { sensitivity: "base" }))
+  .map((proposal, index) => ({ ...proposal, number: String(index + 1).padStart(2, "0") }));
+// Anchor for a person's card on the About page, e.g. "Dr Emma C. Gordon" -> "person-emma-c-gordon".
+const personAnchor = (name) =>
+  `person-${name
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/^(Professor|Dr)\s+/, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "")}`;
+function SupervisorLink({ name }) {
+  return <Link className="inline-link" to={`/about#${personAnchor(name)}`}>{name}</Link>;
+}
 const projectSearchText = (project) =>
   [
     project.reference,
@@ -482,7 +496,7 @@ function About() {
           from its earliest conception.
         </p>
         <div className="directors team-leaders">
-          <article>
+          <article id={personAnchor("Professor Yashar Moshfeghi")}>
             <img
               className="team-portrait"
               src={imagePath("yashar-moshfeghi.webp")}
@@ -501,7 +515,7 @@ function About() {
               View profile <ArrowUpRight size={18} />
             </a>
           </article>
-          <article>
+          <article id={personAnchor("Professor Simon Hanslmayr")}>
             <img
               className="team-portrait"
               src={imagePath("simon-hanslmayr.jpg")}
@@ -523,7 +537,7 @@ function About() {
         </div>
         <div className="team-list">
           {team.map((person) => (
-            <article className="team-member" key={person.name}>
+            <article className="team-member" id={personAnchor(person.name)} key={person.name}>
               {person.photo ? <img className="team-portrait" src={imagePath(person.photo)} alt={person.name} width="180" height="180" loading="lazy" /> : <div className="team-portrait portrait-pending"><Users size={38} aria-hidden="true" /><span>Photo coming soon</span></div>}
               <h3>{person.name}</h3>
               <p className="team-role">{person.role || "Theme lead and RHI role to be confirmed"}</p>
@@ -1008,12 +1022,22 @@ function Projects() {
   const [query, setQuery] = useState("");
   const [theme, setTheme] = useState("");
   const [university, setUniversity] = useState("");
+  const [expanded, setExpanded] = useState(() => new Set());
   const filtered = projects.filter(
     (project) =>
       (!theme || theme === project.theme) &&
       (!university || university === project.hostUniversity) &&
       projectSearchText(project).includes(query.trim().toLowerCase()),
   );
+  const allExpanded = filtered.length > 0 && filtered.every((project) => expanded.has(project.id));
+  const toggleProject = (id, open) =>
+    setExpanded((current) => {
+      if (current.has(id) === open) return current;
+      const next = new Set(current);
+      if (open) next.add(id);
+      else next.delete(id);
+      return next;
+    });
   return (
     <>
       <PageIntro
@@ -1086,6 +1110,16 @@ function Projects() {
             </button>
           )}
           <span>COHORT 01 · APPROVED PROPOSALS</span>
+          {filtered.length > 0 && (
+            <button
+              type="button"
+              className="reset expand-all"
+              aria-pressed={allExpanded}
+              onClick={() => setExpanded(allExpanded ? new Set() : new Set(filtered.map((project) => project.id)))}
+            >
+              {allExpanded ? <>Collapse all <Minus size={18} aria-hidden="true" /></> : <>Expand all <Plus size={18} aria-hidden="true" /></>}
+            </button>
+          )}
         </div>
         <div className="projects-list">
           {filtered.map((project) => (
@@ -1093,14 +1127,17 @@ function Projects() {
               <div className="project-overview">
                 <span className="project-index">{project.number}</span>
                 <div>
-                  <span className="project-theme">{project.theme}</span>
+                  <span className="project-theme">{project.reference} · {project.theme}</span>
                   <h2>{project.title}</h2>
-                  <p><strong>Lead supervisor:</strong> {project.leadSupervisor.name}</p>
+                  <p><strong>Lead supervisor:</strong> <SupervisorLink name={project.leadSupervisor.name} /></p>
                   <p><strong>Based at:</strong> {project.hostUniversity}</p>
                 </div>
                 <Action to={`/projects/${project.id}`}>View details</Action>
               </div>
-              <details>
+              <details
+                open={expanded.has(project.id)}
+                onToggle={(event) => toggleProject(project.id, event.currentTarget.open)}
+              >
               <summary>
                 <span>Research overview</span>
                 <span className="detail-toggle">
@@ -1109,12 +1146,11 @@ function Projects() {
                 </span>
               </summary>
               <div className="project-content">
-                <span className="eyebrow">{project.reference}</span>
                 <p>{project.summary}</p>
                 <dl>
                   <div>
                     <dt>Lead supervisor</dt>
-                    <dd>{project.leadSupervisor.name}{project.leadSupervisor.position && `, ${project.leadSupervisor.position}`}</dd>
+                    <dd><SupervisorLink name={project.leadSupervisor.name} /></dd>
                   </div>
                   <div>
                     <dt>Research theme</dt>
@@ -1175,12 +1211,9 @@ function Opportunity() {
           <div>
             <dt>Lead supervisor</dt>
             <dd>
-              {leadSupervisor.name}
-              {leadSupervisor.position && <>, {leadSupervisor.position}</>}
+              <SupervisorLink name={leadSupervisor.name} />
               <br />
               {leadSupervisor.department}, {leadSupervisor.university}
-              <br />
-              <a className="inline-link" href={`mailto:${leadSupervisor.email}`}>{leadSupervisor.email}</a>
             </dd>
           </div>
           <div><dt>Based at</dt><dd>{project.hostUniversity}</dd></div>
@@ -1204,6 +1237,7 @@ function Opportunity() {
         <div className="notice">
           <strong>Apply by email.</strong>
           <p>Follow the How to Apply guidance and quote the reference "{project.reference}" and the title "{project.title}" in your email. Applications close in mid-December 2026, with round 1 interviews in early January 2027. Selection criteria for this opportunity will appear here once confirmed.</p>
+          <p>Please do not contact the lead supervisor directly. If you would like to apply or have questions about this opportunity, contact the Programme Director, <SupervisorLink name="Professor Yashar Moshfeghi" />, or the Deputy Director, <SupervisorLink name="Professor Simon Hanslmayr" />, via the <Link className="inline-link" to="/contact">contact page</Link>.</p>
         </div>
         <div className="hero-actions">
           <Action to="/apply">How to apply</Action>
@@ -1441,28 +1475,113 @@ Attached:
 
 I confirm that the information provided is accurate and consent to it being shared with the relevant supervisory teams for the purposes of discussing potential projects.`;
 function Apply() {
-  const [copied, setCopied] = useState(false);
-  const mailto = programmeEmail
-    ? `mailto:${programmeEmail}?subject=${encodeURIComponent(applicationSubject)}&body=${encodeURIComponent(applicationTemplate.split("\n").slice(2).join("\n"))}`
-    : "";
-  const copyTemplate = async () => {
-    try {
-      await navigator.clipboard.writeText(applicationTemplate);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2500);
-    } catch {
-      setCopied(false);
-    }
-  };
   return (
     <>
       <PageIntro eyebrow="How to Apply" title="Bring your curiosity.">
         Applying to the Responsible Hybrid Intelligence Leverhulme Doctoral
         Programme.
       </PageIntro>
+      <section className="section paths">
+        <div className="container apply-layout">
+          <div>
+            <span className="eyebrow">APPLICATION PROCESS</span>
+            <h2>Apply by email.</h2>
+            <p className="lead">
+              There is no online form. To be considered, send us an email using
+              the <Link className="inline-link" to="/apply/template">application template</Link>,
+              with your CV and your transcripts attached.
+            </p>
+            <div className="notice">
+              <strong>Key dates: Cohort 1, round 1</strong>
+              <p>
+                Applications close in mid-December 2026. Shortlisted applicants
+                will be invited to interview in early January 2027. Stipend, fee
+                coverage, and the formal host-university application process will
+                be confirmed here.
+              </p>
+            </div>
+            <ol className="steps">
+              <li>
+                <h3>Explore the programme</h3>
+                <p>
+                  Read about the <Link className="inline-link" to="/themes">research themes</Link>,
+                  the <Link className="inline-link" to="/programme">PhD programme</Link>, the{" "}
+                  <Link className="inline-link" to="/masters">Masters+ pathway</Link>, and the{" "}
+                  <Link className="inline-link" to="/projects">PhD proposals</Link>.
+                </p>
+              </li>
+              <li>
+                <h3>Email your application</h3>
+                <p>
+                  Use the <Link className="inline-link" to="/apply/template">application template</Link>{" "}
+                  to include every required detail, and attach your CV and
+                  transcripts. Tell us which project you are interested in, or
+                  describe the area you would like to explore.
+                </p>
+              </li>
+              <li>
+                <h3>Discuss potential projects</h3>
+                <p>
+                  Please do not contact project supervisors directly. If you name
+                  a project, we will put you in touch with its supervisory team.
+                  If you name a theme, we will suggest relevant supervisors and
+                  groups to talk to.
+                </p>
+              </li>
+              <li>
+                <h3>Apply to the host university</h3>
+                <p>
+                  After those discussions, you will be asked to submit a formal
+                  application to the host university. We will tell you when and
+                  how.
+                </p>
+              </li>
+            </ol>
+          </div>
+          <aside>
+            <h3>Next steps</h3>
+            <nav className="apply-links" aria-label="Next steps">
+              <Link className="text-link" to="/apply/template">
+                Ready to apply <ArrowRight size={18} />
+              </Link>
+              <Link className="text-link" to="/contact">
+                Contact the programme <ArrowRight size={18} />
+              </Link>
+              <Link className="text-link" to="/register">
+                Register interest <ArrowRight size={18} />
+              </Link>
+            </nav>
+            <hr />
+            <Globe2 size={36} />
+            <h3>International applicants</h3>
+            <p>
+              We welcome applications from international candidates for the
+              four-year PhD. International places are limited, and applicants
+              cannot self-fund the difference between international and UK
+              fees. English-language requirements and visa guidance will be
+              confirmed with the final application details.
+            </p>
+          </aside>
+        </div>
+      </section>
+      <section className="section container">
+        <div className="eligibility-callout">
+          <div>
+            <span className="eyebrow">CHECK YOUR ROUTE</span>
+            <h2>Check which route you are eligible for.</h2>
+            <p>
+              The four-year PhD is open to home and international applicants.
+              Masters+ is ring-fenced for UK-domiciled students from
+              under-represented groups. Your application must say which route
+              you are applying for.
+            </p>
+          </div>
+          <Action to="/eligibility">Check if you are eligible</Action>
+        </div>
+      </section>
       <section className="section container intro">
         <div>
-          <span className="eyebrow">COHORT 01 · {projects.length} PROPOSALS</span>
+          <span className="eyebrow">COHORT 01 ? {projects.length} PROPOSALS</span>
           <h2>Application to Responsible Hybrid Intelligence.</h2>
         </div>
         <div className="intro-copy">
@@ -1478,114 +1597,60 @@ function Apply() {
             within a shared cohort, with interdisciplinary supervision and
             training across both universities.
           </p>
-          <div className="notice">
-            <strong>Key dates: Cohort 1, round 1</strong>
-            <p>
-              Applications close in mid-December 2026. Shortlisted applicants
-              will be invited to interview in early January 2027. Stipend, fee
-              coverage, and the formal host-university application process will
-              be confirmed here.
-            </p>
-          </div>
         </div>
       </section>
-      <section className="section container">
-        <div className="eligibility-callout">
-          <div>
-            <span className="eyebrow">BEFORE YOU APPLY</span>
-            <h2>Check which route you are eligible for.</h2>
-            <p>
-              The four-year PhD is open to home and international applicants.
-              Masters+ is ring-fenced for UK-domiciled students from
-              under-represented groups. Your application must say which route
-              you are applying for.
-            </p>
-          </div>
-          <Action to="/eligibility">Check if you are eligible</Action>
+      <section className="section container prose">
+        <span className="eyebrow">CONSENT AND PRIVACY</span>
+        <h2>How we use your information.</h2>
+        <p>
+          The information you send will be shared with the relevant supervisory
+          teams only to help discuss potential projects with you. In your email,
+          please confirm that the details are accurate and that you consent to
+          them being shared in this way.
+        </p>
+        <p>
+          See the <Link className="inline-link" to="/privacy">RHI privacy notice</Link>{" "}
+          for more information on how your details are used.
+        </p>
+        <div className="hero-actions">
+          <Action to="/apply/template">Use the application template</Action>
+          <Link className="text-link" to="/projects">
+            Browse PhD proposals <ArrowRight size={20} />
+          </Link>
         </div>
       </section>
-      <section className="section paths">
-        <div className="container apply-layout">
-          <div>
-            <span className="eyebrow">APPLICATION PROCESS</span>
-            <h2>Apply by email.</h2>
-            <p className="lead">
-              There is no online form. To be considered, send us an email with
-              the details listed below, your CV, and your transcripts.
-            </p>
-            <ol className="steps">
-              <li>
-                <h3>Explore the programme</h3>
-                <p>
-                  Read about the <Link className="inline-link" to="/themes">research themes</Link>,
-                  the <Link className="inline-link" to="/programme">PhD programme</Link>, the{" "}
-                  <Link className="inline-link" to="/masters">Masters+ pathway</Link>, and the{" "}
-                  <Link className="inline-link" to="/projects">PhD proposals</Link>.
-                </p>
-              </li>
-              <li>
-                <h3>Email your application</h3>
-                <p>
-                  Include every detail in the checklist and attach your CV and
-                  transcripts. Tell us which project you are interested in, or
-                  describe the area you would like to explore.
-                </p>
-              </li>
-              <li>
-                <h3>Discuss potential projects</h3>
-                <p>
-                  If you name a project, we will put you in touch with its
-                  supervisory team. If you name a theme, we will suggest relevant
-                  supervisors and groups to talk to.
-                </p>
-              </li>
-              <li>
-                <h3>Apply to the host university</h3>
-                <p>
-                  After those discussions, you will be asked to submit a formal
-                  application to the host university. We will tell you when and
-                  how.
-                </p>
-              </li>
-            </ol>
-          </div>
-          <aside>
-            <Globe2 size={36} />
-            <h3>International applicants</h3>
-            <p>
-              We welcome applications from international candidates for the
-              four-year PhD. International places are limited, and applicants
-              cannot self-fund the difference between international and UK
-              fees. English-language requirements and visa guidance will be
-              confirmed with the final application details.
-            </p>
-            <hr />
-            <h3>Questions?</h3>
-            <p>
-              Please direct questions about the programme or the application
-              process to{" "}
-              {programmeEmail ? (
-                <a className="inline-link" href={`mailto:${programmeEmail}`}>{programmeEmail}</a>
-              ) : (
-                "the programme email address, which will be published here shortly"
-              )}
-              .
-            </p>
-            <Link className="text-link" to="/contact">
-              Contact the programme <ArrowRight size={18} />
-            </Link>
-            <Link className="text-link" to="/register">
-              Register interest <ArrowRight size={18} />
-            </Link>
-          </aside>
-        </div>
-      </section>
+    </>
+  );
+}
+function ApplicationTemplate() {
+  const [copied, setCopied] = useState(false);
+  const mailto = programmeEmail
+    ? `mailto:${programmeEmail}?subject=${encodeURIComponent(applicationSubject)}&body=${encodeURIComponent(applicationTemplate.split("\n").slice(2).join("\n"))}`
+    : "";
+  const copyTemplate = async () => {
+    try {
+      await navigator.clipboard.writeText(applicationTemplate);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    } catch {
+      setCopied(false);
+    }
+  };
+  return (
+    <>
+      <PageIntro eyebrow="Application template" title="Your application email.">
+        Everything to include when you apply to the Responsible Hybrid
+        Intelligence Leverhulme Doctoral Programme.
+      </PageIntro>
       <section className="section container">
         <div className="section-heading">
           <div>
             <span className="eyebrow">WHAT TO INCLUDE</span>
-            <h2>Your application email.</h2>
+            <h2>Details and attachments.</h2>
           </div>
+          <Link className="text-link" to="/apply">
+            How to apply <ArrowRight size={20} />
+          </Link>
         </div>
         <div className="application-grid">
           <div>
@@ -1653,15 +1718,11 @@ function Apply() {
         <h2>How we use your information.</h2>
         <p>
           The information you send will be shared with the relevant supervisory
-          teams only to help discuss potential projects with you. In your email,
-          please confirm that the details are accurate and that you consent to
-          them being shared in this way.
-        </p>
-        <p>
-          See the <Link className="inline-link" to="/privacy">RHI privacy notice</Link>{" "}
+          teams only to help discuss potential projects with you. See the{" "}
+          <Link className="inline-link" to="/privacy">RHI privacy notice</Link>{" "}
           for more information on how your details are used.
         </p>
-        <Action to="/projects">Browse PhD proposals</Action>
+        <Action to="/apply">Back to How to Apply</Action>
       </section>
     </>
   );
@@ -2030,6 +2091,7 @@ function Site() {
       "/projects": "PhD Proposals",
       "/eligibility": "Eligibility",
       "/apply": "How to Apply",
+      "/apply/template": "Application template",
       "/contact": "Contact",
       "/register": "Register interest",
       "/accessibility": "Accessibility",
@@ -2148,6 +2210,7 @@ function Site() {
           <Route path="/projects/:projectId" element={<Opportunity />} />
           <Route path="/eligibility" element={<Eligibility />} />
           <Route path="/apply" element={<Apply />} />
+          <Route path="/apply/template" element={<ApplicationTemplate />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/register" element={<RegisterInterest />} />
           <Route path="/accessibility" element={<Accessibility />} />

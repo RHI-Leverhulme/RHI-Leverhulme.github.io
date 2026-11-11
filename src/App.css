@@ -757,8 +757,10 @@ footer {
 .page-intro {
   background-color: var(--navy);
   color: white;
-  padding: 30px 0 65px;
+  padding: 30px 0 50px;
   border-bottom: 1px solid var(--navy);
+  /* Fixed banner height so every page header matches, whatever the title length. */
+  min-height: var(--page-intro-height, 410px);
 }
 .page-intro .eyebrow,
 .page-intro .breadcrumb,
@@ -1171,6 +1173,12 @@ footer {
   border-top: 1px solid #c8d5dd;
   margin: 30px 0;
 }
+.apply-links {
+  display: grid;
+}
+.expand-all {
+  flex-shrink: 0;
+}
 .steps {
   padding-left: 26px;
   margin-block: 30px;
@@ -1367,7 +1375,8 @@ footer {
 .route-card .text-link {
   margin-top: auto;
 }
-.eligibility-section {
+.eligibility-section,
+[id^="person-"] {
   scroll-margin-top: 110px;
 }
 .eligibility-layout {
@@ -1836,6 +1845,9 @@ footer {
   .page-intro h1 {
     font-size: 38px;
   }
+  .page-intro {
+    --page-intro-height: 400px;
+  }
   .page-intro p {
     font-size: 18px;
   }
@@ -1980,6 +1992,9 @@ footer {
   }
   .page-intro h1 {
     font-size: 32px;
+  }
+  .page-intro {
+    --page-intro-height: 490px;
   }
   .international {
     flex-direction: column;
