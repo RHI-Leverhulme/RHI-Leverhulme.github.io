@@ -34,6 +34,11 @@ import proposals from "./data/proposals.json";
 const SiteRouter = import.meta.env.MODE === "github-pages" ? HashRouter : BrowserRouter;
 // Set this to the programme's email address once confirmed; it is used for applications, enquiries, and registering interest.
 const programmeEmail = "";
+// Until the programme email is confirmed, applications go to either the Programme Director or Deputy Director.
+const applicationContacts = [
+  { name: "Professor Yashar Moshfeghi", role: "Programme Director", email: "yashar.moshfeghi@strath.ac.uk" },
+  { name: "Professor Simon Hanslmayr", role: "Deputy Director", email: "Simon.Hanslmayr@glasgow.ac.uk" },
+];
 const imagePath = (filename) => `${import.meta.env.BASE_URL}images/${filename}`;
 const copyrightYear = new Date().getFullYear();
 const visibleCohorts = import.meta.env.VITE_SHOW_FUTURE_COHORTS === "true" ? [1, 2, 3] : [1];
@@ -1624,9 +1629,9 @@ function Apply() {
 }
 function ApplicationTemplate() {
   const [copied, setCopied] = useState(false);
-  const mailto = programmeEmail
-    ? `mailto:${programmeEmail}?subject=${encodeURIComponent(applicationSubject)}&body=${encodeURIComponent(applicationTemplate.split("\n").slice(2).join("\n"))}`
-    : "";
+  const applicationMailto = (email) =>
+    `mailto:${email}?subject=${encodeURIComponent(applicationSubject)}&body=${encodeURIComponent(applicationTemplate.split("\n").slice(2).join("\n"))}`;
+  const mailto = programmeEmail ? applicationMailto(programmeEmail) : "";
   const copyTemplate = async () => {
     try {
       await navigator.clipboard.writeText(applicationTemplate);
@@ -1678,7 +1683,17 @@ function ApplicationTemplate() {
             {programmeEmail ? (
               <a className="application-address" href={`mailto:${programmeEmail}`}>{programmeEmail}</a>
             ) : (
-              <p className="application-address pending">Email address to be confirmed</p>
+              <>
+                <p className="application-contacts-note">Send your application to either:</p>
+                <ul className="application-contacts">
+                  {applicationContacts.map((contact) => (
+                    <li key={contact.email}>
+                      <span className="application-contact-name">{contact.name}, {contact.role}</span>
+                      <a className="application-address" href={applicationMailto(contact.email)}>{contact.email}</a>
+                    </li>
+                  ))}
+                </ul>
+              </>
             )}
             <p className="application-subject">
               <strong>Subject line:</strong> {applicationSubject}

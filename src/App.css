@@ -1251,6 +1251,24 @@ footer {
 .application-address.pending {
   color: var(--muted);
 }
+.application-contacts-note {
+  font-size: 16px;
+  margin: 0 0 12px;
+}
+.application-contacts {
+  list-style: none;
+  margin: 0 0 6px;
+  padding: 0;
+}
+.application-contact-name {
+  display: block;
+  color: var(--muted);
+  font-size: 15px;
+  margin-bottom: 2px;
+}
+.application-contacts .application-address {
+  font-size: 22px;
+}
 .application-subject {
   font-size: 16px;
 }
