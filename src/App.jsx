@@ -130,17 +130,16 @@ const projectSearchText = (project) =>
     project.supervision,
   ].join(" ").toLowerCase();
 const team = [
-  // role: one line covering the person's RHI role and any theme leadership, e.g. "Co-investigator · Grounding theme lead".
-  { name: "Professor Keith Mathieson", university: "University of Strathclyde", role: "", photo: "keith-mathieson.webp", profile: "https://pureportal.strath.ac.uk/en/persons/keith-mathieson/" },
-  { name: "Professor Shuzo Sakata", university: "University of Strathclyde", role: "", photo: "shuzo-sakata.webp", profile: "https://pureportal.strath.ac.uk/en/persons/shuzo-sakata/" },
-  { name: "Professor Aleksandra Vučković", university: "University of Glasgow", role: "", photo: "aleksandra-vuckovic.jpg", profile: "https://www.gla.ac.uk/schools/engineering/staff/aleksandravuckovic/" },
-  { name: "Professor Jonathan Delafield-Butt", university: "University of Strathclyde", role: "", photo: "jonathan-delafield-butt.webp", profile: "https://pureportal.strath.ac.uk/en/persons/jonathan-delafield-butt/" },
-  { name: "Professor Monika Harvey", university: "University of Glasgow", role: "", photo: "monika-harvey.jpg", profile: "https://www.gla.ac.uk/schools/psychologyneuroscience/staff/monikaharvey/" },
-  { name: "Professor Guido Noto La Diega", university: "University of Strathclyde", role: "", photo: "guido-noto-la-diega.webp", profile: "https://pureportal.strath.ac.uk/en/persons/guido-noto-la-diega/" },
-  { name: "Dr William McGeown", university: "University of Strathclyde", role: "", photo: "william-mcgeown.webp", profile: "https://pureportal.strath.ac.uk/en/persons/william-mcgeown/" },
-  { name: "Dr Emma C. Gordon", university: "University of Glasgow", role: "", photo: "emma-gordon.jpg", profile: "https://www.gla.ac.uk/schools/humanities/staff/emmagordon/" },
-  { name: "Dr Brianna Vandrey", university: "University of Glasgow", role: "", photo: "1695656485944.jpg", profile: "https://www.gla.ac.uk/schools/psychologyneuroscience/staff/briannavandrey/" },
-  { name: "Professor Patricia Connolly", university: "University of Strathclyde", role: "", photo: "patricia-connolly.webp", profile: "https://www.strath.ac.uk/staff/connollypatriciaprof/" },
+  { name: "Professor Shuzo Sakata", university: "University of Strathclyde", role: "Systems Neuroscience", photo: "shuzo-sakata.webp", profile: "https://pureportal.strath.ac.uk/en/persons/shuzo-sakata/" },
+  { name: "Professor Keith Mathieson", university: "University of Strathclyde", role: "Neurophotonics", photo: "keith-mathieson.webp", profile: "https://pureportal.strath.ac.uk/en/persons/keith-mathieson/" },
+  { name: "Professor Aleksandra Vučković", university: "University of Glasgow", role: "Neurotechnology and Rehabilitation Engineering", photo: "aleksandra-vuckovic.jpg", profile: "https://www.gla.ac.uk/schools/engineering/staff/aleksandravuckovic/" },
+  { name: "Professor Jonathan Delafield-Butt", university: "University of Strathclyde", role: "Child Development", photo: "jonathan-delafield-butt.webp", profile: "https://pureportal.strath.ac.uk/en/persons/jonathan-delafield-butt/" },
+  { name: "Professor Guido Noto La Diega", university: "University of Strathclyde", role: "Law, Technology and Innovation", photo: "guido-noto-la-diega.webp", profile: "https://pureportal.strath.ac.uk/en/persons/guido-noto-la-diega/" },
+  { name: "Professor Monika Harvey", university: "University of Glasgow", role: "Cognitive Psychology", photo: "monika-harvey.jpg", profile: "https://www.gla.ac.uk/schools/psychologyneuroscience/staff/monikaharvey/" },
+  { name: "Professor Patricia Connolly", university: "University of Strathclyde", role: "Biomedical Engineering", photo: "patricia-connolly.webp", profile: "https://www.strath.ac.uk/staff/connollypatriciaprof/" },
+  { name: "Dr William McGeown", university: "University of Strathclyde", role: "Psychology", photo: "william-mcgeown.webp", profile: "https://pureportal.strath.ac.uk/en/persons/william-mcgeown/" },
+  { name: "Dr Emma C. Gordon", university: "University of Glasgow", role: "Philosophy", photo: "emma-gordon.jpg", profile: "https://www.gla.ac.uk/schools/humanities/staff/emmagordon/" },
+  { name: "Dr Brianna Vandrey", university: "University of Glasgow", role: "Psychology and Neuroscience", photo: "1695656485944.jpg", profile: "https://www.gla.ac.uk/schools/psychologyneuroscience/staff/briannavandrey/" },
 ];
 function Action({ to, children, light = false }) {
   return (
@@ -510,8 +509,8 @@ function About() {
               height="180"
               loading="lazy"
             />
-            <span>PROGRAMME DIRECTOR</span>
             <h3>Professor Yashar Moshfeghi</h3>
+            <p className="team-role">Programme Director, Artificial Intelligence</p>
             <p>University of Strathclyde</p>
             <a
               className="text-link"
@@ -529,8 +528,8 @@ function About() {
               height="180"
               loading="lazy"
             />
-            <span>DEPUTY DIRECTOR</span>
             <h3>Professor Simon Hanslmayr</h3>
+            <p className="team-role">Deputy Director, Brain Rhythms and Cognition</p>
             <p>University of Glasgow</p>
             <a
               className="text-link"
@@ -545,7 +544,7 @@ function About() {
             <article className="team-member" id={personAnchor(person.name)} key={person.name}>
               {person.photo ? <img className="team-portrait" src={imagePath(person.photo)} alt={person.name} width="180" height="180" loading="lazy" /> : <div className="team-portrait portrait-pending"><Users size={38} aria-hidden="true" /><span>Photo coming soon</span></div>}
               <h3>{person.name}</h3>
-              <p className="team-role">{person.role || "Theme lead and RHI role to be confirmed"}</p>
+              <p className="team-role">{person.role}</p>
               <p>{person.university}</p>
               <a className="text-link" href={person.profile} aria-label={`View ${person.name}'s profile`}>View profile <ArrowUpRight size={18} /></a>
             </article>
@@ -623,12 +622,7 @@ function Masters() {
       <section className="section container prose">
         <span className="eyebrow">MASTERS+ PATHWAY</span>
         <h2>Preparation for interdisciplinary research</h2>
-        <p className="lead">There are two routes to doctoral research with us.</p>
-        <h3>Four-year PhD</h3>
-        <p>
-          Start your doctoral research straight away with a four-year PhD
-          within the Responsible Hybrid Intelligence programme.
-        </p>
+        <p className="lead">A preparatory Master's stage followed by doctoral research in Responsible Hybrid Intelligence.</p>
         <h3>Masters+: one-year Master's + four-year PhD</h3>
         <p>
           Masters+ adds a one-year Master's before a four-year PhD. It offers a
@@ -637,13 +631,7 @@ function Masters() {
         </p>
         <p>
           <strong>For this first cohort, Masters+ is offered at the University of Glasgow only.</strong>{" "}
-          First-cohort doctoral opportunities hosted at the University of
-          Strathclyde follow the four-year PhD route. Arrangements for future
-          cohorts will be confirmed in due course.
-        </p>
-        <p>
-          Which first-cohort opportunities will be offered through each route
-          has not yet been confirmed.
+          Arrangements for future cohorts will be confirmed in due course.
         </p>
         <h3>The Master's stage</h3>
         <p>
@@ -683,8 +671,8 @@ function Masters() {
           <p>Round 1 interviews take place in early January 2027. Master's courses and official application links will be published once approved.</p>
         </div>
         <div className="hero-actions">
-          <Action to="/projects">View all {projects.length} PhD proposals</Action>
-          <Link className="text-link" to="/programme">Explore the PhD pathway <ArrowRight size={20} /></Link>
+          <Action to="/eligibility">Check Masters+ eligibility</Action>
+          <Link className="text-link" to="/apply">Application guidance <ArrowRight size={20} /></Link>
         </div>
       </section>
     </>
@@ -784,10 +772,8 @@ function Programme() {
               </p>
               <p>Investigate questions spanning co-adaptation, agency, and grounding, within a community connecting human intelligence, intelligent systems, and society.</p>
               <p className="muted">
-                Four-year PhD, or one-year Master's plus four-year PhD through
-                Masters+ (University of Glasgow only for the first cohort).
-                Studentships are full-time; part-time study (at least 50%) is
-                only possible with the Leverhulme Trust's permission.{" "}
+                The four-year PhD is full-time; part-time study (at least 50%)
+                is only possible with the Leverhulme Trust's permission.{" "}
                 <Link className="inline-link" to="/eligibility">Check eligibility</Link>.
               </p>
             </article>
@@ -804,7 +790,7 @@ function Programme() {
             four-year PhD. To keep cohorts balanced and strengthen UK research
             capacity, the number of international places is limited, and
             applicants cannot self-fund the difference between international
-            and UK fees. Masters+ is open to UK-domiciled students only.
+            and UK fees.
           </p>
           <Link className="text-link" to="/eligibility">
             Check eligibility <ArrowRight size={20} />
@@ -1190,6 +1176,9 @@ function Projects() {
             <p>Try another keyword or clear the filters.</p>
           </div>
         )}
+        <div className="hero-actions">
+          <Action to="/apply">How to apply</Action>
+        </div>
       </section>
     </>
   );
@@ -1218,7 +1207,7 @@ function Opportunity() {
             <dd>
               <SupervisorLink name={leadSupervisor.name} />
               <br />
-              {leadSupervisor.department}, {leadSupervisor.university}
+              {leadSupervisor.university}
             </dd>
           </div>
           <div><dt>Based at</dt><dd>{project.hostUniversity}</dd></div>
@@ -1441,10 +1430,7 @@ const applicationChecklist = [
   ["Nationality and country of residence", "This helps us confirm fee status and eligibility."],
   ["Route you are applying for", "Four-year PhD, Masters+ (one-year Master's followed by a four-year PhD, offered at the University of Glasgow only for the first cohort), or either. See the Eligibility page to check which route you can apply for."],
   ["Masters+ eligibility (if applicable)", "If you are applying for Masters+, confirm that you are UK-domiciled and do not already hold a Master's from the University of Glasgow, and tell us whether you meet the low-income and/or ethnicity criterion."],
-  ["Research theme(s) of interest", "Co-adaptation, Agency, Grounding, or a combination."],
-  ["Project of interest", "The proposal reference and title from the PhD Proposals page (for example, RHI-AV-1). If you are not sure yet, briefly describe the area you would like to explore."],
-  ["Preferred host university", "University of Strathclyde, University of Glasgow, or no preference."],
-  ["Supervisor or group", "Any supervisor or research group you would particularly like to work with, if known."],
+  ["Project of interest (proposal reference, title, and lead supervisor)", "From the PhD Proposals page, include the proposal reference, title, and listed lead supervisor."],
 ];
 const applicationAttachments = [
   ["CV", "Cover the areas set out in the CV guidance below."],
@@ -1468,10 +1454,7 @@ Nationality:
 Country of residence:
 Route applying for (Four-year PhD / Masters+ at Glasgow / Either):
 Masters+ eligibility criteria met (if applying for Masters+):
-Research theme(s) of interest:
-Project of interest (proposal reference and title, or brief description):
-Preferred host university:
-Supervisor or group (if known):
+Project of interest (proposal reference, title, and lead supervisor):
 
 Attached:
 - CV
@@ -2265,6 +2248,14 @@ function Site() {
               Human potential. Intelligent systems.
               <br />A responsible future, together.
             </p>
+            <a
+              className="footer-social-link"
+              href="https://www.linkedin.com/company/responsible-hybrid-intelligence/posts/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Follow RHI on LinkedIn
+            </a>
           </div>
           <div className="footer-links">
             <Link to="/about">About the programme</Link>

@@ -719,6 +719,17 @@ footer {
   line-height: 1.8;
   margin-top: 20px;
 }
+.footer-social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 18px;
+  color: #e6eef2;
+  font-size: 15px;
+}
+.footer-social-link:hover {
+  text-decoration: underline;
+}
 .footer-links {
   display: flex;
   flex-direction: column;
@@ -837,6 +848,11 @@ footer {
 }
 .directors p {
   color: var(--muted);
+}
+.directors .team-role {
+  color: var(--blue);
+  font-weight: 600;
+  margin-bottom: 6px;
 }
 .team-list {
   display: grid;
